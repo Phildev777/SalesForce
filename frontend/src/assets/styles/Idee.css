@@ -1,0 +1,50 @@
+.ideaContainer {
+  background-color: lightgray;
+  border-radius: 5px;
+  width: 50vw;
+  border: solid 1px;
+  height: auto;
+}
+
+.titleContainer {
+  display: flex;
+  justify-content: space-between;
+  background-color: bisque;
+  width: 100%;
+}
+
+.published {
+  background-color: aliceblue;
+  text-align: start;
+}
+
+.textIdea {
+  background-color: aquamarine;
+}
+
+.imageIdea {
+  width: auto;
+}
+
+.imageIdea img {
+  width: 90%;
+  max-height: 150px;
+  height: auto;
+}
+
+.bottomIdea {
+  display: flex;
+  justify-content: flex-start;
+}
+.resources {
+  display: flex;
+  background-color: blue;
+  width: 70%;
+}
+
+.modifiedIdea {
+  display: flex;
+  align-items: flex-end;
+  width: 30%;
+  background-color: rgb(250, 215, 215);
+}

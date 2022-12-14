@@ -1,3 +1,9 @@
+import IdeeContainer from "@components/IdeeContainer";
+
 export default function Home() {
-  return <div />;
+  return (
+    <div>
+      <IdeeContainer />
+    </div>
+  );
 }

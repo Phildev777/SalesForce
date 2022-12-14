@@ -1,6 +1,7 @@
-import Counter from "../components/Counter";
-import logo from "../assets/logo.svg";
+import React from "react";
 
-export default function Home() {
+function Home() {
   return <div>page de co</div>;
 }
+
+export default Home;

@@ -1,6 +1,7 @@
 import React from "react";
 import "../assets/styles/header.css";
 import { Link } from "react-router-dom";
+import avatar from "../assets/avatar1.svg";
 
 function Header() {
   const [nav, setNav] = React.useState(false);
@@ -9,7 +10,7 @@ function Header() {
     <>
       <header className={`${nav ? "show" : "hide"}`}>
         <div className="containerHeaderImg">
-          <img alt="profil" />
+          <img alt="profil" src={avatar} />
         </div>
         <ul>
           <li>

@@ -1,4 +1,3 @@
-
 import IdeeContainer from "@components/IdeeContainer";
 
 export default function Home() {
@@ -7,7 +6,4 @@ export default function Home() {
       <IdeeContainer />
     </div>
   );
-
 }
-
-export default Home;

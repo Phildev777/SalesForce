@@ -20,6 +20,10 @@
   align-items: center;
 }
 
+.containerHeaderImg img {
+  width: 100%;
+}
+
 .containerHeaderImg:hover {
   background-color: rgba(0, 0, 0, 0.089);
 }
@@ -170,6 +174,14 @@
     content: "";
     position: absolute;
     left: 0;
+  }
+
+  .bugerIcon::after {
+    transform: translateY(12px);
+  }
+
+  .bugerIcon::before {
+    transform: translateY(-12px);
   }
 
   .bugerIcon::after {

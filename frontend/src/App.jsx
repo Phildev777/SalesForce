@@ -2,7 +2,6 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Admin from "./pages/Admin";
-import Idées from "./pages/Idées";
 import Services from "./pages/Services";
 import Utilisateurs from "./pages/Utilisateurs";
 import Monespace from "./pages/Monespace";
@@ -18,7 +17,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/mon espace" element={<Monespace />} />
-          <Route path="/idees" element={<Idées />} />
           <Route path="/utilisateurs" element={<Utilisateurs />} />
           <Route path="/services" element={<Services />} />
           <Route path="/admin" element={<Admin />} />

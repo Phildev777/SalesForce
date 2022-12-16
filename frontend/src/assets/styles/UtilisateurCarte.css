@@ -1,0 +1,19 @@
+.UserCard {
+  width: 20em;
+  border-radius: 25px;
+  background-color: azure;
+  height: auto;
+}
+
+.UserCard > * {
+  border: solid 1px black;
+}
+
+.containerUserCardImg {
+  height: 10em;
+  overflow: hidden;
+}
+
+.containerUserCardImg > img {
+  height: 100%;
+}

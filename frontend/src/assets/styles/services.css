@@ -1,0 +1,44 @@
+:root {
+  --primary-color: #00a1e0;
+  --secondary-color: #0b5cab;
+  --tertiary-color: #16325c;
+  --form-background-color: #fcfafa;
+  --cases-form-background-color: #eae7e7;
+  --font-family: "Inter", sans-serif;
+  --font-weight-bold: 700;
+  --font-weight-regular: 400;
+  --box-radius: 50px;
+}
+
+* {
+  margin: 0 auto;
+  padding: 0 auto;
+}
+
+.Services {
+  background-color: var(--cases-form-background-color);
+  margin: 5% 40% 2% 40%;
+  border-radius: var(--box-radius);
+  text-align: center;
+  padding: 0% 0% 2% 0%;
+  box-shadow: 5px 5px 15px 5px #000000;
+}
+
+.NomsServices {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 20%;
+  background-color: #0b5cab;
+  border-radius: 50px 50px 0px 0px;
+  padding-top: 15%;
+  padding-bottom: 15%;
+}
+
+.Caract {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-bold);
+}
+
+.Global {
+  border: 2px solid red;
+}

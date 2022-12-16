@@ -1,12 +1,14 @@
+import Connexion from "@pages/Connexion";
+import SectionServices from "@pages/SectionServices";
 import Home from "./pages/Home";
-
-import "./App.css";
+import "./assets/styles/services.css";
 
 function App() {
   return (
     <div className="App">
       <Home />
-      <p>hello</p>
+      <Connexion />
+      <SectionServices />
     </div>
   );
 }

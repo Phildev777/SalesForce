@@ -9,9 +9,11 @@ import Monespace from "./pages/Monespace";
 import Header from "./components/Header";
 import "./App.css";
 
+
 function App() {
   return (
     <div className="App">
+
       <BrowserRouter>
         <Header />
         <Routes>
@@ -23,6 +25,7 @@ function App() {
           <Route path="/admin" element={<Admin />} />
         </Routes>
       </BrowserRouter>
+
     </div>
   );
 }

@@ -1,0 +1,11 @@
+.utilisateursContainer {
+  position: fixed;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  width: 79.5%;
+  height: 96vh;
+  top: 6%;
+  right: 1%;
+  background-color: brown;
+}

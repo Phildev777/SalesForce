@@ -1,9 +1,9 @@
 const express = require("express");
 // const cookieParser = require("cookie-parser");
-require("dotenv").config({ path: "../config/.env" });
+require("dotenv").config({ path: "./config/.env" });
 const cors = require("cors");
-// const connection = require("./config/db");
-const usersRoute = require("./routes/utilisateurs.route");
+// const connection = require("./src/config/db");
+const usersRoute = require("./src/routes/utilisateurs.route");
 
 const app = express();
 
@@ -25,5 +25,7 @@ app.get("/", (req, res) => {
   res.status(200).send("yeah");
 });
 
-// ready to export
-module.exports = app;
+// server
+app.listen(process.env.PORT, () => {
+  // console.log(`Listening on port ${process.env.PORT}`);
+});

@@ -1,9 +1,9 @@
-import IdeeContainer from "@components/IdeeContainer";
+import MainContainer from "@components/MainContainer";
 
 export default function Home() {
   return (
     <div>
-      <IdeeContainer />
+      <MainContainer />
     </div>
   );
 }

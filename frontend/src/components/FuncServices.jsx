@@ -1,6 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-function FuncServices(nom, effectifs, localisation) {
+function FuncServices({ nom, effectifs, localisation }) {
   return (
     <div>
       <div className="BarreRecherche" />
@@ -18,5 +19,11 @@ function FuncServices(nom, effectifs, localisation) {
     </div>
   );
 }
+
+FuncServices.propTypes = {
+  nom: PropTypes.string.isRequired,
+  effectifs: PropTypes.string.isRequired,
+  localisation: PropTypes.string.isRequired,
+};
 
 export default FuncServices;

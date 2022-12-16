@@ -5,7 +5,7 @@ import "../assets/styles/SearchIdeaBar.css";
 import add from "../assets/addIcon.svg";
 
 function SearchIdeaBar({ searchValue, setSearchValue }) {
-  const services = [
+  const [services /* setServices */] = React.useState([
     {
       id: 1,
       nom: "Comptabilité",
@@ -18,7 +18,7 @@ function SearchIdeaBar({ searchValue, setSearchValue }) {
       id: 3,
       nom: "Marketing",
     },
-  ];
+  ]);
 
   return (
     <div className="ideaSelection">
@@ -51,7 +51,7 @@ function SearchIdeaBar({ searchValue, setSearchValue }) {
 }
 
 SearchIdeaBar.propTypes = {
-  searchValue: PropTypes.func.isRequired,
+  searchValue: PropTypes.string.isRequired,
   setSearchValue: PropTypes.func.isRequired,
 };
 

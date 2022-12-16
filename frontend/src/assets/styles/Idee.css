@@ -36,6 +36,11 @@
   text-align: start;
 }
 
+.theme {
+  background-color: aliceblue;
+  text-align: start;
+}
+
 .textIdea {
   background-color: aquamarine;
 }

@@ -1,5 +1,6 @@
 .mainContainer {
   width: fit-content;
+  margin-left: 25%;
   height: auto;
   display: flex;
   flex-direction: column;

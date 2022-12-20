@@ -1,11 +1,38 @@
+.containerfull {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  margin-right: 1%;
+  margin-left: 21em;
+  height: 95vh;
+}
+
+.onglets {
+  display: flex;
+}
+
+.onglets > * {
+  border: 1px solid black;
+  /* padding-left: 5px; */
+  /* padding-right: 5px; */
+  width: 5em;
+  font-size: 20px;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+
+.mainContent {
+  border: 1px solid red;
+  /* height: 96%; */
+}
+
 .utilisateursContainer {
-  position: fixed;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 25px;
-  width: 79.5%;
-  height: 96vh;
-  top: 6%;
-  right: 1%;
+  height: 90vh;
   background-color: brown;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }

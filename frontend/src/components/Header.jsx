@@ -13,18 +13,20 @@ function Header() {
           <img alt="profil" src={avatar} />
         </div>
         <ul>
-          <li>
-            <Link to="/mon espace">Mon espace</Link>
-          </li>
-          <li>
-            <Link to="/idees">Idées</Link>
-          </li>
-          <li>
-            <Link to="/utilisateurs">Utilisateurs</Link>
-          </li>
-          <li>
-            <Link to="/services">Services</Link>
-          </li>
+          <div className="containerLi">
+            <li>
+              <Link to="/mon espace">Mon espace</Link>
+            </li>
+            <li>
+              <Link to="/idees">Idées</Link>
+            </li>
+            <li>
+              <Link to="/utilisateurs">Utilisateurs</Link>
+            </li>
+            <li>
+              <Link to="/services">Services</Link>
+            </li>
+          </div>
           <li>
             <Link to="/admin">Admin</Link>
           </li>

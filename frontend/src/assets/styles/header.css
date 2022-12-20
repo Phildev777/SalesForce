@@ -5,6 +5,13 @@
   background-color: blueviolet;
   width: 20em;
   height: 100vh;
+  top: 0%;
+  left: 0%;
+}
+
+.containerLi {
+  display: flex;
+  flex-direction: column;
 }
 
 .containerHeaderImg {
@@ -30,11 +37,14 @@
 }
 
 .hide ul {
+  display: flex;
+  flex-direction: column;
   margin: auto;
   margin-bottom: 0;
   padding: 0;
   width: 18em;
   height: 100vh;
+  justify-content: space-between;
 }
 
 .hide ul li {
@@ -49,14 +59,9 @@
   margin-right: auto;
   font-size: 20px;
   text-decoration: none;
-  width: em;
+
   border-radius: 50px;
   padding: 10px;
-}
-
-.hide ul li:last-child {
-  position: relative;
-  top: 43%;
 }
 
 .hide ul li a:hover,
@@ -128,11 +133,6 @@
     width: em;
     border-radius: 50px;
     padding: 10px;
-  }
-
-  .show ul li:last-child {
-    position: relative;
-    top: 43%;
   }
 
   .show ul li a:hover,

@@ -1,0 +1,89 @@
+.all {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgb(190, 190, 190);
+  border-radius: 40px;
+  width: 65%;
+  height: 500px;
+  margin: auto;
+  margin-top: 100px;
+  background-color: rgb(190, 190, 190);
+}
+
+.infosContainer {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin: 2% 0 0 3%;
+}
+
+.avatar {
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  margin: 0 20px 0 10px;
+}
+
+.firstidea > * {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.firstidea {
+  margin-top: 40px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.sdm {
+  display: flex;
+  flex-direction: column;
+  width: 325px;
+}
+
+.sdm > * {
+  margin-bottom: 10px;
+}
+
+.birthidea > * {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.firstname {
+  border: 2px solid white;
+  border-radius: 30px;
+  width: 650px;
+}
+
+.name {
+  border: 2px solid white;
+  border-radius: 30px;
+}
+
+.service {
+  border: 2px solid white;
+  border-radius: 30px;
+}
+
+.hireDate {
+  border: 2px solid white;
+  border-radius: 30px;
+}
+
+.mail {
+  border: 2px solid white;
+  border-radius: 30px;
+}
+
+.biography {
+  border: 2px solid white;
+  border-radius: 30px;
+  width: 90%;
+  height: 40%;
+  margin-left: 45px;
+}

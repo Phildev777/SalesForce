@@ -15,6 +15,7 @@ function Idee({
   comments,
   likes,
   published,
+  theme,
   selected,
   setSelected,
 }) {
@@ -61,6 +62,8 @@ function Idee({
               {comments} <img src={likeIcon} alt="likeicon" /> {likes}
             </div>
           </div>
+          <div className="theme">Thème : {theme}</div>
+
           <div className="published">Publiée par : {published}</div>
           <div className="textIdea">
             Lorem ipsum dolor sit amet. Non nulla mollitia sed atque tenetur et
@@ -90,10 +93,11 @@ function Idee({
 Idee.propTypes = {
   id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
-  modified: PropTypes.instanceOf(Date).isRequired,
+  modified: PropTypes.string.isRequired,
   comments: PropTypes.number.isRequired,
   likes: PropTypes.number.isRequired,
-  published: PropTypes.instanceOf(Date).isRequired,
+  published: PropTypes.string.isRequired,
+  theme: PropTypes.string.isRequired,
   selected: PropTypes.func.isRequired,
   setSelected: PropTypes.func.isRequired,
 };

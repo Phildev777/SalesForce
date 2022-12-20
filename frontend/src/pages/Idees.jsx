@@ -1,7 +1,12 @@
 import React from "react";
+import MainContainer from "@components/MainContainer";
 
 function Idees() {
-  return <div>idées</div>;
+  return (
+    <div>
+      <MainContainer />
+    </div>
+  );
 }
 
 export default Idees;

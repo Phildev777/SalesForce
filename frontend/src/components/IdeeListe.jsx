@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../assets/styles/ideeListe.css";
 import PropTypes from "prop-types";
 import Idee from "./Idee";
 
@@ -95,7 +96,7 @@ function IdeeListe({ searchValue }) {
   const [selected, setSelected] = useState(null);
 
   return (
-    <div>
+    <div className="ideeListe">
       {detailidee
         .filter((i) =>
           i.title.toLowerCase().includes(searchValue.toLowerCase())

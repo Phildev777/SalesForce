@@ -14,7 +14,7 @@ function Header() {
         </div>
         <ul>
           <li>
-            <Link to="/mon espace">Mon espace</Link>
+            <Link to="/mon_espace">Mon espace</Link>
           </li>
           <li>
             <Link to="/idees">Idées</Link>

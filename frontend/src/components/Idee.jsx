@@ -47,7 +47,7 @@ function Idee({
           </div>
         </div>
       ) : (
-        <div>
+        <div className="ideaContainerBig">
           <div className="titleContainerBig">
             <div className="avatar">
               {" "}
@@ -63,22 +63,23 @@ function Idee({
             </div>
           </div>
           <div className="theme">Thème : {theme}</div>
-
           <div className="published">Publiée par : {published}</div>
           <div className="textIdea">
             Lorem ipsum dolor sit amet. Non nulla mollitia sed atque tenetur et
             sint quam aut cumque perferendis quo quae veritatis ut maxime optio
             in mollitia autem. Et necessitatibus suscipit eos voluptatibus
             consequatur quo veniam quod quo nobis voluptatem. Non tenetur
-            pariatur et magni veniam sit corporis dolor et ipsum vitae vel
-            beatae optio? Aut architecto cupiditate sit enim beatae eos autem
-            consequuntur ad dicta excepturi est quia porro qui quam itaque ab
-            libero animi. Et molestiae quaerat et sequi vero ut magnam rerum non
-            consequatur velit eum nesciunt iusto est fuga eaque est quia dolor.
+            pariatur et magni veniam Lorem ipsum dolor sit amet. Non nulla
+            mollitia sed atque tenetur et sint quam aut cumque perferendis quo
+            quae veritatis ut maxime optio in mollitia autem. Et necessitatibus
+            suscipit eos voluptatibus consequatur quo veniam quod quo nobis
+            voluptatem. Non tenetur pariatur et magni veniam
           </div>
+
           <div className="imageIdea">
             <img src={imagebg} alt="" />
           </div>
+
           <div className="bottomIdea">
             <div className="resources">
               Ressources : <br />1 : <br />2 : <br />3 :

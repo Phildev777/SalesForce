@@ -1,27 +1,38 @@
-import React from "react"; /* , { useState } */
+import React, { useState } from "react";
 import "../assets/styles/IdeeContainer.css";
 import AddIdea from "./AddIdea";
 
-// import SearchIdeaBar from "./SearchIdeaBar";
-// import IdeeListe from "./IdeeListe";
+import SearchIdeaBar from "./SearchIdeaBar";
+import IdeeListe from "./IdeeListe";
 
 function IdeeContainer() {
-  // const [searchValue, setSearchValue] = useState("");
+  const [searchValue, setSearchValue] = useState("");
+  const [formAddIdea, setFormAddIdea] = useState(false);
+
+  const openFormAddIdea = () => {
+    setFormAddIdea(!formAddIdea);
+  };
 
   return (
     <div className="mainContainer">
       <div className="ideasContainer">
         <div className="titleIdeas">Idées</div>
         <div className="selectionAndDisplay">
-          {/* <SearchIdeaBar
+          <SearchIdeaBar
             searchValue={searchValue}
             setSearchValue={setSearchValue}
+            formAddIdea={formAddIdea}
+            setFormAddIdea={setFormAddIdea}
+            openFormAddIdea={openFormAddIdea}
           />{" "}
-          <IdeeListe
-            searchValue={searchValue}
-            setSearchValue={setSearchValue}
-          />{" "} */}
-          <AddIdea />
+          {formAddIdea ? (
+            <AddIdea openFormAddIdea={openFormAddIdea} />
+          ) : (
+            <IdeeListe
+              searchValue={searchValue}
+              setSearchValue={setSearchValue}
+            />
+          )}
         </div>
       </div>
     </div>

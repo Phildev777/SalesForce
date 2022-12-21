@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
+
 import "../assets/styles/AddIdea.css";
 
-function AddIdea() {
+function AddIdea({ openFormAddIdea }) {
   const themes = [
     {
       id: 1,
@@ -19,6 +21,16 @@ function AddIdea() {
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+
+  // const [newIdea, setNewIdea] = useState([detailidee]);
+  // const [userInput, setuserInput] = useState('');
+
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   setuserInput('');
+
+  //   setNewIdea([...detailidee, userInput]);
+  // };
 
   return (
     <div className="mainIdeaContainer">
@@ -65,7 +77,7 @@ function AddIdea() {
         </div>
       </div>
       <div className="submission">
-        <button className="annuler" type="button">
+        <button className="annuler" type="button" onClick={openFormAddIdea}>
           Annuler
         </button>
         <button className="valider" type="button">
@@ -75,5 +87,8 @@ function AddIdea() {
     </div>
   );
 }
+AddIdea.propTypes = {
+  openFormAddIdea: PropTypes.func.isRequired,
+};
 
 export default AddIdea;

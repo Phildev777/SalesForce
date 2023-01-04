@@ -31,12 +31,7 @@
   text-align: right;
 }
 
-.published {
-  background-color: aliceblue;
-  text-align: start;
-}
-
-.theme {
+.published, .theme, .service {
   background-color: aliceblue;
   text-align: start;
 }

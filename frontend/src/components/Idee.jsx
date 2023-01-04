@@ -16,6 +16,7 @@ function Idee({
   likes,
   published,
   theme,
+  service,
   selected,
   setSelected,
 }) {
@@ -63,6 +64,7 @@ function Idee({
             </div>
           </div>
           <div className="theme">Thème : {theme}</div>
+          <div className="service">Service : {service}</div>
           <div className="published">Publiée par : {published}</div>
           <div className="textIdea">
             Lorem ipsum dolor sit amet. Non nulla mollitia sed atque tenetur et
@@ -98,6 +100,7 @@ Idee.propTypes = {
   comments: PropTypes.number.isRequired,
   likes: PropTypes.number.isRequired,
   published: PropTypes.string.isRequired,
+  service: PropTypes.string.isRequired,
   theme: PropTypes.string.isRequired,
   selected: PropTypes.func.isRequired,
   setSelected: PropTypes.func.isRequired,

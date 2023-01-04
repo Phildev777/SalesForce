@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 import "../assets/styles/SearchIdeaBar.css";
 import add from "../assets/addIcon.svg";
 
-function SearchIdeaBar({ searchValue, setSearchValue, openFormAddIdea }) {
-  const [services /* setServices */] = React.useState([
+function SearchIdeaBar({
+  searchValue,
+  setSearchValue,
+  openFormAddIdea,
+  selectedService,
+  handleSelectedService,
+}) {
+  const [services /* setServices */] = useState([
     {
       id: 1,
       nom: "Comptabilité",
@@ -19,18 +25,6 @@ function SearchIdeaBar({ searchValue, setSearchValue, openFormAddIdea }) {
       nom: "Marketing",
     },
   ]);
-
-  // const [messages, setMessages] = useState(['Hello There!']);
-  // const [userInput, setuserInput] = useState('');
-
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   setuserInput('');
-  //   alert(
-  //     'The state is going to be updated, the User interface will be updated'
-  //   );
-  //   setMessages([...messages, userInput]);
-  // };
 
   return (
     <div className="ideaSelection">
@@ -56,7 +50,11 @@ function SearchIdeaBar({ searchValue, setSearchValue, openFormAddIdea }) {
       </div>
       <form className="serviceSelection">
         <label htmlFor="service-select">
-          <select id="service-select">
+          <select
+            id="service-select"
+            value={selectedService}
+            onChange={(e) => handleSelectedService(e.target.value)}
+          >
             <option value="">---</option>
             {services.map((service) => (
               <option key={service.id}>{service.nom}</option>
@@ -72,6 +70,8 @@ SearchIdeaBar.propTypes = {
   searchValue: PropTypes.string.isRequired,
   setSearchValue: PropTypes.func.isRequired,
   openFormAddIdea: PropTypes.func.isRequired,
+  selectedService: PropTypes.string.isRequired,
+  handleSelectedService: PropTypes.string.isRequired,
 };
 
 export default SearchIdeaBar;

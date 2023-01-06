@@ -23,3 +23,26 @@ module.exports = router;
             "fonctionIdfonction": 2,
             "email": "mach@huffingtonpost.com"
         } */
+/*       {
+          "nom": "Stark",
+          "prenom": "Tony",
+          "dateembauche": "2020-04-29",
+          "motdepasse": "avengers",
+          "admin": 1,
+          "anniversaire": "2000-09-01",
+          "serviceIdservice": 9,
+          "fonctionIdfonction": 2,
+          "email": "popperpots@huffingtonpost.com"
+          } */
+
+/*       {
+"nom": "Rogers",
+"prenom": "Steeve",
+"dateembauche": "2020-04-29",
+"motdepasse": "firstav",
+"admin": 1,
+"anniversaire": "2000-09-01",
+"serviceIdservice": 9,
+"fonctionIdfonction": 2,
+"email": "kitten@huffingtonpost.com"
+} */

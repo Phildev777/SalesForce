@@ -42,7 +42,6 @@
   gap: 1rem;
 }
 
-
 .birthidea {
   display: flex;
   flex-direction: column;
@@ -80,8 +79,7 @@
   justify-content: flex-end;
 }
 
-@media screen and (max-width:612px) {
-
+@media screen and (max-width: 612px) {
   .all {
     display: flex;
     flex-direction: column;
@@ -107,5 +105,4 @@
     width: 80%;
     margin: auto auto 15px auto;
   }
-
 }

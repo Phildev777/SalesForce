@@ -1,17 +1,13 @@
 // import React, { useState, useRef } from "react";
-import "../assets/styles/ProfileCss.css";
+import "../assets/styles/profileCss.css";
 import cake from "../assets/cake.svg";
 import idée from "../assets/idée.svg";
 import avatar from "../assets/avatar.svg";
 // import { useState } from "react";
 
-
-
-
 function MyProfile() {
   // state (état,données)
   // const [biography, setBiography] = useState(false);
-
 
   const tab = [
     {
@@ -23,15 +19,12 @@ function MyProfile() {
     },
   ];
 
-
   // const handleBio = () => {
   //   setBiography(!biography);
   // }
 
-
   /// affichage (render)
   return (
-
     <div className="all">
       <div className="infosContainer">
         <div className="img">
@@ -48,7 +41,8 @@ function MyProfile() {
             </div>
             <div className="birthidea">
               <div className="white">
-                <img src={cake} alt="cake" />  {" "} 18/05/1982 </div>
+                <img src={cake} alt="cake" /> 18/05/1982{" "}
+              </div>
               <div className="white">
                 <img src={idée} alt="ampoule" /> Idées photo
               </div>
@@ -56,17 +50,19 @@ function MyProfile() {
           </div>
         </div>
       </div>
-      <div className="biography" > <span className=" bio">Biographie</span>
+      <div className="biography">
+        {" "}
+        <span className=" bio">Biographie</span>
         <p>
           Lorem ipsum dolor sit amet. Non nulla mollitia sed atque tenetur et
-          sint quam aut cumque perferendis quo quae veritatis ut maxime optio
-          in mollitia autem. Et necessitatibus suscipit eos voluptatibus
-          consequatur quo veniam quod quo nobis voluptatem. Non tenetur
-          pariatur et magni veniam sit corporis dolor et ipsum vitae vel
-          beatae optio? Aut architecto cupiditate sit enim beatae eos autem
-          consequuntur ad dicta excepturi est quia porro qui quam itaque ab
-          libero animi. Et molestiae quaerat et sequi vero ut magnam rerum non
-          consequatur velit eum nesciunt iusto est fuga eaque est quia dolor.
+          sint quam aut cumque perferendis quo quae veritatis ut maxime optio in
+          mollitia autem. Et necessitatibus suscipit eos voluptatibus
+          consequatur quo veniam quod quo nobis voluptatem. Non tenetur pariatur
+          et magni veniam sit corporis dolor et ipsum vitae vel beatae optio?
+          Aut architecto cupiditate sit enim beatae eos autem consequuntur ad
+          dicta excepturi est quia porro qui quam itaque ab libero animi. Et
+          molestiae quaerat et sequi vero ut magnam rerum non consequatur velit
+          eum nesciunt iusto est fuga eaque est quia dolor.
         </p>
         {/* <div className="pencil"> <button type="button" onClick={handleBio} > pencil draw</button> </div> */}
       </div>

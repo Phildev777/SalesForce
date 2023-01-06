@@ -1,11 +1,12 @@
 .hide {
+  position: fixed;
   display: flex;
   flex-direction: column;
   background-color: blueviolet;
   width: 20em;
   height: 100vh;
-  top: 0%;
-  left: 0%;
+  top: 0;
+  left: 0;
 }
 
 .containerLi {

@@ -4,7 +4,7 @@
   height: auto;
 }
 
-.UserCard>* {
+.UserCard > * {
   border: solid 1px black;
 }
 
@@ -13,7 +13,7 @@
   overflow: hidden;
 }
 
-.containerUserCardImg>img {
+.containerUserCardImg > img {
   height: 100%;
 }
 

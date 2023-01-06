@@ -1,0 +1,41 @@
+.mainContainer {
+  width: fit-content;
+  margin-left: 25%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: transparent;
+}
+
+.selectionAndDisplay {
+  background-color: white;
+  max-height: 70vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  min-width: 50vw;
+  border: solid;
+  border-width: 2px;
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.selectionAndDisplay::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+.selectionAndDisplay::-webkit-scrollbar {
+  border-radius: 10px;
+  background: transparent;
+  width: 10px;
+  /*scroll-padding-right: 3rem;
+  height: 90%;*/
+}
+
+.selectionAndDisplay::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 10px;
+  height: 1rem;
+  border: 1px solid rgb(0, 0, 0);
+}

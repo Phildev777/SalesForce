@@ -1,0 +1,31 @@
+.commentairesContainer {
+  padding: 0.5rem 0 0.5rem 0;
+  background-color: aliceblue;
+  border: solid 1px;
+  border-radius: 10px;
+  margin-bottom: 1px;
+}
+
+.infoUser {
+  /* background-color: aqua; */
+  display: flex;
+  justify-content: space-between;
+}
+
+.userAndDate {
+  /* border : solid red; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+/* .texte {
+    background-color: bisque;
+} */
+
+.like {
+  display: flex;
+  justify-items: flex-end;
+  align-items: flex-end;
+}

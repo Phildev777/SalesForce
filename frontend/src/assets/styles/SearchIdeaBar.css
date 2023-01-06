@@ -1,0 +1,30 @@
+.ideaSelection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.ideaAndSearch {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 1rem 5px 1rem;
+  width: 90%;
+}
+
+.ideaSearch {
+  width: 35%;
+}
+
+.addIdea {
+  width: 35%;
+  background-color: aliceblue;
+}
+
+.serviceSelection {
+  width: 100%;
+  padding-bottom: 1rem;
+}
+
+.serviceSelection select {
+  width: 90%;
+}

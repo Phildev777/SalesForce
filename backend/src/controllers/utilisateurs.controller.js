@@ -1,5 +1,7 @@
 // const jwt = require("jsonwebtoken");
 const utilisateurModel = require("../models/utilisateurs.model");
+require("dotenv").config();
+// const bcrypt = require("bcrypt");
 
 const getAllUtilisateurs = (req, res) => {
   utilisateurModel
@@ -83,10 +85,27 @@ const createUtilisateur = async (req, res) => {
   return res.status(500).send("Something broke");
 };
 
+const login = async (req, res) => {
+  const { nom, motdepasse } = req.body;
+  const result = await utilisateurModel.login(nom, motdepasse);
+
+  if (result === "Utilisateur pas trouvé") {
+    /*  const token = jwt.sign({ user: result[0] }, process.env.TOKEN_SECRET, { expiresIn: '24h' })
+     result[0]["token"] = token
+     delete result[0]["motdepasse"] */
+    res.status(200).send(result);
+  } else if (result === "Erreur serveur") {
+    res.status(500).send("Something broke");
+  } else {
+    res.status(200).send(result);
+  }
+};
+
 module.exports = {
   getAllUtilisateurs,
   updateUtilisateur,
   getUtilisateurById,
   deleteUtilisateur,
   createUtilisateur,
+  login,
 };

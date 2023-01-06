@@ -1,10 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 
-import FonctionConnexion from "@components/FonctionConnexion";
-import FonctionMdpOublie from "@components/FonctionMdpOublie";
 import "../assets/styles/connexion.css";
+import { useNavigate } from "react-router-dom";
 
 function Connexion() {
+  const [nom, setNom] = useState("");
+  const [motdepasse, setMotdepasse] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleNom = (e) => {
+    e.preventDefault();
+
+    axios
+      .post("http://localhost:5005/api/utilisateur/login", { nom, motdepasse })
+
+      .then((res) => {
+        if (res.data === "Utilisateur pas trouvé") {
+          alert(res.data);
+        } else {
+          navigate("/mon espace");
+        }
+      })
+
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
   return (
     <div className="formDeCo">
       <div className="TitleCo">
@@ -12,30 +36,38 @@ function Connexion() {
       </div>
 
       <div className="Form">
-        <form action="" method="post">
+        <form onSubmit={handleNom}>
           <ul className="UlForm">
             <div className="LiForm">
               <li id="Nom">
-                <label className="LabelForm" type="text">
-                  Nom d'ulilisateur :{" "}
+                <label htmlFor="text" className="LabelForm">
+                  Nom d'ulilisateur :
                 </label>
-                <input type="text" className="InputForm" />
+                <input
+                  type="text"
+                  className="InputForm"
+                  placeholder="nom"
+                  value={nom}
+                  onChange={(e) => setNom(e.target.value)}
+                />
               </li>
 
               <li id="Mdp">
-                <label className="LabelForm" type="text">
-                  Mot de passe :{" "}
+                <label htmlFor="password" className="LabelForm">
+                  Mot de passe :
                 </label>
-                <input type="password" className="InputForm" />
+                <input
+                  type="password"
+                  className="InputForm"
+                  placeholder="Mot de passe"
+                  value={motdepasse}
+                  onChange={(e) => setMotdepasse(e.target.value)}
+                />
               </li>
             </div>
 
             <li className="LiCompo">
-              <FonctionMdpOublie />
-            </li>
-
-            <li className="LiCompo">
-              <FonctionConnexion />
+              <button type="submit">connexion</button>
             </li>
           </ul>
         </form>

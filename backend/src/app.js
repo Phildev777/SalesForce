@@ -8,11 +8,11 @@ const usersRoute = require("./routes/utilisateurs.route");
 const app = express();
 
 const corsOptions = {
-  origin: process.env.CLIENT_URL,
+  origin: process.env.FRONTEND_URL,
   credentials: true,
   allowedHeaders: ["sessionId", "Content-Type", "authorization"],
   exposedHeaders: ["sessionId"],
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE, OPTIONS",
   preflightContinue: false,
 };
 app.use(cors(corsOptions));
@@ -20,7 +20,7 @@ app.use(cors(corsOptions));
 app.use(express.json());
 // app.use(cookieParser());
 
-app.use(usersRoute);
+app.use("/api/utilisateur/", usersRoute);
 app.get("/", (req, res) => {
   res.status(200).send("yeah");
 });

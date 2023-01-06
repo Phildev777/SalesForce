@@ -10,28 +10,26 @@
   --box-radius: 50px;
 }
 
-* {
-  margin: 0 auto;
-  padding: 0 auto;
-}
-
 .Services {
+  min-width: 240px;
+
   background-color: var(--cases-form-background-color);
-  margin: 5% 40% 2% 40%;
+  margin: 5% 20% 2% 10%;
   border-radius: var(--box-radius);
   text-align: center;
   padding: 0% 0% 2% 0%;
   box-shadow: 5px 5px 15px 5px #000000;
+  display: inline-block;
 }
 
 .NomsServices {
   font-family: var(--font-family);
   font-weight: var(--font-weight-bold);
-  margin-bottom: 20%;
+  margin-bottom: 10%;
   background-color: #0b5cab;
   border-radius: 50px 50px 0px 0px;
-  padding-top: 15%;
-  padding-bottom: 15%;
+  padding-top: 5%;
+  padding-bottom: 2%;
 }
 
 .Caract {
@@ -40,5 +38,8 @@
 }
 
 .Global {
-  border: 2px solid red;
+  display: grid;
+  grid-template-columns: 310px 310px;
+  grid-template-rows: repeat(6, 230px);
+  gap: 30px;
 }

@@ -1,7 +1,12 @@
 import React from "react";
+import MainContainerTest from "../components/MainContainerTest";
 
 function Services() {
-  return <div>Services</div>;
+  return (
+    <div>
+      <MainContainerTest />
+    </div>
+  );
 }
 
 export default Services;

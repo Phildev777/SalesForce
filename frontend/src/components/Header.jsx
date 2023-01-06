@@ -1,6 +1,6 @@
 import React from "react";
 import "../assets/styles/header.css";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import avatar from "../assets/avatar1.svg";
 
 function Header() {
@@ -14,19 +14,20 @@ function Header() {
         </div>
         <ul>
           <li>
-            <Link to="/mon_espace">Mon espace</Link>
+            <NavLink to="/mon espace">Mon espace</NavLink>
           </li>
           <li>
-            <Link to="/idees">Idées</Link>
+            <NavLink to="/idees">Idées</NavLink>
           </li>
           <li>
-            <Link to="/utilisateurs">Utilisateurs</Link>
+            <NavLink to="/utilisateurs">Utilisateurs</NavLink>
           </li>
           <li>
-            <Link to="/services">Services</Link>
+            <NavLink to="/services">Services</NavLink>
           </li>
+
           <li>
-            <Link to="/admin">Admin</Link>
+            <NavLink to="/admin">Admin</NavLink>
           </li>
         </ul>
       </header>

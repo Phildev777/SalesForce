@@ -1,22 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
 import "../assets/styles/MainContainerTest.css";
 /* import AddIdea from "./AddIdea"; */
-import SearchIdeaBar from "./SearchIdeaBar";
+// import SearchIdeaBar from "./SearchIdeaBar";
 // import IdeeListe from "./IdeeListe";
 import SectionServices from "./SectionServices";
 
 function IdeeContainer() {
-  const [searchValue, setSearchValue] = useState("");
+  // const [searchValue, setSearchValue] = useState("");
 
   return (
     <div className="mainContainer">
       <div className="ideasContainer">
         <div className="titleIdeas">Services</div>
         <div className="selectionAndDisplay">
-          <SearchIdeaBar
+          {/* <SearchIdeaBar
             searchValue={searchValue}
             setSearchValue={setSearchValue}
-          />{" "}
+          />{" "} */}
           {/*    <IdeeListe
             searchValue={searchValue}
             setSearchValue={setSearchValue}

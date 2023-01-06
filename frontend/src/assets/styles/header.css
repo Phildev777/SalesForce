@@ -1,5 +1,4 @@
 .hide {
-  position: fixed;
   display: flex;
   flex-direction: column;
   background-color: blueviolet;

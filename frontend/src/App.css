@@ -9,4 +9,18 @@ body {
 
 .App {
   text-align: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+:root {
+  --primary-color: #00a1e0;
+  --secondary-color: #0b5cab;
+  --tertiary-color: #16325c;
+  --form-background-color: #fcfafa;
+  --cases-form-background-color: #eae7e7;
+  --font-family: "Inter", sans-serif;
+  --font-weight-bold: 700;
+  --font-weight-regular: 400;
+  --box-radius: 50px;
 }

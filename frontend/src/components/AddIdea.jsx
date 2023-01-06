@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 
-function AddIdea() {
+import "../assets/styles/AddIdea.css";
+
+function AddIdea({ openFormAddIdea }) {
   const themes = [
     {
       id: 1,
@@ -21,36 +24,61 @@ function AddIdea() {
 
   return (
     <div className="mainIdeaContainer">
-      <input
-        className="titleIdea"
-        value={title}
-        type="text"
-        placeholder="Titre"
-        onChange={(e) => setTitle(e.target.value)}
-      />{" "}
-      <form className="themeSelection">
-        <label htmlFor="theme-select">
-          <select id="theme-select">
-            <option value="">---</option>
-            {themes.map((theme) => (
-              <option key={theme.id}>{theme.nom}</option>
-            ))}
-          </select>
-        </label>
-      </form>{" "}
-      <input
-        className="descriptionIdea"
-        value={description}
-        type="text"
-        placeholder="Décrivez votre idée"
-        onChange={(e) => setDescription(e.target.value)}
-      />
-      <div className="addFile">File</div>
-      <button type="button">Add a file</button>
-      <div className="addLink">Link</div>
-      <button type="button">Add a link</button>
+      <div className="details">
+        <div className="titleIdea">
+          <input
+            className="titleIdeaInput"
+            value={title}
+            type="text"
+            placeholder="Titre"
+            onChange={(e) => setTitle(e.target.value)}
+          />{" "}
+        </div>
+        {/* <div className="themeSelection"> */}
+        <form className="themeSelectionForm">
+          <label htmlFor="theme-select">
+            <select id="theme-select">
+              <option value="">Choisir un thème</option>
+              {themes.map((theme) => (
+                <option key={theme.id}>{theme.nom}</option>
+              ))}
+            </select>
+          </label>
+        </form>{" "}
+        {/* </div> */}
+        <div className="descriptionIdea">
+          <textarea
+            className="descriptionIdeaInput"
+            value={description}
+            type="text"
+            placeholder="Décrivez votre idée"
+            onChange={(e) => setDescription(e.target.value)}
+          />
+        </div>
+      </div>
+      <div className="fileAndLink">
+        <div className="file">
+          <div className="addFile">Ajouter un fichier</div>
+          <button type="button">+</button>
+        </div>
+        <div className="link">
+          <div className="addLink">Ajouter un lien</div>
+          <button type="button">+</button>
+        </div>
+      </div>
+      <div className="submission">
+        <button className="annuler" type="button" onClick={openFormAddIdea}>
+          Annuler
+        </button>
+        <button className="valider" type="button">
+          Valider
+        </button>
+      </div>
     </div>
   );
 }
+AddIdea.propTypes = {
+  openFormAddIdea: PropTypes.func.isRequired,
+};
 
 export default AddIdea;

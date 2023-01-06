@@ -13,7 +13,6 @@ function Header() {
           <img alt="profil" src={avatar} />
         </div>
         <ul>
-
           <li>
             <NavLink to="/mon espace">Mon espace</NavLink>
           </li>

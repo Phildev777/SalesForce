@@ -1,6 +1,6 @@
 import React from "react";
 import "../assets/styles/header.css";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import avatar from "../assets/avatar1.svg";
 
 function Header() {
@@ -13,22 +13,22 @@ function Header() {
           <img alt="profil" src={avatar} />
         </div>
         <ul>
-          <div className="containerLi">
-            <li>
-              <Link to="/mon espace">Mon espace</Link>
-            </li>
-            <li>
-              <Link to="/idees">Idées</Link>
-            </li>
-            <li>
-              <Link to="/utilisateurs">Utilisateurs</Link>
-            </li>
-            <li>
-              <Link to="/services">Services</Link>
-            </li>
-          </div>
+
           <li>
-            <Link to="/admin">Admin</Link>
+            <NavLink to="/mon espace">Mon espace</NavLink>
+          </li>
+          <li>
+            <NavLink to="/idees">Idées</NavLink>
+          </li>
+          <li>
+            <NavLink to="/utilisateurs">Utilisateurs</NavLink>
+          </li>
+          <li>
+            <NavLink to="/services">Services</NavLink>
+          </li>
+
+          <li>
+            <NavLink to="/admin">Admin</NavLink>
           </li>
         </ul>
       </header>

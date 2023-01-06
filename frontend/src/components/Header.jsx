@@ -13,6 +13,7 @@ function Header() {
           <img alt="profil" src={avatar} />
         </div>
         <ul>
+
           <li>
             <NavLink to="/mon espace">Mon espace</NavLink>
           </li>
@@ -25,6 +26,7 @@ function Header() {
           <li>
             <NavLink to="/services">Services</NavLink>
           </li>
+
           <li>
             <NavLink to="/admin">Admin</NavLink>
           </li>

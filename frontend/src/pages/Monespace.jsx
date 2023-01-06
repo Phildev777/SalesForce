@@ -3,9 +3,11 @@ import MyProfile from '../components/MyProfile';
 
 
 function Monespace() {
-  return <div>
+  return (
+  <div>
     <MyProfile />
   </div>;
+);
 }
 
 export default Monespace;

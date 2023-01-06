@@ -1,10 +1,10 @@
 import React from "react";
-import MainContainer from "@components/MainContainer";
+import IdeeContainer from "@components/IdeeContainer";
 
 function Idees() {
   return (
     <div>
-      <MainContainer />
+      <IdeeContainer />
     </div>
   );
 }

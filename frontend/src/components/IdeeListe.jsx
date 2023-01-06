@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+import "../assets/styles/ideeListe.css";
 import PropTypes from "prop-types";
 import Idee from "./Idee";
 
-function IdeeListe({ searchValue }) {
+function IdeeListe({ searchValue, selectedService }) {
   const [detailidee /* SetDetailIdee */] = useState([
     {
       id: 1,
@@ -12,16 +13,18 @@ function IdeeListe({ searchValue }) {
       likes: 45,
       published: "30/01/2022",
       theme: "example",
+      service: "Marketing",
     },
 
     {
       id: 2,
-      title: "Comptabilité",
+      title: "Fournitures",
       modified: "03/04/2022",
       comments: 50,
       likes: 15,
       published: "25/02/2022",
       theme: "example",
+      service: "Ressources humaines",
     },
 
     {
@@ -32,6 +35,7 @@ function IdeeListe({ searchValue }) {
       likes: 72,
       published: "05/01/2022",
       theme: "example",
+      service: "Comptabilité",
     },
     {
       id: 4,
@@ -41,26 +45,29 @@ function IdeeListe({ searchValue }) {
       likes: 45,
       published: "30/01/2022",
       theme: "example",
+      service: "Comptabilité",
     },
 
     {
       id: 5,
-      title: "Comptabilité",
+      title: "Bowling",
       modified: "03/04/2022",
       comments: 50,
       likes: 15,
       published: "25/02/2022",
       theme: "example",
+      service: "Comptabilité",
     },
 
     {
       id: 6,
-      title: "Vacances",
+      title: "Salle de repos",
       modified: "20/03/2022",
       comments: 25,
       likes: 72,
       published: "05/01/2022",
       theme: "example",
+      service: "Comptabilité",
     },
     {
       id: 7,
@@ -70,16 +77,18 @@ function IdeeListe({ searchValue }) {
       likes: 45,
       published: "30/01/2022",
       theme: "example",
+      service: "Comptabilité",
     },
 
     {
       id: 8,
-      title: "Comptabilité",
+      title: "Machine à café",
       modified: "03/04/2022",
       comments: 50,
       likes: 15,
       published: "25/02/2022",
       theme: "example",
+      service: "Comptabilité",
     },
 
     {
@@ -90,18 +99,21 @@ function IdeeListe({ searchValue }) {
       likes: 72,
       published: "05/01/2022",
       theme: "example",
+      service: "Comptabilité",
     },
   ]);
   const [selected, setSelected] = useState(null);
 
   return (
-    <div>
+    <div className="ideeListe">
       {detailidee
         .filter((i) =>
           i.title.toLowerCase().includes(searchValue.toLowerCase())
         )
+        .filter((i) => (selectedService ? i.service === selectedService : true))
         .map((i) => (
           <Idee
+            key={i.id}
             title={i.title}
             modified={i.modified}
             comments={i.comments}
@@ -111,6 +123,7 @@ function IdeeListe({ searchValue }) {
             setSelected={setSelected}
             id={i.id}
             theme={i.theme}
+            service={i.service}
           />
         ))}
     </div>
@@ -118,6 +131,7 @@ function IdeeListe({ searchValue }) {
 }
 IdeeListe.propTypes = {
   searchValue: PropTypes.string.isRequired,
+  selectedService: PropTypes.string.isRequired,
 };
 
 export default IdeeListe;

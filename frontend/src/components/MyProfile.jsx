@@ -1,102 +1,78 @@
 // import React, { useState, useRef } from "react";
-import "../assets/styles/profileCss.css";
-// import cake from "../assets/cake.svg";
-// import idée from "../assets/idée.svg";
+import "../assets/styles/ProfileCss.css";
+import cake from "../assets/cake.svg";
+import idée from "../assets/idée.svg";
 import avatar from "../assets/avatar.svg";
+// import { useState } from "react";
+
+
+
 
 function MyProfile() {
   // state (état,données)
+  // const [biography, setBiography] = useState(false);
+
 
   const tab = [
     {
-      prenom: "adam",
-      nom: "gg",
-      service: "rh",
-      date_embauche: "20/10/2022",
-      mail: "dfzefzef@mlff.fr",
+      prenom: "Mike",
+      nom: "Tyson",
+      service: "RH",
+      date_embauche: "15/10/2022",
+      mail: "mikyBoxy@wanadoo.fr",
     },
   ];
 
-  //   const uploadedImage = useRef(null);
-  //   const imageUploader = useRef(null);
 
-  // comportements
+  // const handleBio = () => {
+  //   setBiography(!biography);
+  // }
 
-  //   const handleImageUpload = (e) => {
-  //     const [file] = e.target.files;
-  //     if (file) {
-  //       const reader = new FileReader();
-  //       const { current } = uploadedImage;
-  //       current.file = file;
-  //       reader.onload = (e) => {
-  //         current.src = e.target.result;
-  //       };
-  //       reader.readAsDataURL(file);
-  //     }
-  //   };
 
   /// affichage (render)
   return (
+
     <div className="all">
       <div className="infosContainer">
         <div className="img">
           <img className="avatar" src={avatar} alt="avatar" />
-          {/* <div
-                            style={{
-                                display: "flex",
-                                flexDirection: "column",
-                                alignItems: "center",
-                                justifyContent: "center"
-                            }}
-                        >
-                            <input
-                                type="file"
-                                accept="image/*"
-                                onChange={handleImageUpload}
-                                ref={imageUploader}
-                                style={{
-                                    display: "none"
-                                }}
-                            />
-                            <div
-                                style={{
-                                    height: "200px",
-                                    width: "200px",
-                                    border: "1px dashed black"
-                                }}
-                                onClick={() => imageUploader.current.click()}
-                            >
-                                <img
-                                    ref={uploadedImage}
-                                    style={{
-                                        width: "100%",
-                                        height: "100%",
-                                        position: "acsolute"
-                                    }}
-                                />
-                            </div>
-                            Click to upload Image
-                        </div> */}
         </div>
         <div className="firstidea">
-          <div className="firstname"> {tab[0].prenom} </div>
-          <div className="name"> {tab[0].nom} </div>
+          <div className="white"> {tab[0].prenom}</div>
+          <div className="white"> {tab[0].nom} </div>
           <div className="row">
             <div className="sdm">
-              <div className="service"> {tab[0].service} </div>
-              <div className="hireDate"> {tab[0].date_embauche} </div>
-              <div className="mail"> {tab[0].mail} </div>
+              <div className="white"> {tab[0].service} </div>
+              <div className="white"> {tab[0].date_embauche} </div>
+              <div className="white"> {tab[0].mail} </div>
             </div>
-            <div className="birtidea">
-              <div className="birthday">
-                Date de naissance (si il en a envie){" "}
+            <div className="birthidea">
+              <div className="white">
+                <img src={cake} alt="cake" />  {" "} 18/05/1982 </div>
+              <div className="white">
+                <img src={idée} alt="ampoule" /> Idées photo
               </div>
-              Idées photo
             </div>
           </div>
         </div>
       </div>
-      <div className="biography"> Biographie </div>
+      <div className="biography" > <span className=" bio">Biographie</span>
+        <p>
+          Lorem ipsum dolor sit amet. Non nulla mollitia sed atque tenetur et
+          sint quam aut cumque perferendis quo quae veritatis ut maxime optio
+          in mollitia autem. Et necessitatibus suscipit eos voluptatibus
+          consequatur quo veniam quod quo nobis voluptatem. Non tenetur
+          pariatur et magni veniam sit corporis dolor et ipsum vitae vel
+          beatae optio? Aut architecto cupiditate sit enim beatae eos autem
+          consequuntur ad dicta excepturi est quia porro qui quam itaque ab
+          libero animi. Et molestiae quaerat et sequi vero ut magnam rerum non
+          consequatur velit eum nesciunt iusto est fuga eaque est quia dolor.
+        </p>
+        {/* <div className="pencil"> <button type="button" onClick={handleBio} > pencil draw</button> </div> */}
+      </div>
+      {/* <div className="newIdee">
+        Ici il y aura les idees que l'utilisateur aura soumis classées par ordre chronologique.
+      </div> */}
     </div>
   );
 }

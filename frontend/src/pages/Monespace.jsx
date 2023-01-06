@@ -1,11 +1,13 @@
 import React from "react";
+import MyProfile from '../components/MyProfile';
+
 
 function Monespace() {
   return (
-    <div>
-      <h3>Monespace</h3>
-    </div>
-  );
+  <div>
+    <MyProfile />
+  </div>;
+);
 }
 
 export default Monespace;

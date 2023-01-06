@@ -8,7 +8,7 @@ import IdeeListe from "./IdeeListe";
 function IdeeContainer() {
   const [searchValue, setSearchValue] = useState("");
   const [formAddIdea, setFormAddIdea] = useState(false);
-  const [selectedService, setSelectedService] = useState(null);
+  const [selectedService, setSelectedService] = useState("");
 
   const handleSelectedService = (value) => {
     setSelectedService(value);

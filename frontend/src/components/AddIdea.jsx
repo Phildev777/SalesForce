@@ -22,16 +22,6 @@ function AddIdea({ openFormAddIdea }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
-  // const [newIdea, setNewIdea] = useState([detailidee]);
-  // const [userInput, setuserInput] = useState('');
-
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   setuserInput('');
-
-  //   setNewIdea([...detailidee, userInput]);
-  // };
-
   return (
     <div className="mainIdeaContainer">
       <div className="details">
@@ -48,7 +38,7 @@ function AddIdea({ openFormAddIdea }) {
         <form className="themeSelectionForm">
           <label htmlFor="theme-select">
             <select id="theme-select">
-              <option value="">---</option>
+              <option value="">Choisir un thème</option>
               {themes.map((theme) => (
                 <option key={theme.id}>{theme.nom}</option>
               ))}

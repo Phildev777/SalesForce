@@ -113,6 +113,7 @@ function IdeeListe({ searchValue, selectedService }) {
         .filter((i) => (selectedService ? i.service === selectedService : true))
         .map((i) => (
           <Idee
+            key={i.id}
             title={i.title}
             modified={i.modified}
             comments={i.comments}

@@ -1,5 +1,7 @@
 .ideaContainer {
-  background-color: red;
+  background-color: rgb(241, 232, 232);
+  padding: 5px;
+
   border-radius: 5px;
   width: 90%;
   border: solid 1px;
@@ -12,7 +14,7 @@
   justify-content: space-between;
   align-items: center;
   border-radius: 5px;
-  background-color: bisque;
+  /* background-color: bisque; */
   width: 100%;
 }
 
@@ -31,14 +33,16 @@
   text-align: right;
 }
 
-.published, .theme, .service {
-  background-color: aliceblue;
+.published,
+.theme,
+.service {
+  /* background-color: aliceblue; */
   text-align: start;
 }
 
-.textIdea {
+/* .textIdea {
   background-color: aquamarine;
-}
+} */
 
 .imageIdea {
   width: auto;
@@ -56,13 +60,14 @@
 }
 .resources {
   display: flex;
-  background-color: blue;
+  /* background-color: blue; */
   width: 70%;
 }
 
 .ideaContainerBig {
   max-width: 65vh;
   min-width: 100%;
+  display: flex;
 }
 
 .titleContainerBig {
@@ -70,7 +75,7 @@
   justify-content: space-between;
   align-items: center;
 
-  background-color: bisque;
+  /* background-color: bisque; */
   border-radius: 5px;
   width: 100%;
 }
@@ -79,7 +84,7 @@
   display: flex;
   align-items: flex-end;
   width: 30%;
-  background-color: rgb(250, 215, 215);
+  /* background-color: rgb(250, 215, 215); */
 }
 
 .avatar {
@@ -95,4 +100,23 @@
 .titleIdeaBig {
   flex: 1;
   text-align: left;
+}
+
+.commentsandlikesBig {
+  display: flex;
+}
+
+.leftContent {
+  flex: 3;
+}
+
+.rightContent {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  margin: 0 1rem 0 1rem;
+}
+
+.commentsandlikesSmall svg:hover path {
+  fill: green;
 }

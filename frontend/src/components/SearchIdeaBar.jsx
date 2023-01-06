@@ -70,8 +70,8 @@ SearchIdeaBar.propTypes = {
   searchValue: PropTypes.string.isRequired,
   setSearchValue: PropTypes.func.isRequired,
   openFormAddIdea: PropTypes.func.isRequired,
+  handleSelectedService: PropTypes.func.isRequired,
   selectedService: PropTypes.string.isRequired,
-  handleSelectedService: PropTypes.string.isRequired,
 };
 
 export default SearchIdeaBar;

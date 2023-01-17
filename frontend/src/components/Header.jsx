@@ -1,14 +1,27 @@
-import React from "react";
+import { useState } from "react";
 import "../assets/styles/header.css";
 import { NavLink } from "react-router-dom";
+import { ImSwitch } from "react-icons/im";
 import avatar from "../assets/avatar1.svg";
-
+// import * as Icons from "react-icons/io";
 function Header() {
-  const [nav, setNav] = React.useState(false);
+  const [nav, setNav] = useState(false);
   const handleNav = () => setNav(!nav);
+
+  /*   function CustomFaIcon({ GoAlert }) {
+      const FaIcon = Icons[GoAlert];
+      if (!FaIcon) return <p>PAS DE LOGO</p>;
+  
+      return <FaIcon />;
+    } */
+
   return (
     <>
       <header className={`${nav ? "show" : "hide"}`}>
+        <NavLink to="/">
+          <ImSwitch className="disconnect" />
+        </NavLink>
+
         <div className="containerHeaderImg">
           <img alt="profil" src={avatar} />
         </div>

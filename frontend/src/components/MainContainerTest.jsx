@@ -9,7 +9,7 @@ function IdeeContainer() {
   // const [searchValue, setSearchValue] = useState("");
 
   return (
-    <div className="mainContainer">
+    <div className="ContainerServices">
       <div className="ideasContainer">
         <div className="titleIdeas">Services</div>
         <div className="selectionAndDisplay">

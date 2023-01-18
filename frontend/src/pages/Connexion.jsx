@@ -18,12 +18,14 @@ function Connexion() {
         nom,
         motdepasse,
       })
-
       .then((res) => {
         if (res.data === "Utilisateur pas trouvé") {
           alert(res.data);
-        }
-        navigate("/mon espace");
+        } else if (res.data.admin === 0) {
+          navigate("/mon espace");
+        } else if (res.data.admin === 1) {
+          navigate("/admin");
+      }
       })
 
       .catch((err) => {

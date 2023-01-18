@@ -15,12 +15,10 @@ const getAllUtilisateurs = (req, res) => {
 };
 
 const getAllUtilisateursService = (req, res) => {
-  utilisateurModel
-    .getAllUtilisateursService()
-    .then(([result]) => {
-      res.status(200).send(result)
-    });
-}
+  utilisateurModel.getAllUtilisateursService().then(([result]) => {
+    res.status(200).send(result);
+  });
+};
 
 const updateUtilisateur = (req, res) => {
   utilisateurModel
@@ -116,5 +114,5 @@ module.exports = {
   deleteUtilisateur,
   createUtilisateur,
   login,
-  getAllUtilisateursService
+  getAllUtilisateursService,
 };

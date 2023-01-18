@@ -16,7 +16,6 @@ function App() {
   return (
     <div>
       {location.pathname !== "/" && <Header />}
-
       <Routes>
         <Route path="/home" element={<Home />} />
         <Route path="/mon espace" element={<Monespace />} />

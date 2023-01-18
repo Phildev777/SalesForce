@@ -10,7 +10,6 @@ router.post("/creation", utilisateurController.createUtilisateur);
 router.put("/", utilisateurController.updateUtilisateur);
 router.delete("/:id", utilisateurController.deleteUtilisateur);
 
-
 module.exports = router;
 
 /*  {

@@ -86,7 +86,7 @@ function Utilisateurs() {
                   firstname={data.prenom}
                   lastname={data.username}
                   service={data.serviceName}
-                  displayProfileCard={(d) => handleProfileCard(d)}
+                  displayProfileCard={handleProfileCard}
                 />
               ))}
           </div>
@@ -94,7 +94,7 @@ function Utilisateurs() {
       )}
       {profileCard && (
         <div className="mainContent">
-          <MyProfile firstname={dataProfileCard.prenom} />
+          <MyProfile prenom={dataProfileCard.prenom} />
         </div>
       )}
 

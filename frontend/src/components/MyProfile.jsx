@@ -75,6 +75,7 @@ function MyProfile() {
         {/* {biography ? ( <p value={biography}>
         </p> ) : ( <div className="text"><textarea name="bio" id="bio" cols="30" rows="10">Ajoutez/ Modifier</textarea></div> ) } */}
         <p>
+          {/* {props.prenom} */}
           Lorem ipsum dolor sit amet. Non nulla mollitia sed atque tenetur et
           sint quam aut cumque perferendis quo quae veritatis ut maxime optio in
           mollitia autem. Et necessitatibus suscipit eos voluptatibus

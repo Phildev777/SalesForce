@@ -7,9 +7,10 @@ router.get("/", utilisateurController.getAllUtilisateurs);
 router.get("/profile", profilController.getAllProfiles);
 router.get("/:id", utilisateurController.getUtilisateurById);
 
-router.post("/login", utilisateurController.login);
+router.post("/", utilisateurController.login);
+
 router.post("/creation", utilisateurController.createUtilisateur);
-router.put("/", utilisateurController.updateUtilisateur);
+router.put("/:id", utilisateurController.updateUtilisateur);
 router.delete("/:id", utilisateurController.deleteUtilisateur);
 
 module.exports = router;

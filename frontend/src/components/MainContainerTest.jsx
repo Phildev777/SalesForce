@@ -1,5 +1,5 @@
 import React from "react";
-import "../assets/styles/MainContainerTest.css";
+import "../assets/styles/IdeeContainer.css";
 /* import AddIdea from "./AddIdea"; */
 // import SearchIdeaBar from "./SearchIdeaBar";
 // import IdeeListe from "./IdeeListe";
@@ -9,7 +9,7 @@ function IdeeContainer() {
   // const [searchValue, setSearchValue] = useState("");
 
   return (
-    <div className="mainContainer">
+    <div className="ContainerServices">
       <div className="ideasContainer">
         <div className="titleIdeas">Services</div>
         <div className="selectionAndDisplay">

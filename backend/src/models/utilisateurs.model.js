@@ -17,9 +17,11 @@ const createUtilisateur = async (
   motdepasse,
   admin,
   anniversaire,
-  email,
   serviceIdservice,
-  fonctionIdfonction
+  fonctionIdfonction,
+  email,
+  biographie,
+  avatar
 ) => {
   try {
     const hashedMotdepasse = await bcrypt.hashSync(
@@ -27,7 +29,7 @@ const createUtilisateur = async (
       process.env.SALT
     );
     const [result] = await connection.query(
-      "INSERT INTO utilisateur ( nom,prenom, dateembauche, motdepasse, admin, anniversaire, email, serviceIdservice, fonctionIdfonction) VALUES (?,?,?,?,?,?,?,?,?)",
+      "INSERT INTO utilisateur ( nom,prenom, dateembauche, motdepasse, admin, anniversaire,serviceIdservice, fonctionIdfonction, email,  biographie, avatar) VALUES (?,?,?,?,?,?,?,?,?,?,?)",
       [
         nom,
         prenom,
@@ -35,9 +37,11 @@ const createUtilisateur = async (
         hashedMotdepasse,
         admin,
         anniversaire,
-        email,
         serviceIdservice,
         fonctionIdfonction,
+        email,
+        biographie,
+        avatar,
       ]
     );
 
@@ -69,18 +73,17 @@ const login = async (nom, motdepasse) => {
       process.env.SALT
     );
     const [result] = await connection.query(
-      "SELECT id, nom FROM utilisateur WHERE nom=? AND motdepasse=?",
+      "SELECT id, nom, admin FROM utilisateur WHERE nom=? AND motdepasse=?",
       [nom, hashedMotdepasse]
     );
 
     if (result.length > 0) {
       return result[0];
     }
-
-    return "Utilisateur pas trouvé";
+    return "problème";
   } catch (e) {
     console.error(e);
-    return "Erreur de serveur";
+    return e;
   }
 };
 

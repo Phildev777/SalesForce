@@ -5,6 +5,11 @@ require("dotenv").config();
 const getAllUtilisateurs = () => {
   return connection.query("SELECT * FROM  utilisateur;");
 };
+const getAllUtilisateursService = () => {
+  return connection.query(
+    "SELECT u.serviceIdservice,u.prenom ,u.id , u.nom AS username, s.nom AS serviceName FROM utilisateur AS u LEFT JOIN service AS s ON u.serviceIdservice = s.idservice"
+  );
+};
 
 const getUtilisateurById = (id) => {
   return connection.query("SELECT * FROM utilisateur WHERE id=?", [id]);
@@ -94,4 +99,5 @@ module.exports = {
   deleteUtilisateur,
   createUtilisateur,
   login,
+  getAllUtilisateursService,
 };

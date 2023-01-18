@@ -6,12 +6,18 @@ require("dotenv").config();
 const getAllUtilisateurs = (req, res) => {
   utilisateurModel
     .getAllUtilisateurs()
-    .then((result) => {
+    .then(([result]) => {
       res.status(200).send(result);
     })
     .catch((err) => {
       console.error(err);
     });
+};
+
+const getAllUtilisateursService = (req, res) => {
+  utilisateurModel.getAllUtilisateursService().then(([result]) => {
+    res.status(200).send(result);
+  });
 };
 
 const updateUtilisateur = (req, res) => {
@@ -114,4 +120,5 @@ module.exports = {
   deleteUtilisateur,
   createUtilisateur,
   login,
+  getAllUtilisateursService,
 };

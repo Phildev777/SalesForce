@@ -22,7 +22,7 @@ app.use(cors(corsOptions));
 app.use(express.json());
 // app.use(cookieParser());
 
-app.use("/api/utilisateur/", usersRoute);
+app.use("/api/utilisateur", usersRoute);
 app.get("/", (req, res) => {
   res.status(200).send("yeah");
 });

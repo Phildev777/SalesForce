@@ -14,14 +14,16 @@ function Connexion() {
     e.preventDefault();
 
     axios
-      .post("http://localhost:5005/api/utilisateur/login", { nom, motdepasse })
+      .post(`${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/login`, {
+        nom,
+        motdepasse,
+      })
 
       .then((res) => {
         if (res.data === "Utilisateur pas trouvé") {
           alert(res.data);
-        } else {
-          navigate("/mon espace");
         }
+        navigate("/mon espace");
       })
 
       .catch((err) => {

@@ -1,5 +1,5 @@
 import React from "react";
-import "../assets/styles/MainContainerTest.css";
+import "../assets/styles/IdeeContainer.css";
 /* import AddIdea from "./AddIdea"; */
 // import SearchIdeaBar from "./SearchIdeaBar";
 // import IdeeListe from "./IdeeListe";

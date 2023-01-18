@@ -17,9 +17,12 @@ const createUtilisateur = async (
   motdepasse,
   admin,
   anniversaire,
-  email,
   serviceIdservice,
-  fonctionIdfonction
+  fonctionIdfonction,
+  email,
+
+  biographie,
+  avatar
 ) => {
   try {
     const hashedMotdepasse = await bcrypt.hashSync(
@@ -27,7 +30,7 @@ const createUtilisateur = async (
       process.env.SALT
     );
     const [result] = await connection.query(
-      "INSERT INTO utilisateur ( nom,prenom, dateembauche, motdepasse, admin, anniversaire, email, serviceIdservice, fonctionIdfonction) VALUES (?,?,?,?,?,?,?,?,?)",
+      "INSERT INTO utilisateur ( nom,prenom, dateembauche, motdepasse, admin, anniversaire,serviceIdservice, fonctionIdfonction, email,  biographie, avatar) VALUES (?,?,?,?,?,?,?,?,?,?,?)",
       [
         nom,
         prenom,
@@ -35,9 +38,12 @@ const createUtilisateur = async (
         hashedMotdepasse,
         admin,
         anniversaire,
-        email,
         serviceIdservice,
         fonctionIdfonction,
+        email,
+
+        biographie,
+        avatar,
       ]
     );
 

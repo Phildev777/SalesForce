@@ -12,7 +12,13 @@ function UtilisateurCarte({
   return (
     <div
       className="UserCard"
-      onClick={() => displayProfileCard}
+      onClick={() =>
+        displayProfileCard({
+          prenom: firstname,
+          nom: lastname,
+          service,
+        })
+      }
       role="button"
       onKeyDown={displayProfileCard}
       tabIndex={0}

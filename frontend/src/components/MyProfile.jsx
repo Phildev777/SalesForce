@@ -54,6 +54,7 @@ function MyProfile() {
         {" "}
         <span className=" bio">Biographie</span>
         <p>
+          {/* {props.prenom} */}
           Lorem ipsum dolor sit amet. Non nulla mollitia sed atque tenetur et
           sint quam aut cumque perferendis quo quae veritatis ut maxime optio in
           mollitia autem. Et necessitatibus suscipit eos voluptatibus

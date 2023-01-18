@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import UtilisateurCarte from "@components/UtilisateurCarte";
 import "../assets/styles/Utilisateurs.css";
 import magnifier from "@assets/magnifier.svg";
+import axios from "axios";
 
 function Utilisateurs() {
   const [searchBar, setSearchBar] = React.useState("");
@@ -18,7 +19,7 @@ function Utilisateurs() {
     setOngletTous(true);
   };
 
-  const db = [
+  let db = [
     {
       id: "0",
       firstname: "lucie",
@@ -93,6 +94,24 @@ function Utilisateurs() {
       service: "compa",
     },
   ];
+  const [dataUser, setDataUser] = React.useState([])
+
+
+  const fef = () => {
+    axios
+      .get("http://localhost:5005/api/utilisateur/test")
+      .then((res) => {
+        console.log(res.data);
+        setDataUser(res.data)
+      })
+      .catch((err) => console.log(err))
+
+  }
+
+
+  React.useEffect(() => {
+    fef()
+  }, [])
 
   return (
     <div className="containerfull">
@@ -120,20 +139,20 @@ function Utilisateurs() {
           </div>
 
           <div className="utilisateursContainer">
-            {db /* .filter((data) => data.service == "commercial") */
+            {dataUser /* .filter((data) => data.service == "commercial") */
               .filter((data) => {
                 const tmp = searchBar.toLocaleLowerCase();
                 return (
-                  data.firstname.toLowerCase().includes(tmp) ||
-                  data.lastname.toLowerCase().includes(tmp)
+                  data.prenom.toLowerCase().includes(tmp) ||
+                  data.nom.toLowerCase().includes(tmp)
                 );
               })
               .map((data) => (
                 <UtilisateurCarte
                   key={data.id}
-                  firstname={data.firstname}
-                  lastname={data.lastname}
-                  service={data.service}
+                  firstname={data.prenom}
+                  lastname={data.username}
+                  service={data.serviceName}
                 />
               ))}
           </div>

@@ -3,11 +3,13 @@ const router = require("express").Router();
 const utilisateurController = require("../controllers/utilisateurs.controller");
 
 router.get("/", utilisateurController.getAllUtilisateurs);
+router.get("/test", utilisateurController.getAllUtilisateursService);
 router.get("/:id", utilisateurController.getUtilisateurById);
 router.post("/login", utilisateurController.login);
 router.post("/creation", utilisateurController.createUtilisateur);
 router.put("/", utilisateurController.updateUtilisateur);
 router.delete("/:id", utilisateurController.deleteUtilisateur);
+
 
 module.exports = router;
 

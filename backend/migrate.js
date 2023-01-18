@@ -26,6 +26,7 @@ const migrate = async () => {
 
 try {
   migrate();
+  console.log("ca migre");
 } catch (err) {
   console.error(err);
 }

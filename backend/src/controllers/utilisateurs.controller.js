@@ -58,9 +58,11 @@ const createUtilisateur = async (req, res) => {
     motdepasse,
     admin,
     anniversaire,
-    email,
     serviceIdservice,
     fonctionIdfonction,
+    email,
+    biographie,
+    avatar,
   } = req.body;
 
   const result = await utilisateurModel.createUtilisateur(
@@ -70,9 +72,11 @@ const createUtilisateur = async (req, res) => {
     motdepasse,
     admin,
     anniversaire,
-    email,
     serviceIdservice,
-    fonctionIdfonction
+    fonctionIdfonction,
+    email,
+    biographie,
+    avatar
   );
 
   if (result === "Created") {

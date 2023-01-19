@@ -1,31 +1,47 @@
-import React from "react";
+import { useState } from "react";
 import "../assets/styles/header.css";
-import { Link } from "react-router-dom";
-
+import { NavLink } from "react-router-dom";
+import { ImSwitch } from "react-icons/im";
+import avatar from "../assets/avatar1.svg";
+// import * as Icons from "react-icons/io";
 function Header() {
-  const [nav, setNav] = React.useState(false);
+  const [nav, setNav] = useState(false);
   const handleNav = () => setNav(!nav);
+
+  /*   function CustomFaIcon({ GoAlert }) {
+      const FaIcon = Icons[GoAlert];
+      if (!FaIcon) return <p>PAS DE LOGO</p>;
+  
+      return <FaIcon />;
+    } */
+
   return (
     <>
       <header className={`${nav ? "show" : "hide"}`}>
         <div className="containerHeaderImg">
-          <img alt="profil" />
+          <img alt="profil" src={avatar} />
         </div>
         <ul>
           <li>
-            <Link to="/mon espace">Mon espace</Link>
+            <NavLink to="/mon espace">Mon espace</NavLink>
           </li>
           <li>
-            <Link to="/idees">Idées</Link>
+            <NavLink to="/idees">Idées</NavLink>
           </li>
           <li>
-            <Link to="/utilisateurs">Utilisateurs</Link>
+            <NavLink to="/utilisateurs">Utilisateurs</NavLink>
           </li>
           <li>
-            <Link to="/services">Services</Link>
+            <NavLink to="/services">Services</NavLink>
+          </li>
+
+          <li>
+            <NavLink to="/admin">Admin</NavLink>
           </li>
           <li>
-            <Link to="/admin">Admin</Link>
+            <NavLink to="/">
+              <ImSwitch className="disconnect" /> Déconnexion
+            </NavLink>
           </li>
         </ul>
       </header>

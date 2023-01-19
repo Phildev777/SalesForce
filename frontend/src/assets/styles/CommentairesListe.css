@@ -1,0 +1,44 @@
+.commentaireListe {
+  display: grid;
+  grid-template-rows: 1fr 50px;
+  border: solid;
+  border-radius: 20px;
+  padding: 0.5rem;
+  /* max-height: 100%; */
+  height: 55vh;
+  width: 16vw;
+}
+
+.comms {
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100%;
+}
+
+.insererCommentaire {
+  width: 95%;
+  padding-top: 0.5rem;
+}
+
+textarea {
+  width: 95%;
+}
+
+.comms::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+.comms::-webkit-scrollbar {
+  border-radius: 10px;
+  background: transparent;
+  width: 10px;
+  /*scroll-padding-right: 3rem;
+    height: 90%;*/
+}
+
+.comms::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 10px;
+  height: 1rem;
+  border: 1px solid rgb(0, 0, 0);
+}

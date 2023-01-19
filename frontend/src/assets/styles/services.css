@@ -1,0 +1,45 @@
+:root {
+  --primary-color: #00a1e0;
+  --secondary-color: #0b5cab;
+  --tertiary-color: #16325c;
+  --form-background-color: #fcfafa;
+  --cases-form-background-color: #eae7e7;
+  --font-family: "Inter", sans-serif;
+  --font-weight-bold: 700;
+  --font-weight-regular: 400;
+  --box-radius: 50px;
+}
+
+.Services {
+  min-width: 240px;
+
+  background-color: var(--cases-form-background-color);
+  margin: 5% 20% 2% 10%;
+  border-radius: var(--box-radius);
+  text-align: center;
+  padding: 0% 0% 2% 0%;
+  box-shadow: 5px 5px 15px 5px #000000;
+  display: inline-block;
+}
+
+.NomsServices {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 10%;
+  background-color: #0b5cab;
+  border-radius: 50px 50px 0px 0px;
+  padding-top: 5%;
+  padding-bottom: 2%;
+}
+
+.Caract {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-bold);
+}
+
+.Global {
+  display: grid;
+  grid-template-columns: 310px 310px;
+  grid-template-rows: repeat(6, 230px);
+  gap: 30px;
+}

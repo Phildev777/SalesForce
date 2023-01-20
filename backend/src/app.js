@@ -5,6 +5,8 @@ const cors = require("cors");
 // const connection = require("./config/db");
 const usersRoute = require("./routes/utilisateurs.route");
 
+const ideeRoute = require("./routes/idee.route");
+
 const app = express();
 
 const corsOptions = {
@@ -20,10 +22,12 @@ app.use(cors(corsOptions));
 app.use(express.json());
 // app.use(cookieParser());
 
-app.use("/api/utilisateur/", usersRoute);
+app.use("/api/utilisateur", usersRoute);
 app.get("/", (req, res) => {
   res.status(200).send("yeah");
 });
+
+app.use("/api/idee", ideeRoute);
 
 // ready to export
 module.exports = app;

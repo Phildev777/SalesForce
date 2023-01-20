@@ -1,43 +1,61 @@
-// import React, { useState, useRef } from "react";
 import "../assets/styles/profileCss.css";
+// import { useEffect, useState } from "react";
+// import axios from "axios";
 import cake from "../assets/cake.svg";
 import idée from "../assets/idée.svg";
 import avatar from "../assets/avatar.svg";
-// import { useState } from "react";
+import crayon from "../assets/crayon.svg";
 
 function MyProfile() {
   // state (état,données)
-  // const [biography, setBiography] = useState(false);
 
-  const tab = [
-    {
-      prenom: "Mike",
-      nom: "Tyson",
-      service: "RH",
-      date_embauche: "15/10/2022",
-      mail: "mikyBoxy@wanadoo.fr",
-    },
-  ];
+  // const [biography, setBiography] = useState(false);
+  // const [avatars, setAvatars] = useState(avatar);
+
+  // const [data, setData] = useState([]);
+
+  // const getProfile = () => {
+  //   axios
+  //     .get(`${PROCESS.env.VITE_BACKEND_URL}/api/utilisateur/profile`)
+  //     .then((res) => {
+  //       return setData(res.data);
+  //     })
+  //     .catch((err) => {
+  //       return res.status(500).send(err);
+  //     });
+  // };
+
+  // useEffect(() => {
+  //   getProfile();
+  // });
 
   // const handleBio = () => {
   //   setBiography(!biography);
   // }
-
   /// affichage (render)
+
+  // function handleAvatarChange(event) {
+  //   setAvatars(event.target.value);
+  // }
+
   return (
     <div className="all">
       <div className="infosContainer">
         <div className="img">
+          <label className="label" htmlFor="cursor">
+            <img src={crayon} alt="crayon" />
+          </label>
           <img className="avatar" src={avatar} alt="avatar" />
         </div>
+
         <div className="firstidea">
-          <div className="white"> {tab[0].prenom}</div>
-          <div className="white"> {tab[0].nom} </div>
+          {/* <div className="white"> {prenom}</div>
+          <div className="white"> {nom} </div> */}
           <div className="row">
             <div className="sdm">
-              <div className="white"> {tab[0].service} </div>
+              {/* <div className="white"> {tab[0].service} </div>
               <div className="white"> {tab[0].date_embauche} </div>
-              <div className="white"> {tab[0].mail} </div>
+              <div className="white"> {tab[0].mail} </div> */}
             </div>
             <div className="birthidea">
               <div className="white">
@@ -53,7 +71,11 @@ function MyProfile() {
       <div className="biography">
         {" "}
         <span className=" bio">Biographie</span>
+        {/* <p value={biography}> */}
+        {/* {biography ? ( <p value={biography}>
+        </p> ) : ( <div className="text"><textarea name="bio" id="bio" cols="30" rows="10">Ajoutez/ Modifier</textarea></div> ) } */}
         <p>
+          {/* {props.prenom} */}
           Lorem ipsum dolor sit amet. Non nulla mollitia sed atque tenetur et
           sint quam aut cumque perferendis quo quae veritatis ut maxime optio in
           mollitia autem. Et necessitatibus suscipit eos voluptatibus

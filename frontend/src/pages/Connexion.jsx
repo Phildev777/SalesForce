@@ -14,8 +14,10 @@ function Connexion() {
     e.preventDefault();
 
     axios
-      .post("http://localhost:5005/api/utilisateur/", { nom, motdepasse })
-
+      .post(`${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/login`, {
+        nom,
+        motdepasse,
+      })
       .then((res) => {
         if (res.data === "Utilisateur pas trouvé") {
           alert(res.data);
@@ -25,7 +27,7 @@ function Connexion() {
         } else if (res.data.admin === 1) {
           localStorage.setItem("token", res.data.token);
           navigate("/admin");
-        }
+      }
       })
 
       .catch((err) => {

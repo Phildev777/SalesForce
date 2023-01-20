@@ -34,9 +34,11 @@ function App() {
   return (
     <div>
       {location.pathname !== "/" && <Header />}
+
       {location.pathname === "/admin/modifier" && <Header2 />}
       {location.pathname === "/admin/supprimer" && <Header2 />}
       {location.pathname === "/admin/inscrire" && <Header2 />}
+
       <Routes>
         <Route path="/home" element={<Home />} />
         <Route path="/mon espace" element={<Monespace />} />

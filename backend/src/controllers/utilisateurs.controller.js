@@ -6,12 +6,18 @@ require("dotenv").config();
 const getAllUtilisateurs = (req, res) => {
   utilisateurModel
     .getAllUtilisateurs()
-    .then((result) => {
+    .then(([result]) => {
       res.status(200).send(result);
     })
     .catch((err) => {
       console.error(err);
     });
+};
+
+const getAllUtilisateursService = (req, res) => {
+  utilisateurModel.getAllUtilisateursService().then(([result]) => {
+    res.status(200).send(result);
+  });
 };
 
 const updateUtilisateur = (req, res) => {
@@ -59,9 +65,11 @@ const createUtilisateur = async (req, res) => {
     motdepasse,
     admin,
     anniversaire,
-    email,
     serviceIdservice,
     fonctionIdfonction,
+    email,
+    biographie,
+    avatar,
   } = req.body;
 
   const result = await utilisateurModel.createUtilisateur(
@@ -71,9 +79,11 @@ const createUtilisateur = async (req, res) => {
     motdepasse,
     admin,
     anniversaire,
-    email,
     serviceIdservice,
-    fonctionIdfonction
+    fonctionIdfonction,
+    email,
+    biographie,
+    avatar
   );
 
   if (result === "Created") {
@@ -118,5 +128,7 @@ module.exports = {
   deleteUtilisateur,
   createUtilisateur,
   login,
+
   getUserToken,
+
 };

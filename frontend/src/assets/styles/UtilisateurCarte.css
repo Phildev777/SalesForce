@@ -1,16 +1,19 @@
 .UserCard {
   border-radius: 25px;
-  background-color: azure;
-  height: auto;
-}
-
-.UserCard > * {
-  border: solid 1px black;
+  background-color: var(--form-background-color);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.5);
+  width: 15rem;
+  justify-content: center;
 }
 
 .containerUserCardImg {
   height: 10em;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
 }
 
 .containerUserCardImg > img {
@@ -20,5 +23,10 @@
 h2,
 h3,
 h4 {
-  margin: 0;
+  margin: auto;
+  text-align: center;
+}
+
+h4 {
+  margin-top: 10px;
 }

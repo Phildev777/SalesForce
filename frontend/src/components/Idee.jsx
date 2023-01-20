@@ -8,6 +8,7 @@ import emptyFavIcon from "../assets/emptyFavIcon.svg";
 import commentIcon from "../assets/commentIcon.svg";
 import likeIcon from "../assets/likeIcon.svg";
 import avatar from "../assets/avatar1.svg";
+// import test from "../assets/test.svg";
 
 function Idee({
   id,

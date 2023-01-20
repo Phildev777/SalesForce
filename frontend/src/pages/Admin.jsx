@@ -1,13 +1,13 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import Header2 from "@components/Header2";
+import Header from "@components/Header";
 
 function Admin() {
   return (
     <div>
       <div>
         <div>
-          <Header2 />
+          <Header />
           <h1 className="titre">Bienvenue Administrateur</h1>
         </div>
         <div className="formAdmin">

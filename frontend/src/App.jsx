@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Connexion from "@pages/Connexion";
 import Header from "@components/Header";
-import Header2 from "@components/Header2";
+// import Header2 from "@components/Header2";
 import axios from "axios";
 import Home from "./pages/Home";
 import Admin from "./pages/Admin";
@@ -35,9 +35,9 @@ function App() {
     <div>
       {location.pathname !== "/" && <Header />}
 
-      {location.pathname === "/admin/modifier" && <Header2 />}
-      {location.pathname === "/admin/supprimer" && <Header2 />}
-      {location.pathname === "/admin/inscrire" && <Header2 />}
+      {location.pathname === "/admin/modifier" && <Header />}
+      {location.pathname === "/admin/supprimer" && <Header />}
+      {location.pathname === "/admin/inscrire" && <Header />}
 
       <Routes>
         <Route path="/home" element={<Home />} />

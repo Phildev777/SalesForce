@@ -43,8 +43,6 @@ function Header() {
               <ImSwitch className="disconnect" /> Déconnexion
             </NavLink>
           </li>
-
-
         </ul>
       </header>
       <button className="burger" type="button" onClick={handleNav}>

@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { ImSwitch } from "react-icons/im";
 import avatar from "../assets/avatar1.svg";
 // import * as Icons from "react-icons/io";
-function Header2() {
+function Header() {
   const [nav, setNav] = useState(false);
   const handleNav = () => setNav(!nav);
 
@@ -18,10 +18,6 @@ function Header2() {
   return (
     <>
       <header className={`${nav ? "show" : "hide"}`}>
-        <NavLink to="/">
-          <ImSwitch className="disconnect" />
-        </NavLink>
-
         <div className="containerHeaderImg">
           <img alt="profil" src={avatar} />
         </div>
@@ -38,8 +34,11 @@ function Header2() {
           <li>
             <NavLink to="/services">Services</NavLink>
           </li>
+
           <li>
-            <NavLink to="/admin">Admin</NavLink>
+            <NavLink to="/">
+              <ImSwitch className="disconnect" /> Déconnexion
+            </NavLink>
           </li>
         </ul>
       </header>
@@ -50,4 +49,4 @@ function Header2() {
   );
 }
 
-export default Header2;
+export default Header;

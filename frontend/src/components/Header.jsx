@@ -18,10 +18,6 @@ function Header() {
   return (
     <>
       <header className={`${nav ? "show" : "hide"}`}>
-        <NavLink to="/">
-          <ImSwitch className="disconnect" />
-        </NavLink>
-
         <div className="containerHeaderImg">
           <img alt="profil" src={avatar} />
         </div>
@@ -38,6 +34,17 @@ function Header() {
           <li>
             <NavLink to="/services">Services</NavLink>
           </li>
+
+          <li>
+            <NavLink to="/admin">Admin</NavLink>
+          </li>
+          <li>
+            <NavLink to="/">
+              <ImSwitch className="disconnect" /> Déconnexion
+            </NavLink>
+          </li>
+
+
         </ul>
       </header>
       <button className="burger" type="button" onClick={handleNav}>

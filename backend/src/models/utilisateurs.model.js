@@ -67,8 +67,11 @@ const updateUtilisateur = (id, newVersion) => {
   ]);
 };
 
-const deleteUtilisateur = (id) => {
-  return connection.query("DELETE FROM utilisateur WHERE id=?;", [id]);
+const deleteUtilisateur = (nom, prenom) => {
+  return connection.query("DELETE FROM utilisateur WHERE nom=? and prenom=?", [
+    nom,
+    prenom,
+  ]);
 };
 
 const login = async (nom, motdepasse) => {
@@ -78,14 +81,14 @@ const login = async (nom, motdepasse) => {
       process.env.SALT
     );
     const [result] = await connection.query(
-      "SELECT id, nom, admin FROM utilisateur WHERE nom=? AND motdepasse=?",
+      "SELECT id, nom,prenom, admin, serviceIdservice, fonctionIdfonction FROM utilisateur WHERE nom=? AND motdepasse=?",
       [nom, hashedMotdepasse]
     );
 
     if (result.length > 0) {
       return result[0];
     }
-    return "problème";
+    return "Utilisateur non trouvé";
   } catch (e) {
     console.error(e);
     return e;

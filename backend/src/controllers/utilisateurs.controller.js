@@ -39,9 +39,8 @@ const getUtilisateurById = (req, res) => {
 };
 
 const deleteUtilisateur = async (req, res) => {
-  const { nom, prenom } = req.body;
   await utilisateurModel
-    .deleteUtilisateur(nom, prenom)
+    .deleteUtilisateur(req.params.nom, req.params.prenom)
 
     .then((result) => {
       res.status(200).send(result);

@@ -6,20 +6,22 @@ function Supprimer() {
   const [nom, setNom] = useState("");
   const [prenom, setPrenom] = useState("");
 
-  /*  const handleNom = (e) => {
-    e.preventDefault(); */
+  const handleNom = (e) => {
+    e.preventDefault();
 
-  axios
-    .post("http://localhost:5005/api/utilisateur/supprimer", { nom, prenom })
+    axios
+      .delete(
+        `http://localhost:5005/api/utilisateur/supprimer/${nom}/${prenom}`
+      )
 
-    .then((res) => {
-      res.status(500).send(res);
-    })
+      .then((res) => {
+        console.warn(res.data);
+      })
 
-    .catch((err) => {
-      console.error(err);
-    });
-
+      .catch((err) => {
+        console.error(err);
+      });
+  };
   return (
     <div>
       <div>
@@ -36,7 +38,7 @@ function Supprimer() {
         </ul>
         <div>
           <div>
-            <form onSubmit="delete">
+            <form onSubmit={handleNom}>
               <ul>
                 <li>
                   <label htmlFor="text">Nom du Collaborateur :</label>

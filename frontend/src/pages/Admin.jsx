@@ -10,17 +10,17 @@ function Admin() {
           <Header2 />
           <h1 className="titre">Bienvenue Administrateur</h1>
         </div>
-        <div>
+        <div className="formAdmin">
           <ul>
-            <li>
+            <li className="linkadmin">
               <NavLink to="/admin/inscrire">inscrire un collaborateur</NavLink>
             </li>
-            <li>
+            <li className="linkadmin">
               <NavLink to="/admin/supprimer">
                 supprimer un collaborateur
               </NavLink>
             </li>
-            <li>
+            <li className="linkadmin">
               <NavLink to="/admin/modifier">modifier un collaborateur</NavLink>
             </li>
           </ul>

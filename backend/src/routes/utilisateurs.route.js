@@ -7,7 +7,10 @@ router.get("/:id", utilisateurController.getUtilisateurById);
 router.post("/", utilisateurController.login);
 router.post("/creation", utilisateurController.createUtilisateur);
 router.put("/:id", utilisateurController.updateUtilisateur);
-router.delete("/supprimer", utilisateurController.deleteUtilisateur);
+router.delete(
+  "/supprimer/:nom/:prenom",
+  utilisateurController.deleteUtilisateur
+);
 router.get("/token/user", utilisateurController.getUserToken);
 module.exports = router;
 

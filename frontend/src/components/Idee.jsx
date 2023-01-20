@@ -63,7 +63,7 @@ function Idee({
     >
       {!selected || id !== selected ? (
         <div className="titleContainerSmall">
-          <div className="avatar">
+          <div className="avatar1">
             {" "}
             <img src={avatar} alt="avatar" />
           </div>
@@ -87,7 +87,7 @@ function Idee({
         <div className="ideaContainerBig">
           <div className="leftContent">
             <div className="titleContainerBig">
-              <div className="avatar">
+              <div className="avatar1">
                 {" "}
                 <img src={avatar} alt="avatar" />
               </div>

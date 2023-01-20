@@ -14,7 +14,7 @@ function Connexion() {
     e.preventDefault();
 
     axios
-      .post(`${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/login`, {
+      .post(`${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/`, {
         nom,
         motdepasse,
       })
@@ -27,7 +27,7 @@ function Connexion() {
         } else if (res.data.admin === 1) {
           localStorage.setItem("token", res.data.token);
           navigate("/admin");
-      }
+        }
       })
 
       .catch((err) => {

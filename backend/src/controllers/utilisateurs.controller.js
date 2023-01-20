@@ -128,7 +128,6 @@ module.exports = {
   deleteUtilisateur,
   createUtilisateur,
   login,
-
+  getAllUtilisateursService,
   getUserToken,
-
 };

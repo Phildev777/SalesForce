@@ -1,7 +1,8 @@
 .hide {
   position: fixed;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 15em 1fr;
+  gap: 30px;
   /* background-color: blueviolet; */
   width: 20em;
   height: 100vh;
@@ -18,8 +19,8 @@
   margin-top: 25px;
   margin-left: auto;
   margin-right: auto;
-  height: 15em;
-  width: 15em;
+  /* height: 100%;
+  width: 100%; */
   /* border-radius: 50%; */
   overflow: hidden;
   display: flex;
@@ -40,11 +41,11 @@
   display: flex;
   flex-direction: column;
   margin: auto;
-  margin-bottom: 0;
+  margin-bottom: 40px;
   margin-top: 0;
   padding: 0;
   width: 18em;
-  height: calc(100% - 18em - 25px);
+  /* height: 100%; */
   justify-content: space-between;
 }
 
@@ -53,11 +54,12 @@
 }
 
 .hide ul li a {
+  text-align: center;
   display: block;
   background-color: white;
   /* margin: 1em; */
-  margin-left: auto;
-  margin-right: auto;
+  /* margin-left: auto;
+  margin-right: auto; */
   font-size: 20px;
   text-decoration: none;
   box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.5);
@@ -67,12 +69,12 @@
 }
 
 .hide ul li:first-child {
-  margin-top: 2em;
+  /* margin-top: 2em; */
 }
 
 .hide ul li:last-child {
   margin-top: 4em;
-  margin-bottom: 1em;
+  /* margin-bottom: 1em; */
 }
 
 .hide ul li a:hover,

@@ -8,11 +8,14 @@ import emptyFavIcon from "../assets/emptyFavIcon.svg";
 import commentIcon from "../assets/commentIcon.svg";
 import likeIcon from "../assets/likeIcon.svg";
 import avatar from "../assets/avatar1.svg";
+import crossIcon from "../assets/crossIcon.svg";
+
 // import test from "../assets/test.svg";
 
 function Idee({
   id,
   title,
+  nom,
   modified,
   comments,
   published,
@@ -21,7 +24,8 @@ function Idee({
   selected,
   setSelected,
 }) {
-  const handleOpen = () => {
+  const handleOpen = (e) => {
+    e.stopPropagation();
     setSelected(id);
   };
 
@@ -29,6 +33,11 @@ function Idee({
 
   const showCommentaires = () => {
     setCommentaires(!commentaires);
+  };
+
+  const handleClosed = (e) => {
+    e.stopPropagation();
+    setSelected(null);
   };
 
   const [likesIdea, setLikesIdea] = useState(0);
@@ -52,7 +61,7 @@ function Idee({
       onKeyDown={handleOpen}
       tabIndex={0}
     >
-      {id !== selected ? (
+      {!selected || id !== selected ? (
         <div className="titleContainerSmall">
           <div className="avatar">
             {" "}
@@ -61,6 +70,8 @@ function Idee({
           <div className="titleIdeaSmall">
             {title} <img src={emptyFavIcon} alt="emptyfavicon" />
           </div>
+          <div className="published">Publiée le : {published}</div>
+
           <div className="modifiedIdeaSmall">Modifiée le {modified}</div>
           <div className="commentsandlikesSmall">
             <img
@@ -103,11 +114,22 @@ function Idee({
                 >
                   <img src={likeIcon} alt="likeicon" /> {likesIdea}
                 </div>
+                <div
+                  className="closeIdea"
+                  onClick={handleClosed}
+                  role="button"
+                  onKeyDown={handleClosed}
+                  tabIndex={0}
+                >
+                  <img src={crossIcon} alt="cross" />
+                </div>
               </div>
             </div>
             <div className="theme">Thème : {theme}</div>
             <div className="service">Service : {service}</div>
-            <div className="published">Publiée par : {published}</div>
+            <div className="published">Publiée le : {published}</div>
+            <div className="published">Publiée par : {nom}</div>
+
             <div className="textIdea">
               Lorem ipsum dolor sit amet. Non nulla mollitia sed atque tenetur
               et sint quam aut cumque perferendis quo quae veritatis ut maxime
@@ -144,6 +166,7 @@ function Idee({
 Idee.propTypes = {
   id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
+  nom: PropTypes.string.isRequired,
   modified: PropTypes.string.isRequired,
   comments: PropTypes.number.isRequired,
   published: PropTypes.string.isRequired,

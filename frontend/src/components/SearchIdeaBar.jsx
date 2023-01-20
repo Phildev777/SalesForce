@@ -55,7 +55,7 @@ function SearchIdeaBar({
             value={selectedService}
             onChange={(e) => handleSelectedService(e.target.value)}
           >
-            <option value="">---</option>
+            <option value="">Choisir un service</option>
             {services.map((service) => (
               <option key={service.id}>{service.nom}</option>
             ))}

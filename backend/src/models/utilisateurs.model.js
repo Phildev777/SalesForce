@@ -5,6 +5,11 @@ require("dotenv").config();
 const getAllUtilisateurs = () => {
   return connection.query("SELECT * FROM  utilisateur;");
 };
+const getAllUtilisateursService = () => {
+  return connection.query(
+    "SELECT u.serviceIdservice,u.prenom ,u.id , u.nom AS username, s.nom AS serviceName FROM utilisateur AS u LEFT JOIN service AS s ON u.serviceIdservice = s.idservice"
+  );
+};
 
 const getUtilisateurById = (id) => {
   return connection.query("SELECT * FROM utilisateur WHERE id=?", [id]);
@@ -62,8 +67,11 @@ const updateUtilisateur = (id, newVersion) => {
   ]);
 };
 
-const deleteUtilisateur = (id) => {
-  return connection.query("DELETE FROM utilisateur WHERE id=?;", [id]);
+const deleteUtilisateur = (nom, prenom) => {
+  return connection.query("DELETE FROM utilisateur WHERE nom=? and prenom=?", [
+    nom,
+    prenom,
+  ]);
 };
 
 const login = async (nom, motdepasse) => {
@@ -73,14 +81,14 @@ const login = async (nom, motdepasse) => {
       process.env.SALT
     );
     const [result] = await connection.query(
-      "SELECT id, nom, admin FROM utilisateur WHERE nom=? AND motdepasse=?",
+      "SELECT id, nom,prenom, admin, serviceIdservice, fonctionIdfonction FROM utilisateur WHERE nom=? AND motdepasse=?",
       [nom, hashedMotdepasse]
     );
 
     if (result.length > 0) {
       return result[0];
     }
-    return "problème";
+    return "Utilisateur non trouvé";
   } catch (e) {
     console.error(e);
     return e;
@@ -94,4 +102,5 @@ module.exports = {
   deleteUtilisateur,
   createUtilisateur,
   login,
+  getAllUtilisateursService,
 };

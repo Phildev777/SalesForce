@@ -36,9 +36,6 @@ function Header() {
           </li>
 
           <li>
-            <NavLink to="/admin">Admin</NavLink>
-          </li>
-          <li>
             <NavLink to="/">
               <ImSwitch className="disconnect" /> Déconnexion
             </NavLink>

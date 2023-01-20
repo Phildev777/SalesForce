@@ -15,10 +15,35 @@
   width: 95%;
 }
 
+.img {
+  position: relative;
+  width: 45%;
+  height: 15rem;
+}
+
 .avatar {
   border-radius: 50%;
   border: 2px solid #ffffff;
   margin: 0 20px 0 10px;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+
+.avatar_pencil {
+  /* opacity: 0.5;  */
+  position: relative;
+  width: 30px;
+  top: 20%;
+  left: 65%;
+  z-index: 1;
+}
+
+.label {
+  position: absolute;
+  top: 20%;
+  left: 70%;
+  z-index: 1;
 }
 
 .firstidea {

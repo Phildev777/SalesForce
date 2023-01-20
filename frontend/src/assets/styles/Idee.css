@@ -19,7 +19,7 @@
 }
 
 .titleIdeaSmall {
-  flex: 1;
+  flex: 0.5;
   text-align: left;
 }
 
@@ -119,4 +119,8 @@
 
 .commentsandlikesSmall svg:hover path {
   fill: green;
+}
+
+.closeIdea {
+  margin-left: 1rem;
 }

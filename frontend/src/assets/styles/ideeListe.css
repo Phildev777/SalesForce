@@ -5,3 +5,11 @@
   /* background-color: aqua; */
   box-sizing: border-box;
 }
+
+.triDate {
+  padding: 0.5rem;
+}
+
+.triDate button {
+  margin: 0.5rem;
+}

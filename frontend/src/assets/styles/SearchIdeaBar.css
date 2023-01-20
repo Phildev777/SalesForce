@@ -2,14 +2,15 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin: 0 10% 0 10%;
   /* width: 100%; */
 }
 
 .ideaAndSearch {
   display: flex;
   justify-content: space-between;
-  padding: 5px 1rem 5px 1rem;
-  width: 90%;
+  padding: 5px 0 5px 0;
+  width: 100%;
 }
 
 .ideaSearch {
@@ -28,6 +29,9 @@
 }
 
 .serviceSelection select {
-  width: 90%;
+  width: 100%;
   text-align: center;
+}
+
+#service-select {
 }

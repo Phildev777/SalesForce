@@ -22,8 +22,10 @@ function Connexion() {
         if (res.data === "Utilisateur pas trouvé") {
           alert(res.data);
         } else if (res.data.admin === 0) {
+          localStorage.setItem("token", res.data.token);
           navigate("/mon espace");
         } else if (res.data.admin === 1) {
+          localStorage.setItem("token", res.data.token);
           navigate("/admin");
       }
       })

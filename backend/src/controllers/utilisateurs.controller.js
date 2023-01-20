@@ -44,9 +44,10 @@ const getUtilisateurById = (req, res) => {
     });
 };
 
-const deleteUtilisateur = (req, res) => {
-  utilisateurModel
-    .deleteUtilisateur(req.params.id)
+const deleteUtilisateur = async (req, res) => {
+  await utilisateurModel
+    .deleteUtilisateur(req.params.nom, req.params.prenom)
+
     .then((result) => {
       res.status(200).send(result);
     })
@@ -99,7 +100,7 @@ const login = async (req, res) => {
   try {
     const { nom, motdepasse } = req.body;
     const result = await utilisateurModel.login(nom, motdepasse);
-    const token = jwt.sign({ user: result[0] }, process.env.TOKEN_SECRET, {
+    const token = jwt.sign({ user: result }, process.env.TOKEN_SECRET, {
       expiresIn: "24h",
     });
     console.warn(result);
@@ -112,6 +113,13 @@ const login = async (req, res) => {
     res.status(500).send(error);
   }
 };
+const getUserToken = (req, res) => {
+  const { user } = jwt.verify(
+    req.headers.authorization,
+    process.env.TOKEN_SECRET
+  );
+  res.status(200).send(user);
+};
 
 module.exports = {
   getAllUtilisateurs,
@@ -120,5 +128,7 @@ module.exports = {
   deleteUtilisateur,
   createUtilisateur,
   login,
-  getAllUtilisateursService,
+
+  getUserToken,
+
 };

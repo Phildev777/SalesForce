@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { ImSwitch } from "react-icons/im";
 import avatar from "../assets/avatar1.svg";
 // import * as Icons from "react-icons/io";
-function Header() {
+function Header2() {
   const [nav, setNav] = useState(false);
   const handleNav = () => setNav(!nav);
 
@@ -38,6 +38,9 @@ function Header() {
           <li>
             <NavLink to="/services">Services</NavLink>
           </li>
+          <li>
+            <NavLink to="/admin">Admin</NavLink>
+          </li>
         </ul>
       </header>
       <button className="burger" type="button" onClick={handleNav}>
@@ -47,4 +50,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default Header2;

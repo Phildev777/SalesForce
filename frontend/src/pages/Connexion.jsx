@@ -14,7 +14,7 @@ function Connexion() {
     e.preventDefault();
 
     axios
-      .post(`${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/login`, {
+      .post(`${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/`, {
         nom,
         motdepasse,
       })
@@ -25,7 +25,7 @@ function Connexion() {
           navigate("/mon espace");
         } else if (res.data.admin === 1) {
           navigate("/admin");
-      }
+        }
       })
 
       .catch((err) => {

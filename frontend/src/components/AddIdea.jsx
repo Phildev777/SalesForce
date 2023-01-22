@@ -53,7 +53,6 @@ function AddIdea({ openFormAddIdea }) {
             onChange={(e) => setTitle(e.target.value)}
           />{" "}
         </div>
-        {/* <div className="themeSelection"> */}
         <form className="themeSelectionForm">
           <label htmlFor="theme-select">
             <select
@@ -72,7 +71,6 @@ function AddIdea({ openFormAddIdea }) {
             </select>
           </label>
         </form>{" "}
-        {/* </div> */}
         <div className="descriptionIdea">
           <textarea
             className="descriptionIdeaInput"
@@ -87,7 +85,7 @@ function AddIdea({ openFormAddIdea }) {
         <div className="file">
           <div className="addFile">
             {" "}
-            <form>
+            <form className="formLink">
               <input
                 className="inputFile"
                 type="file"

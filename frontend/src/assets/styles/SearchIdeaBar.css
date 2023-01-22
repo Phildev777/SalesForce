@@ -2,8 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 0 10% 0 10%;
-  /* width: 100%; */
+  margin: 1rem 10% 0 10%;
 }
 
 .ideaAndSearch {
@@ -13,25 +12,34 @@
   width: 100%;
 }
 
-.ideaSearch {
+.searchIdeaInput {
   width: 35%;
+  border-radius: 25px;
 }
 
 .addIdea {
   width: 35%;
-  background-color: aliceblue;
+  background-color: var(--primary-color);
+  border-radius: 25px;
+  color: white;
+}
+
+.addIdea:hover {
+  background-color: rgb(166, 205, 239);
+}
+
+.addIdea:active {
+  background-color: var(--secondary-color);
+  scale: 1.02;
 }
 
 .serviceSelection {
   width: 100%;
   padding-bottom: 1rem;
-  /* margin: 0 auto; */
 }
 
 .serviceSelection select {
   width: 100%;
   text-align: center;
-}
-
-#service-select {
+  border-radius: 25px;
 }

@@ -34,7 +34,7 @@ function SearchIdeaBar({
           className="searchIdeaInput"
           value={searchValue}
           type="text"
-          placeholder="Recherche"
+          placeholder="Rechercher une idée"
           onChange={(e) => setSearchValue(e.target.value)}
         />
         <div
@@ -55,7 +55,7 @@ function SearchIdeaBar({
             value={selectedService}
             onChange={(e) => handleSelectedService(e.target.value)}
           >
-            <option value="">Choisir un service</option>
+            <option value="">Idées par service</option>
             {services.map((service) => (
               <option key={service.id}>{service.nom}</option>
             ))}

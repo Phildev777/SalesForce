@@ -146,6 +146,39 @@ function IdeeListe({ searchValue, selectedService }) {
       theme: "example",
       service: "Comptabilité",
     },
+    {
+      id: 13,
+      title: "Travail",
+      employee: "Harcourt Etienne",
+      modified: "20/11/2022",
+      comments: 25,
+      likes: 72,
+      published: "09/09/2022",
+      theme: "example",
+      service: "Comptabilité",
+    },
+    {
+      id: 14,
+      title: "Réunion",
+      employee: "Harcourt Fabien",
+      modified: "21/06/2022",
+      comments: 25,
+      likes: 72,
+      published: "15/09/2022",
+      theme: "example",
+      service: "Comptabilité",
+    },
+    {
+      id: 15,
+      title: "Vacances",
+      employee: "Harcourt Etienne",
+      modified: "20/03/2022",
+      comments: 25,
+      likes: 72,
+      published: "08/03/2022",
+      theme: "example",
+      service: "Comptabilité",
+    },
   ]);
   const [selected, setSelected] = useState(null);
 
@@ -162,6 +195,7 @@ function IdeeListe({ searchValue, selectedService }) {
       return Number(dateB) - Number(dateA);
     });
     setDetailIdee(sortedArray);
+    setSelected(null);
   };
 
   const handleDateCroissante = () => {
@@ -177,6 +211,7 @@ function IdeeListe({ searchValue, selectedService }) {
       return Number(dateA) - Number(dateB);
     });
     setDetailIdee(sortedArray);
+    setSelected(null);
   };
 
   return (

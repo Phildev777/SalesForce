@@ -2,8 +2,13 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  /* background-color: aqua; */
   box-sizing: border-box;
+  height: 75vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  width: fit-content;
+  min-width: 100%;
+  margin-bottom: 0.5rem;
 }
 
 .triDate {
@@ -12,4 +17,26 @@
 
 .triDate button {
   margin: 0.5rem;
+}
+
+.ideeListe::-webkit-scrollbar {
+  background: transparent;
+  width: 10px;
+}
+
+.ideeListe::-webkit-scrollbar-thumb {
+  background: transparent;
+  border: 1px solid rgba(22, 50, 92, 0.2);
+  border-radius: 10px;
+}
+
+.ideeListe::-webkit-scrollbar-track-piece {
+  margin: 1rem;
+}
+
+@media screen and (width < 600px) {
+  .ideeListe {
+    margin-bottom: 1rem;
+    height: 75vh;
+  }
 }

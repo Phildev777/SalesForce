@@ -17,6 +17,7 @@
 }
 
 .titleIdeaInput {
+  padding: 5px;
   width: 100%;
   border-radius: 10px;
   border: none;
@@ -41,6 +42,7 @@ justify-content: flex-start;
   border-radius: 10px;
   border: none;
   background-color: var(--cases-form-background-color);
+  padding: 5px;
 }
 
 .descriptionIdea {
@@ -56,6 +58,7 @@ input {
   width: 100%;
   border-radius: 10px;
   border: none;
+  padding: 5px;
 }
 
 textarea {
@@ -75,31 +78,46 @@ textarea {
 }
 
 .addFile {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-content: center;
   width: 30%;
+  min-width: 10rem;
+  height: 5rem;
   border: solid;
   border-radius: 10px;
   background-color: var(--cases-form-background-color);
   border: none;
+}
+
+form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  /* align-items: center; */
+  padding: 3px;
+}
+
+.inputFile {
+  /* background-color: red; */
+}
+
+#file-upload-button {
+  margin: 10rem;
 }
 
 .link {
   display: flex;
 }
 
-.addLink {
-  width: 30%;
+.inputLink {
+  width: 90%;
   border: solid;
   border-radius: 10px;
-  background-color: var(--cases-form-background-color);
+  background-color: var(--form-background-color);
   border: none;
-}
-
-.fileAndLink button {
-  margin-left: 2rem;
-  border-radius: 50%;
-  width: 1.5rem;
-  border: none;
-  background-color: var(--cases-form-background-color);
 }
 
 .submission {

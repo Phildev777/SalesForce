@@ -35,7 +35,7 @@ function Utilisateurs() {
 
   const fef = () => {
     axios
-      .get("http://localhost:5005/api/utilisateur/test")
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/test`)
       .then((res) => {
         setDataUser(res.data);
       })

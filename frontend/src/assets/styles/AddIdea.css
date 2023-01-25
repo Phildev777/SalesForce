@@ -1,7 +1,6 @@
 .mainIdeaContainer {
   background-color: var(--form-background-color);
   border-radius: var(--box-radius);
-  margin-left: 2rem;
   margin-bottom: 2rem;
 }
 
@@ -59,6 +58,10 @@ input {
 
 textarea {
   background-color: var(--cases-form-background-color);
+}
+
+.remaining-characters {
+  color: #aca6a6;
 }
 
 .fileAndLink {

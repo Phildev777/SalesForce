@@ -434,11 +434,12 @@ function Idee({
                 stroke="var(--primary-color)"
               />
             </svg>
-            {/* <img src={emptyFavIcon} alt="emptyfavicon" /> */}
           </div>
-          <div className="published">Publiée le : {published}</div>
+          <div className="publishedAndModifiedSmall">
+            <div className="publishedSmall">Publiée le : {published}</div>
 
-          <div className="modifiedIdeaSmall">Modifiée le {modified}</div>
+            <div className="modifiedIdeaSmall">Modifiée le : {modified}</div>
+          </div>
           <div className="commentsandlikesSmall">
             <svg
               width="30"
@@ -661,8 +662,6 @@ function Idee({
                         fill="var(--tertiary-color)"
                       />
                     </svg>
-
-                    {/* <img src={crossIcon} alt="cross" /> */}
                   </div>
                 </div>
               )}
@@ -808,8 +807,6 @@ function Idee({
                       fill="var(--tertiary-color)"
                     />
                   </svg>
-
-                  {/* <img src={crossIcon} alt="cross" /> */}
                 </div>
               </div>
               <CommentairesListe showCommentaires={showCommentaires} />

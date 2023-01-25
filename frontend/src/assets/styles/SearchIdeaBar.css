@@ -3,12 +3,14 @@
   flex-wrap: wrap;
   justify-content: center;
   margin: 1rem 10% 0 10%;
+  gap: 5px;
 }
 
 .ideaAndSearch {
   display: flex;
   justify-content: space-between;
   padding: 5px 0 5px 0;
+  height: 2.5rem;
   width: 100%;
 }
 
@@ -22,6 +24,9 @@
   background-color: var(--primary-color);
   border-radius: 25px;
   color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .addIdea:hover {
@@ -42,4 +47,31 @@
   width: 100%;
   text-align: center;
   border-radius: 25px;
+  height: 1.5rem;
+}
+
+@media screen and (width < 600px) {
+  .ideaAndSearch {
+    font-size: 11px;
+    justify-content: space-around;
+  }
+
+  .searchIdeaInput {
+    font-size: 12px;
+  }
+}
+
+@media screen and (width < 350px) {
+  .ideaAndSearch {
+    font-size: 10px;
+  }
+
+  .searchIdeaInput {
+    font-size: 10px;
+    width: 50%;
+  }
+
+  .addIdea {
+    width: 50%;
+  }
 }

@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   margin-right: 5vh;
-  margin-top: 5vh;
+  margin-top: 2vh;
   margin-left: 21em;
 }
 
@@ -13,7 +13,6 @@
 
 .titleIdeas {
   margin-left: 3rem;
-  z-index: 1;
   border: none;
   padding-left: 20px;
   padding-right: 20px;
@@ -29,12 +28,13 @@
 
 .selectionAndDisplay {
   background-color: white;
-  padding-right: 2rem;
+  padding-right: 1rem;
   height: auto;
   border: none;
   border-width: 2px;
   border-radius: var(--box-radius);
   width: 100%;
+  padding-bottom: 1rem;
 }
 
 @media screen and (width < 600px) {
@@ -42,7 +42,7 @@
     margin-left: 2em;
     width: fit-content;
     margin-right: 2em;
-    margin-top: 4vh;
+    margin-top: 1vh;
   }
 
   .ideasContainer {
@@ -51,27 +51,15 @@
   .selectionAndDisplay {
     padding-right: 0.5rem;
   }
-  .titleIdeas {
+  /* .titleIdeas {
     margin-top: 5vh;
+  } */
+}
+
+@media screen and (width < 350px) {
+  .mainContainer {
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-top: 2vh;
   }
 }
-/* .selectionAndDisplay::-webkit-scrollbar-track {
-  border-radius: 10px;
-
-} */
-
-/* .selectionAndDisplay::-webkit-scrollbar {
-  border-radius: 10px;
-  background: transparent;
-  width: 10px;
-
-  scroll-padding-right: 3rem;
-  height: 90%;
-} */
-
-/* .selectionAndDisplay::-webkit-scrollbar-thumb {
-  background: transparent;
-  border-radius: 10px;
-  height: 1rem;
-  border: 1px solid rgb(0, 0, 0);
-} */

@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState /* , useEffect */ } from "react";
 import PropTypes from "prop-types";
+// import axios from "axios";
 
 import "../assets/styles/SearchIdeaBar.css";
 import add from "../assets/addIcon.svg";
@@ -25,6 +26,21 @@ function SearchIdeaBar({
       nom: "Marketing",
     },
   ]);
+
+  // const [services, setServices] = useState([]);
+
+  // const getServices = () => {
+  //   axios
+  //     .get(`${import.meta.env.VITE_BACKEND_URL}/api/services/`)
+  //     .then((res) => {
+  //       setServices(res.data);
+  //     })
+  //     .catch((err) => console.error(err));
+  // };
+
+  // useEffect(() => {
+  //   getServices();
+  // }, []);
 
   return (
     <div className="ideaSelection">

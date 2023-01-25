@@ -19,7 +19,7 @@ function App() {
 
       <Routes>
         <Route path="/home" element={<Home />} />
-        <Route path="/mon espace" element={<Monespace />} />
+        <Route path="/mon espace" element={<Monespace id={10} />} />
         <Route path="/idees" element={<Idees />} />
         <Route path="/utilisateurs" element={<Utilisateurs />} />
         <Route path="/services" element={<Services />} />

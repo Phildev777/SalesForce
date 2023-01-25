@@ -26,6 +26,19 @@ const updateUtilisateur = (req, res) => {
     });
 };
 
+const updateUser = (req, res) => {
+  // console.log(req.params, req.body)
+  utilisateurModel
+    .updateUser(req.params.id, req.body.url)
+    .then((result) => {
+      // console.log("llllll", result);
+      res.status(200).json(result);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+};
+
 const getUtilisateurById = (req, res) => {
   utilisateurModel
     .getUtilisateurById(req.params.id)
@@ -114,4 +127,5 @@ module.exports = {
   deleteUtilisateur,
   createUtilisateur,
   login,
+  updateUser,
 };

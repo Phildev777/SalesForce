@@ -4,7 +4,7 @@
   grid-template-rows: 15em 1fr;
   gap: 30px;
   /* background-color: blueviolet; */
-  width: 20em;
+  width: 20%;
   height: 100vh;
   top: 0;
   left: 0;
@@ -19,9 +19,7 @@
   margin-top: 25px;
   margin-left: auto;
   margin-right: auto;
-  /* height: 100%;
-  width: 100%; */
-  /* border-radius: 50%; */
+  width: 100%;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -29,6 +27,7 @@
 }
 
 .containerHeaderImg img {
+  padding: 15px;
   width: 100%;
   height: 100%;
 }
@@ -43,9 +42,9 @@
   margin: auto;
   margin-bottom: 40px;
   margin-top: 0;
-  padding: 0;
-  width: 18em;
-  /* height: 100%; */
+  padding: 0 15px;
+  width: 100%;
+
   justify-content: space-between;
 }
 
@@ -57,24 +56,15 @@
   text-align: center;
   display: block;
   background-color: white;
-  /* margin: 1em; */
-  /* margin-left: auto;
-  margin-right: auto; */
   font-size: 20px;
   text-decoration: none;
   box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.5);
-
   border-radius: 50px;
   padding: 10px;
 }
 
-.hide ul li:first-child {
-  /* margin-top: 2em; */
-}
-
 .hide ul li:last-child {
   margin-top: 4em;
-  /* margin-bottom: 1em; */
 }
 
 .hide ul li a:hover,
@@ -90,6 +80,7 @@
 
 .burger {
   display: none;
+  background-color: aqua;
 }
 
 @media screen and (max-width: 600px) {

@@ -15,7 +15,13 @@ import "./App.css";
 function App() {
   const location = useLocation();
   const [user, setUser] = useState({});
+  /*  const [token, setToken] = useState({
+    userToken: "",
 
+    isAdmin: "",
+
+    id: "",
+  }); */
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
     if (storedToken !== undefined) {

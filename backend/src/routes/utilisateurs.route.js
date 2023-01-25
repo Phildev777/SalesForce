@@ -7,6 +7,13 @@ const utilisateurController = require("../controllers/utilisateurs.controller");
 const profilController = require("../controllers/profilController");
 
 router.get("/", utilisateurController.getAllUtilisateurs);
+
+
+
+router.get("/test", utilisateurController.getAllUtilisateursService);
+
+router.get("/profile", profilController.getAllProfiles);
+
 router.get("/:id", utilisateurController.getUtilisateurById);
 router.get("/profile/:id", profilController.getAllProfiles);
 
@@ -15,7 +22,7 @@ router.put("/modifierAvatar/:id", utilisateurController.updateUser);
 
 router.post("/creation", utilisateurController.createUtilisateur);
 router.put("/:id", utilisateurController.updateUtilisateur);
-router.delete("/:id", utilisateurController.deleteUtilisateur);
+
 
 const upload = multer({ dest: `${__dirname}../../../public/uploads/` });
 
@@ -30,5 +37,12 @@ router.post("/avatar", upload.single("avatar"), (req, res) => {
     res.send(nn.replace(`${__dirname}/../../public/`, ""));
   });
 });
+
+=======
+router.delete(
+  "/supprimer/:nom/:prenom",
+  utilisateurController.deleteUtilisateur
+);
+router.get("/token/user", utilisateurController.getUserToken);
 
 module.exports = router;

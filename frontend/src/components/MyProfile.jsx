@@ -111,6 +111,7 @@ function MyProfile({ id }) {
           </div>
         </div>
 
+
         {data[0].biographie && (
           <div className="biography">
             {" "}
@@ -119,6 +120,7 @@ function MyProfile({ id }) {
           </div>
         )}
         {/* <div className="newIdee">
+
         Ici il y aura les idees que l'utilisateur aura soumis classées par ordre chronologique.
       </div> */}
       </div>

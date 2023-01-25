@@ -1,8 +1,9 @@
 .hide {
   position: fixed;
-  display: flex;
-  flex-direction: column;
-  background-color: blueviolet;
+  display: grid;
+  grid-template-rows: 15em 1fr;
+  gap: 30px;
+  /* background-color: blueviolet; */
   width: 20em;
   height: 100vh;
   top: 0;
@@ -18,9 +19,9 @@
   margin-top: 25px;
   margin-left: auto;
   margin-right: auto;
-  height: 18em;
-  width: 18em;
-  border-radius: 50%;
+  /* height: 100%;
+  width: 100%; */
+  /* border-radius: 50%; */
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -32,18 +33,19 @@
   height: 100%;
 }
 
-.containerHeaderImg:hover {
+/* .containerHeaderImg img:hover {
   background-color: rgba(0, 0, 0, 0.089);
-}
+} */
 
 .hide ul {
   display: flex;
   flex-direction: column;
   margin: auto;
-  margin-bottom: 0;
+  margin-bottom: 40px;
+  margin-top: 0;
   padding: 0;
   width: 18em;
-  height: 100vh;
+  /* height: 100%; */
   justify-content: space-between;
 }
 
@@ -52,16 +54,27 @@
 }
 
 .hide ul li a {
+  text-align: center;
   display: block;
   background-color: white;
-  margin: 1em;
-  margin-left: auto;
-  margin-right: auto;
+  /* margin: 1em; */
+  /* margin-left: auto;
+  margin-right: auto; */
   font-size: 20px;
   text-decoration: none;
+  box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.5);
 
   border-radius: 50px;
   padding: 10px;
+}
+
+.hide ul li:first-child {
+  /* margin-top: 2em; */
+}
+
+.hide ul li:last-child {
+  margin-top: 4em;
+  /* margin-bottom: 1em; */
 }
 
 .hide ul li a:hover,
@@ -90,7 +103,8 @@
     flex-direction: column;
     background-color: blueviolet;
     width: 20em;
-    height: 100vh;
+    height: 100%;
+    top: 0%;
   }
 
   .containerHeaderImg {
@@ -106,9 +120,9 @@
     align-items: center;
   }
 
-  .containerHeaderImg:hover {
-    background-color: rgba(0, 0, 0, 0.089);
-  }
+  /* .containerHeaderImg img:hover { 
+   background-color: rgba(0, 0, 0, 0.089); 
+  } */
 
   .show ul {
     margin: auto;
@@ -175,6 +189,14 @@
     content: "";
     position: absolute;
     left: 0;
+  }
+
+  .bugerIcon::after {
+    transform: translateY(12px);
+  }
+
+  .bugerIcon::before {
+    transform: translateY(-12px);
   }
 
   .bugerIcon::after {

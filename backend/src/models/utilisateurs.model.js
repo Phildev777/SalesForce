@@ -61,17 +61,27 @@ const createUtilisateur = async (
 };
 
 const updateUtilisateur = (id, newVersion) => {
-  return connection.query("UPDATE utilisateur SET motdepasse=?, WHERE id=?", [
+  return connection.query("UPDATE utilisateur SET motdepasse=? WHERE id=?", [
     newVersion,
     id,
   ]);
 };
+
+
+const updateUser = (id, url) => {
+  return connection.query(`UPDATE utilisateur SET avatar=? WHERE id=?`, [
+    url,
+    id,
+  ]);
+};
+
 
 const deleteUtilisateur = (nom, prenom) => {
   return connection.query("DELETE FROM utilisateur WHERE nom=? and prenom=?", [
     nom,
     prenom,
   ]);
+
 };
 
 const login = async (nom, motdepasse) => {
@@ -102,5 +112,8 @@ module.exports = {
   deleteUtilisateur,
   createUtilisateur,
   login,
+
+  updateUser,
+
   getAllUtilisateursService,
 };

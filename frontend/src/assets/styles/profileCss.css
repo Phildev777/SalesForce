@@ -16,34 +16,34 @@
 }
 
 .img {
-  position: relative;
   width: 45%;
   height: 15rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .avatar {
   border-radius: 50%;
   border: 2px solid #ffffff;
   margin: 0 20px 0 10px;
-  position: absolute;
+}
+
+.inputAvatar {
+  opacity: 0;
+}
+
+.custom-file-upload {
+  position: relative;
+  width: 12rem;
+  height: 2rem;
+  border-radius: 25px;
+  background: linear-gradient(40deg, #ff6ec4, #7873f5);
+  box-shadow: 0 4px 7px rgba(0, 0, 0, 0.4);
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
   top: 1rem;
   left: 1rem;
-}
-
-.avatar_pencil {
-  /* opacity: 0.5;  */
-  position: relative;
-  width: 30px;
-  top: 20%;
-  left: 65%;
-  z-index: 1;
-}
-
-.label {
-  position: absolute;
-  top: 20%;
-  left: 70%;
-  z-index: 1;
 }
 
 .firstidea {
@@ -79,6 +79,7 @@
   border: 2px solid white;
   border-radius: 30px;
   width: 100%;
+  overflow: hidden;
 }
 
 .biography {

@@ -2,6 +2,7 @@ const express = require("express");
 // const cookieParser = require("cookie-parser");
 require("dotenv").config({ path: "../config/.env" });
 const cors = require("cors");
+const path = require("path");
 // const connection = require("./config/db");
 
 const multer = require("multer");
@@ -29,7 +30,12 @@ app.use(cors(corsOptions));
 app.use(express.json());
 // app.use(cookieParser());
 
+
+app.use(express.static(path.join(__dirname, "..", "public")));
+
+
 app.use("/api/utilisateur", usersRoute);
+
 app.get("/", (req, res) => {
   res.status(200).send("yeah");
 });

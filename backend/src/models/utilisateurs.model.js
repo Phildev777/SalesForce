@@ -88,7 +88,7 @@ const login = async (nom, motdepasse) => {
       process.env.SALT
     );
     const [result] = await connection.query(
-      "SELECT id, nom,prenom, admin, serviceIdservice, fonctionIdfonction FROM utilisateur WHERE nom=? AND motdepasse=?",
+      "SELECT * FROM utilisateur WHERE nom=? AND motdepasse=?",
       [nom, hashedMotdepasse]
     );
 

@@ -1,15 +1,3 @@
--- MySQL Workbench Forward Engineering
-
-SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
-
-SET
-    @OLD_FOREIGN_KEY_CHECKS = @ @FOREIGN_KEY_CHECKS,
-    FOREIGN_KEY_CHECKS = 0;
-
-SET
-    @OLD_SQL_MODE = @ @SQL_MODE,
-    SQL_MODE = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
-
 -- -----------------------------------------------------
 
 -- Schema salesforce
@@ -39,7 +27,7 @@ CREATE TABLE
         `nbemploye` INT NOT NULL,
         `localisation` VARCHAR(80) NOT NULL,
         PRIMARY KEY (`idservice`)
-    ) ENGINE = InnoDB;
+    );
 
 -- -----------------------------------------------------
 
@@ -52,7 +40,7 @@ CREATE TABLE
         `idfonction` INT NOT NULL AUTO_INCREMENT,
         `nom` VARCHAR(80) NOT NULL,
         PRIMARY KEY (`idfonction`)
-    ) ENGINE = InnoDB;
+    );
 
 -- -----------------------------------------------------
 
@@ -76,7 +64,7 @@ CREATE TABLE
         INDEX `fk_utilisateur_fonction1_idx` (`fonction_idfonction` ASC) VISIBLE,
         CONSTRAINT `fk_utilisateur_service1` FOREIGN KEY (`service_idservice`) REFERENCES `salesforce`.`service` (`idservice`) ON DELETE NO ACTION ON UPDATE NO ACTION,
         CONSTRAINT `fk_utilisateur_fonction1` FOREIGN KEY (`fonction_idfonction`) REFERENCES `salesforce`.`fonction` (`idfonction`) ON DELETE NO ACTION ON UPDATE NO ACTION
-    ) ENGINE = InnoDB;
+    );
 
 -- -----------------------------------------------------
 
@@ -102,7 +90,7 @@ CREATE TABLE
         INDEX `fk_idee_service1_idx` (`service_idservice` ASC) VISIBLE,
         CONSTRAINT `fk_idee_utilisateur1` FOREIGN KEY (`utilisateur_idutilisateur`) REFERENCES `salesforce`.`utilisateur` (`idutilisateur`) ON DELETE NO ACTION ON UPDATE NO ACTION,
         CONSTRAINT `fk_idee_service1` FOREIGN KEY (`service_idservice`) REFERENCES `salesforce`.`service` (`idservice`) ON DELETE NO ACTION ON UPDATE NO ACTION
-    ) ENGINE = InnoDB;
+    );
 
 -- -----------------------------------------------------
 
@@ -120,7 +108,7 @@ CREATE TABLE
         ) VISIBLE,
         CONSTRAINT `fk_favoris_idee` FOREIGN KEY (`idee_ididee`) REFERENCES `salesforce`.`idee` (`ididee`) ON DELETE NO ACTION ON UPDATE NO ACTION,
         CONSTRAINT `fk_favoris_utilisateur1` FOREIGN KEY (`utilisateur_idutilisateur`) REFERENCES `salesforce`.`utilisateur` (`idutilisateur`) ON DELETE NO ACTION ON UPDATE NO ACTION
-    ) ENGINE = InnoDB;
+    );
 
 -- -----------------------------------------------------
 
@@ -138,7 +126,7 @@ CREATE TABLE
         INDEX `fk_likes_idee1_idx` (`idee_ididee` ASC) VISIBLE,
         CONSTRAINT `fk_likes_utilisateur1` FOREIGN KEY (`utilisateur_idutilisateur`) REFERENCES `salesforce`.`utilisateur` (`idutilisateur`) ON DELETE NO ACTION ON UPDATE NO ACTION,
         CONSTRAINT `fk_likes_idee1` FOREIGN KEY (`idee_ididee`) REFERENCES `salesforce`.`idee` (`ididee`) ON DELETE NO ACTION ON UPDATE NO ACTION
-    ) ENGINE = InnoDB;
+    );
 
 -- -----------------------------------------------------
 
@@ -160,7 +148,7 @@ CREATE TABLE
         INDEX `fk_commentaire_idee1_idx` (`idee_ididee` ASC) VISIBLE,
         CONSTRAINT `fk_commentaire_utilisateur1` FOREIGN KEY (`utilisateur_idutilisateur`) REFERENCES `salesforce`.`utilisateur` (`idutilisateur`) ON DELETE NO ACTION ON UPDATE NO ACTION,
         CONSTRAINT `fk_commentaire_idee1` FOREIGN KEY (`idee_ididee`) REFERENCES `salesforce`.`idee` (`ididee`) ON DELETE NO ACTION ON UPDATE NO ACTION
-    ) ENGINE = InnoDB;
+    );
 
 -- -----------------------------------------------------
 
@@ -180,10 +168,4 @@ CREATE TABLE
         ) VISIBLE,
         CONSTRAINT `fk_like_com_commentaire1` FOREIGN KEY (`commentaire_idcommentaire`) REFERENCES `salesforce`.`commentaire` (`idcommentaire`) ON DELETE NO ACTION ON UPDATE NO ACTION,
         CONSTRAINT `fk_like_com_utilisateur1` FOREIGN KEY (`utilisateur_idutilisateur`) REFERENCES `salesforce`.`utilisateur` (`idutilisateur`) ON DELETE NO ACTION ON UPDATE NO ACTION
-    ) ENGINE = InnoDB;
-
-SET SQL_MODE=@OLD_SQL_MODE;
-
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+    );

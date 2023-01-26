@@ -62,7 +62,6 @@ function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/admin" element={<Admin />} />
 
-
           <Route path="/" element={<Connexion setToken={setToken} />} />
         </Routes>
       </UserContext.Provider>
@@ -77,7 +76,6 @@ function App() {
 
         <Route path="/" element={<Connexion />} />
       </Routes>
-
     </div>
   );
 }

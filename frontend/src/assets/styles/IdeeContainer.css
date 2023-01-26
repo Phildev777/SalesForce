@@ -1,50 +1,65 @@
 .mainContainer {
-  height: 100vh;
   display: flex;
   flex-direction: column;
   margin-right: 5vh;
-  margin-top: 5vh;
+  margin-top: 2vh;
   margin-left: 21em;
 }
 
+.ideasContainer {
+  display: flex;
+  flex-direction: column;
+}
+
 .titleIdeas {
+  margin-left: 3rem;
+  border: none;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 5px;
   background-color: white;
-  align-self: flex-start;
-  border-radius: 5px 5px 0 0;
-  border: solid;
-  border-width: 2px 2px 0 2px;
-  width: 5rem;
-  margin-left: 2rem;
+  width: fit-content;
+  font-size: 20px;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  border-bottom: none;
+  cursor: pointer;
 }
 
 .selectionAndDisplay {
   background-color: white;
-  overflow-y: auto;
-  overflow-x: hidden;
-  scrollbar-width: none;
-  min-width: 70vw;
-  height: 80vh;
-
-  border: solid;
+  padding-right: 1rem;
+  height: auto;
+  border: none;
   border-width: 2px;
-  border-radius: 10px;
+  border-radius: var(--box-radius);
+  width: 100%;
+  padding-bottom: 1rem;
 }
 
-.selectionAndDisplay::-webkit-scrollbar-track {
-  border-radius: 10px;
+@media screen and (width < 600px) {
+  .mainContainer {
+    margin-left: 2em;
+    width: fit-content;
+    margin-right: 2em;
+    margin-top: 1vh;
+  }
+
+  .ideasContainer {
+    height: 85vh;
+  }
+  .selectionAndDisplay {
+    padding-right: 0.5rem;
+  }
+  /* .titleIdeas {
+    margin-top: 5vh;
+  } */
 }
 
-.selectionAndDisplay::-webkit-scrollbar {
-  border-radius: 10px;
-  background: transparent;
-  width: 10px;
-  /*scroll-padding-right: 3rem;
-  height: 90%;*/
-}
-
-.selectionAndDisplay::-webkit-scrollbar-thumb {
-  background: transparent;
-  border-radius: 10px;
-  height: 1rem;
-  border: 1px solid rgb(0, 0, 0);
+@media screen and (width < 350px) {
+  .mainContainer {
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-top: 2vh;
+  }
 }

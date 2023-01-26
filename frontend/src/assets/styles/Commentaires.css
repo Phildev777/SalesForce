@@ -1,28 +1,29 @@
 .commentairesContainer {
-  padding: 0.5rem 0 0.5rem 0;
-  background-color: aliceblue;
-  border: solid 1px;
+  padding: 0.5rem;
+  background-color: var(--secondary-color);
+  border: none;
   border-radius: 10px;
-  margin-bottom: 1px;
+  margin-bottom: 0.25rem;
+  color: white;
+}
+
+.commentairesContainer:hover {
+  background-color: #1f76cd;
+  scale: 1.01;
 }
 
 .infoUser {
-  /* background-color: aqua; */
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
 }
 
 .userAndDate {
-  /* border : solid red; */
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 5px;
 }
-
-/* .texte {
-    background-color: bisque;
-} */
 
 .like {
   display: flex;

@@ -16,7 +16,6 @@ function IdeeListe({ searchValue, selectedService }) {
       theme: "example",
       service: "Marketing",
     },
-
     {
       id: 2,
       title: "Fournitures",
@@ -28,7 +27,6 @@ function IdeeListe({ searchValue, selectedService }) {
       theme: "example",
       service: "Ressources humaines",
     },
-
     {
       id: 3,
       title: "Vacances",
@@ -51,7 +49,6 @@ function IdeeListe({ searchValue, selectedService }) {
       theme: "example",
       service: "Comptabilité",
     },
-
     {
       id: 5,
       title: "Bowling",
@@ -63,7 +60,6 @@ function IdeeListe({ searchValue, selectedService }) {
       theme: "example",
       service: "Comptabilité",
     },
-
     {
       id: 6,
       title: "Salle de repos",
@@ -86,7 +82,6 @@ function IdeeListe({ searchValue, selectedService }) {
       theme: "example",
       service: "Comptabilité",
     },
-
     {
       id: 8,
       title: "Machine à café",
@@ -98,7 +93,6 @@ function IdeeListe({ searchValue, selectedService }) {
       theme: "example",
       service: "Comptabilité",
     },
-
     {
       id: 9,
       title: "Vacances",
@@ -110,7 +104,6 @@ function IdeeListe({ searchValue, selectedService }) {
       theme: "example",
       service: "Comptabilité",
     },
-
     {
       id: 10,
       title: "Vacances",
@@ -122,7 +115,6 @@ function IdeeListe({ searchValue, selectedService }) {
       theme: "example",
       service: "Comptabilité",
     },
-
     {
       id: 11,
       title: "Vacances",
@@ -134,7 +126,6 @@ function IdeeListe({ searchValue, selectedService }) {
       theme: "example",
       service: "Comptabilité",
     },
-
     {
       id: 12,
       title: "Vacances",
@@ -143,6 +134,39 @@ function IdeeListe({ searchValue, selectedService }) {
       comments: 25,
       likes: 72,
       published: "05/01/2022",
+      theme: "example",
+      service: "Comptabilité",
+    },
+    {
+      id: 13,
+      title: "Travail",
+      employee: "Harcourt Etienne",
+      modified: "20/11/2022",
+      comments: 25,
+      likes: 72,
+      published: "09/09/2022",
+      theme: "example",
+      service: "Comptabilité",
+    },
+    {
+      id: 14,
+      title: "Réunion",
+      employee: "Harcourt Fabien",
+      modified: "21/06/2022",
+      comments: 25,
+      likes: 72,
+      published: "15/09/2022",
+      theme: "example",
+      service: "Comptabilité",
+    },
+    {
+      id: 15,
+      title: "Vacances",
+      employee: "Harcourt Etienne",
+      modified: "20/03/2022",
+      comments: 25,
+      likes: 72,
+      published: "08/03/2022",
       theme: "example",
       service: "Comptabilité",
     },
@@ -162,6 +186,7 @@ function IdeeListe({ searchValue, selectedService }) {
       return Number(dateB) - Number(dateA);
     });
     setDetailIdee(sortedArray);
+    setSelected(null);
   };
 
   const handleDateCroissante = () => {
@@ -177,6 +202,7 @@ function IdeeListe({ searchValue, selectedService }) {
       return Number(dateA) - Number(dateB);
     });
     setDetailIdee(sortedArray);
+    setSelected(null);
   };
 
   return (
@@ -190,31 +216,38 @@ function IdeeListe({ searchValue, selectedService }) {
           Récente
         </button>
       </div>
-
-      {detailidee
-        .filter((i) =>
-          i.title.toLowerCase().includes(searchValue.toLowerCase())
-        )
-        .filter((i) => (selectedService ? i.service === selectedService : true))
-        .map((i) => (
-          <Idee
-            key={i.id}
-            title={i.title}
-            nom={i.employee}
-            modified={i.modified}
-            comments={i.comments}
-            likes={i.likes}
-            published={i.published}
-            selected={selected}
-            setSelected={(e) => {
-              setSelected(e);
-            }}
-            id={i.id}
-            theme={i.theme}
-            service={i.service}
-            handleDateDecroissante={handleDateDecroissante}
-          />
-        ))}
+      <div className="liste">
+        {detailidee === 0 ? (
+          <div className="noIdea">Aucune idée partagée pour le moment</div>
+        ) : (
+          detailidee
+            .filter((i) =>
+              i.title.toLowerCase().includes(searchValue.toLowerCase())
+            )
+            .filter((i) =>
+              selectedService ? i.service === selectedService : true
+            )
+            .map((i) => (
+              <Idee
+                key={i.id}
+                title={i.title}
+                nom={i.employee}
+                modified={i.modified}
+                comments={i.comments}
+                likes={i.likes}
+                published={i.published}
+                selected={selected}
+                setSelected={(e) => {
+                  setSelected(e);
+                }}
+                id={i.id}
+                theme={i.theme}
+                service={i.service}
+                handleDateDecroissante={handleDateDecroissante}
+              />
+            ))
+        )}
+      </div>
     </div>
   );
 }

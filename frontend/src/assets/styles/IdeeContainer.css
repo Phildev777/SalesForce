@@ -1,9 +1,11 @@
 .mainContainer {
   display: flex;
   flex-direction: column;
-  margin-right: 5vh;
-  margin-top: 2vh;
-  margin-left: 21em;
+  margin-right: 40px;
+  margin-top: 40px;
+  margin-left: 21%;
+  margin-bottom: 40px;
+  height: calc(100vh - 80px);
 }
 
 .ideasContainer {
@@ -48,9 +50,11 @@
   .ideasContainer {
     height: 85vh;
   }
+
   .selectionAndDisplay {
     padding-right: 0.5rem;
   }
+
   /* .titleIdeas {
     margin-top: 5vh;
   } */

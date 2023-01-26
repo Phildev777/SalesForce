@@ -2,6 +2,8 @@ const express = require("express");
 // const cookieParser = require("cookie-parser");
 require("dotenv").config({ path: "../config/.env" });
 const cors = require("cors");
+const path = require("path");
+
 
 const multer = require("multer");
 
@@ -11,6 +13,7 @@ const { v4: uuidv4 } = require("uuid");
 
 const usersRoute = require("./routes/utilisateurs.route");
 
+const themeRoute = require("./routes/theme.route");
 const ideeRoute = require("./routes/idee.route");
 
 const app = express();
@@ -28,12 +31,16 @@ app.use(cors(corsOptions));
 app.use(express.json());
 // app.use(cookieParser());
 
+app.use(express.static(path.join(__dirname, "..", "public")));
+
 app.use("/api/utilisateur", usersRoute);
+
 app.get("/", (req, res) => {
   res.status(200).send("yeah");
 });
 
 app.use("/api/idee", ideeRoute);
+app.use("/api/theme", themeRoute);
 
 app.post("/api/ressource", upload.array("ressource", 5), (req, res) => {
   try {

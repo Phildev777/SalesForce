@@ -1,11 +1,33 @@
+.containerFullPro {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  margin-right: 40px;
+  margin-left: 21em;
+  height: calc(100vh - 80px);
+}
+
+.mainContentPro {
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);
+  background-color: white;
+  align-items: center;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+  border-radius: 50px;
+}
+
 .all {
   display: flex;
   flex-direction: column;
   border: 1px solid rgb(190, 190, 190);
   border-radius: 40px;
-  width: 60%;
-  height: 100%;
-  margin-left: 25%;
+  width: 90%;
+  height: auto;
+  padding: 1%;
+  margin-top: 2%;
   background-color: rgb(190, 190, 190);
 }
 
@@ -16,34 +38,42 @@
 }
 
 .img {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2%;
   position: relative;
-  width: 45%;
-  height: 15rem;
 }
 
 .avatar {
   border-radius: 50%;
   border: 2px solid #ffffff;
   margin: 0 20px 0 10px;
+  opacity: 1;
+  object-fit: cover;
+}
+
+.inputAvatar {
+  opacity: 0;
+  width: 195px;
+  height: 195px;
   position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+.custom-file-upload {
+  position: relative;
+  width: 12rem;
+  height: 1.5rem;
+  border-radius: 25px;
+  box-shadow: 0 4px 7px rgba(0, 0, 0, 0.4);
   top: 1rem;
   left: 1rem;
-}
-
-.avatar_pencil {
-  /* opacity: 0.5;  */
-  position: relative;
-  width: 30px;
-  top: 20%;
-  left: 65%;
-  z-index: 1;
-}
-
-.label {
-  position: absolute;
-  top: 20%;
-  left: 70%;
-  z-index: 1;
+  margin-top: 0;
 }
 
 .firstidea {
@@ -79,6 +109,7 @@
   border: 2px solid white;
   border-radius: 30px;
   width: 100%;
+  overflow: hidden;
 }
 
 .biography {
@@ -104,14 +135,31 @@
   justify-content: flex-end;
 }
 
-@media screen and (max-width: 612px) {
-  .all {
+@media screen and (max-width: 1100px) {
+  .infosContainer {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .containerFullPro {
+    width: 95%;
+    margin: 0 auto;
+    justify-content: center;
+  }
+
+  .mainContentPro {
+    padding: 2.5% 0;
+  }
+
+  .containerFullPro .all {
     display: flex;
     flex-direction: column;
+    width: 95%;
+    margin: 0 auto;
     border: 1px solid rgb(190, 190, 190);
     border-radius: 40px;
     height: 100%;
-    margin-left: 25%;
     background-color: rgb(190, 190, 190);
   }
 
@@ -119,6 +167,12 @@
     display: block;
     align-items: center;
     width: 95%;
+    margin: 0 auto;
+  }
+
+  .img {
+    width: 100%;
+    align-items: center;
   }
 
   .white {

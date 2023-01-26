@@ -4,7 +4,6 @@ require("dotenv").config({ path: "../config/.env" });
 const cors = require("cors");
 const path = require("path");
 
-
 const multer = require("multer");
 
 const upload = multer({ dest: "uploads/" });

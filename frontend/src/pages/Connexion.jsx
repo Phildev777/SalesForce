@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
-
+import Proptypes from "prop-types";
 import "../assets/styles/connexion.css";
 import { useNavigate } from "react-router-dom";
 
-function Connexion() {
+function Connexion({ setToken }) {
   const [nom, setNom] = useState("");
   const [motdepasse, setMotdepasse] = useState("");
 
@@ -23,9 +23,20 @@ function Connexion() {
           alert(res.data);
         } else if (res.data.admin === 0) {
           localStorage.setItem("token", res.data.token);
+
+          setToken({
+            token: res.data.token,
+            id: res.data.id,
+            isAdmin: res.data.admin,
+          });
           navigate("/mon espace");
         } else if (res.data.admin === 1) {
           localStorage.setItem("token", res.data.token);
+          setToken({
+            token: res.data.token,
+            id: res.data.id,
+            isAdmin: res.data.admin,
+          });
           navigate("/admin");
         }
       })
@@ -81,5 +92,7 @@ function Connexion() {
     </div>
   );
 }
-
+Connexion.propTypes = {
+  setToken: Proptypes.string.isRequired,
+};
 export default Connexion;

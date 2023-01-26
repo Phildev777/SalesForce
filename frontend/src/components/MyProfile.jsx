@@ -138,7 +138,6 @@ function MyProfile() {
             </div>
             <button type="button">Envoyer</button>
             {/* <div className="newIdee">
-
         Ici il y aura les idees que l'utilisateur aura soumis classées par ordre chronologique.
       </div> */}
           </div>

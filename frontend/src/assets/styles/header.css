@@ -1,10 +1,11 @@
+.show,
 .hide {
   position: fixed;
   display: grid;
   grid-template-rows: 15em 1fr;
   gap: 30px;
   /* background-color: blueviolet; */
-  width: 20em;
+  width: 20%;
   height: 100vh;
   top: 0;
   left: 0;
@@ -19,9 +20,7 @@
   margin-top: 25px;
   margin-left: auto;
   margin-right: auto;
-  /* height: 100%;
-  width: 100%; */
-  /* border-radius: 50%; */
+  width: 100%;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -29,6 +28,7 @@
 }
 
 .containerHeaderImg img {
+  padding: 15px;
   width: 100%;
   height: 100%;
 }
@@ -36,16 +36,16 @@
 /* .containerHeaderImg img:hover {
   background-color: rgba(0, 0, 0, 0.089);
 } */
-
+.show ul,
 .hide ul {
   display: flex;
   flex-direction: column;
   margin: auto;
   margin-bottom: 40px;
   margin-top: 0;
-  padding: 0;
-  width: 18em;
-  /* height: 100%; */
+  padding: 0 15px;
+  width: 100%;
+
   justify-content: space-between;
 }
 
@@ -53,28 +53,21 @@
   list-style: none;
 }
 
+.show ul li a,
 .hide ul li a {
   text-align: center;
   display: block;
   background-color: white;
-  /* margin: 1em; */
-  /* margin-left: auto;
-  margin-right: auto; */
   font-size: 20px;
   text-decoration: none;
   box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.5);
-
   border-radius: 50px;
   padding: 10px;
 }
 
-.hide ul li:first-child {
-  /* margin-top: 2em; */
-}
-
+.show ul li:last-child,
 .hide ul li:last-child {
   margin-top: 4em;
-  /* margin-bottom: 1em; */
 }
 
 .hide ul li a:hover,
@@ -83,16 +76,17 @@
   color: white;
 }
 
-.hide ul li a:focus {
+.show ul li a:focus .hide ul li a:focus {
   background-color: rgb(38, 38, 172);
   color: white;
 }
 
 .burger {
   display: none;
+  background-color: aqua;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1000px) {
   .hide {
     display: none;
   }
@@ -101,10 +95,11 @@
     position: fixed;
     display: flex;
     flex-direction: column;
-    background-color: blueviolet;
+    background-color: #d2d1d1;
     width: 20em;
     height: 100%;
     top: 0%;
+    z-index: 2;
   }
 
   .containerHeaderImg {
@@ -168,8 +163,9 @@
     left: 20px;
     width: 40px;
     height: 40px;
-    border: solid 1px red;
+    /* border: solid 1px red; */
     cursor: pointer;
+    z-index: 2;
   }
 
   .bugerIcon,
@@ -180,7 +176,7 @@
     border-radius: 3px;
     height: 3px;
     width: 40px;
-    background-color: black;
+    background-color: white;
     box-sizing: border-box;
   }
 

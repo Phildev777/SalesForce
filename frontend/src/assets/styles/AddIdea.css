@@ -1,7 +1,7 @@
 .mainIdeaContainer {
   background-color: var(--form-background-color);
-  width: 100%;
-  border-radius: 10px;
+  border-radius: var(--box-radius);
+  margin-bottom: 2rem;
 }
 
 .details {
@@ -24,12 +24,6 @@
   background-color: var(--cases-form-background-color);
 }
 
-/*.themeSelection {
-    width: 100%;
-    display: flex;
-justify-content: flex-start;
-}*/
-
 .themeSelectionForm {
   width: 100%;
   display: flex;
@@ -39,6 +33,7 @@ justify-content: flex-start;
 
 #theme-select {
   width: 20rem;
+
   border-radius: 10px;
   border: none;
   background-color: var(--cases-form-background-color);
@@ -63,6 +58,10 @@ input {
 
 textarea {
   background-color: var(--cases-form-background-color);
+}
+
+.remaining-characters {
+  color: #aca6a6;
 }
 
 .fileAndLink {
@@ -91,18 +90,27 @@ textarea {
   border: none;
 }
 
-form {
+.themeSelectionForm {
+  align-items: flex-start;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  /* align-items: center; */
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.formLink {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   padding: 3px;
 }
 
-.inputFile {
-  /* background-color: red; */
-}
+/* .inputFile {
+  background-color: red;
+} */
 
 #file-upload-button {
   margin: 10rem;
@@ -144,8 +152,11 @@ form {
 }
 
 .submission button:first-child:hover {
-  background-color: var(--cases-form-background-color);
+  background-color: #aca6a6;
   color: white;
+}
+.submission button:first-child:active {
+  scale: 1.01;
 }
 
 .submission button:last-child:hover {
@@ -153,5 +164,6 @@ form {
   color: white;
 }
 
-button :hover {
+.submission button:last-child:active {
+  scale: 1.01;
 }

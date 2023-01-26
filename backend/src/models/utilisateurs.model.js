@@ -67,7 +67,6 @@ const updateUtilisateur = (id, newVersion) => {
   ]);
 };
 
-
 const updateUser = (id, url) => {
   return connection.query(`UPDATE utilisateur SET avatar=? WHERE id=?`, [
     url,
@@ -75,13 +74,11 @@ const updateUser = (id, url) => {
   ]);
 };
 
-
 const deleteUtilisateur = (nom, prenom) => {
   return connection.query("DELETE FROM utilisateur WHERE nom=? and prenom=?", [
     nom,
     prenom,
   ]);
-
 };
 
 const login = async (nom, motdepasse) => {

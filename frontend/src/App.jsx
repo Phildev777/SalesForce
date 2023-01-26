@@ -62,9 +62,22 @@ function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/admin" element={<Admin />} />
 
+
           <Route path="/" element={<Connexion setToken={setToken} />} />
         </Routes>
       </UserContext.Provider>
+
+      <Routes>
+        <Route path="/home" element={<Home />} />
+        <Route path="/mon espace" element={<Monespace id={10} />} />
+        <Route path="/idees" element={<Idees />} />
+        <Route path="/utilisateurs" element={<Utilisateurs />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/admin" element={<Admin />} />
+
+        <Route path="/" element={<Connexion />} />
+      </Routes>
+
     </div>
   );
 }

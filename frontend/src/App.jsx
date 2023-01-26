@@ -12,16 +12,25 @@ import Utilisateurs from "./pages/Utilisateurs";
 import Monespace from "./pages/Monespace";
 import "./App.css";
 
+import UserContext from "./contexts/UserContext";
+
+// export const UserContext = createContext();
+
 function App() {
   const location = useLocation();
+
   const [user, setUser] = useState({});
-  /*  const [token, setToken] = useState({
-    userToken: "",
+
+  // const [user1, setUser1] = useState("Lizard")
+
+  const [token, setToken] = useState({
+    token: "",
 
     isAdmin: "",
 
     id: "",
-  }); */
+  });
+
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
     if (storedToken !== undefined) {
@@ -44,6 +53,19 @@ function App() {
       {location.pathname === "/admin/modifier" && <Header />}
       {location.pathname === "/admin/supprimer" && <Header />}
       {location.pathname === "/admin/inscrire" && <Header />}
+      <UserContext.Provider value={token}>
+        <Routes>
+          <Route path="/home" element={<Home />} />
+          <Route path="/mon espace" element={<Monespace />} />
+          <Route path="/idees" element={<Idees />} />
+          <Route path="/utilisateurs" element={<Utilisateurs />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/admin" element={<Admin />} />
+
+
+          <Route path="/" element={<Connexion setToken={setToken} />} />
+        </Routes>
+      </UserContext.Provider>
 
       <Routes>
         <Route path="/home" element={<Home />} />
@@ -55,6 +77,7 @@ function App() {
 
         <Route path="/" element={<Connexion />} />
       </Routes>
+
     </div>
   );
 }

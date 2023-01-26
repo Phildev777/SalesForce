@@ -3,7 +3,7 @@ const express = require("express");
 require("dotenv").config({ path: "../config/.env" });
 const cors = require("cors");
 const path = require("path");
-// const connection = require("./config/db");
+
 
 const multer = require("multer");
 

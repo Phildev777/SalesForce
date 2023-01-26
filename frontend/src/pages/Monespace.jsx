@@ -1,17 +1,12 @@
 import React from "react";
-import PropTypes from "prop-types";
 import MyProfile from "../components/MyProfile";
 
-function Monespace({ id }) {
+function Monespace() {
   return (
     <div>
-      <MyProfile id={id} />
+      <MyProfile />
     </div>
   );
 }
-
-Monespace.propTypes = {
-  id: PropTypes.number.isRequired,
-};
 
 export default Monespace;

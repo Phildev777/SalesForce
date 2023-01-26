@@ -15,7 +15,7 @@ router.get("/test", utilisateurController.getAllUtilisateursService);
 router.get("/profile", profilController.getAllProfiles);
 
 router.get("/:id", utilisateurController.getUtilisateurById);
-router.get("/profile/:id", profilController.getAllProfiles);
+router.get("/profile", profilController.getAllProfiles);
 
 router.post("/", utilisateurController.login);
 router.put("/modifierAvatar/:id", utilisateurController.updateUser);
@@ -38,7 +38,7 @@ router.post("/avatar", upload.single("avatar"), (req, res) => {
   });
 });
 
-=======
+
 router.delete(
   "/supprimer/:nom/:prenom",
   utilisateurController.deleteUtilisateur

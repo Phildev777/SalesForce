@@ -111,7 +111,6 @@ function MyProfile({ id }) {
           </div>
         </div>
 
-
         {data[0].biographie && (
           <div className="biography">
             {" "}

@@ -31,9 +31,7 @@ app.use(cors(corsOptions));
 app.use(express.json());
 // app.use(cookieParser());
 
-
 app.use(express.static(path.join(__dirname, "..", "public")));
-
 
 app.use("/api/utilisateur", usersRoute);
 

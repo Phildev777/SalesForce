@@ -8,8 +8,6 @@ const profilController = require("../controllers/profilController");
 
 router.get("/", utilisateurController.getAllUtilisateurs);
 
-
-
 router.get("/test", utilisateurController.getAllUtilisateursService);
 
 router.get("/profile", profilController.getAllProfiles);
@@ -22,7 +20,6 @@ router.put("/modifierAvatar/:id", utilisateurController.updateUser);
 
 router.post("/creation", utilisateurController.createUtilisateur);
 router.put("/:id", utilisateurController.updateUtilisateur);
-
 
 const upload = multer({ dest: `${__dirname}../../../public/uploads/` });
 
@@ -38,7 +35,6 @@ router.post("/avatar", upload.single("avatar"), (req, res) => {
   });
 });
 
-=======
 router.delete(
   "/supprimer/:nom/:prenom",
   utilisateurController.deleteUtilisateur

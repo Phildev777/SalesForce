@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect /* useContext */ } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Connexion from "@pages/Connexion";
 import Header from "@components/Header";
@@ -23,7 +23,7 @@ function App() {
 
   // const [user1, setUser1] = useState("Lizard")
 
-  const [token, setToken] = useState({
+  const [, /* token */ setToken] = useState({
     token: "",
 
     isAdmin: "",
@@ -41,7 +41,8 @@ function App() {
           },
         })
         .then((res) => {
-          setUser(res.data).send({ user });
+          console.warn(res.data);
+          setUser(res.data);
         });
     }
   }, []);
@@ -53,16 +54,15 @@ function App() {
       {location.pathname === "/admin/modifier" && <Header />}
       {location.pathname === "/admin/supprimer" && <Header />}
       {location.pathname === "/admin/inscrire" && <Header />}
-      <UserContext.Provider value={token}>
+      <UserContext.Provider value={user}>
         <Routes>
+          <Route path="/" element={<Connexion setToken={setToken} />} />
           <Route path="/home" element={<Home />} />
           <Route path="/mon espace" element={<Monespace />} />
           <Route path="/idees" element={<Idees />} />
           <Route path="/utilisateurs" element={<Utilisateurs />} />
           <Route path="/services" element={<Services />} />
           <Route path="/admin" element={<Admin />} />
-
-          <Route path="/" element={<Connexion setToken={setToken} />} />
         </Routes>
       </UserContext.Provider>
     </div>

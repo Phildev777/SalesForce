@@ -26,8 +26,8 @@ function MyProfile() {
   };
 
   useEffect(() => {
-    getProfile();
-  }, []);
+    if (id) getProfile();
+  }, [id]);
 
   const previewImage = (event) => {
     const imageFiles = event.target.files;

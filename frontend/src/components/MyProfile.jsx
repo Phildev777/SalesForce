@@ -4,14 +4,14 @@ import axios from "axios";
 import cake from "../assets/cake.svg";
 import idée from "../assets/idée.svg";
 import avatar from "../assets/avatar.svg";
+import UserContext from "../contexts/UserContext";
 
 function MyProfile() {
   const [biographie, setBiographie] = useState(true);
-  const [bioText, setBioText] = useState();
+  const [, /* bioText */ setBioText] = useState();
   const [image /* setImage */] = useState(avatar);
   const [data, setData] = useState();
-
-  // const { id } = useContext(userContext);
+  const { id } = useContext(UserContext);
 
   const getProfile = () => {
     axios

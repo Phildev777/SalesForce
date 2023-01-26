@@ -2,7 +2,7 @@ const profilModel = require("../models/profil.model");
 
 const getAllProfiles = (req, res) => {
   profilModel
-    .getAllProfilesByIdWithService(req.query.token)
+    .getAllProfilesByIdWithService(req.params.id)
     .then(([result]) => {
       res.status(200).send(result);
     })

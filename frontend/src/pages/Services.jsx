@@ -8,7 +8,7 @@ function Services() {
 
   return (
     <div>
-      <h1>{`Hello${user.token.id} again!`}</h1>
+      <h1>{`Hello${user.token} again!`}</h1>
       <MainContainerTest />
     </div>
   );

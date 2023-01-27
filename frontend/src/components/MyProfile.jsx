@@ -106,7 +106,6 @@ function MyProfile() {
                   type="file"
                   className="inputAvatar"
                   name="avatar"
-                  placeholder="Modif zercfv"
                   onChange={previewImage}
                 />
               </div>
@@ -145,6 +144,7 @@ function MyProfile() {
             <div className="biography">
               <textarea
                 name="bio"
+                className="textarea"
                 id="bio"
                 cols="30"
                 rows="10"
@@ -152,12 +152,20 @@ function MyProfile() {
                 placeholder={data[0].biographie}
                 onChange={(e) => setBioText(e.target.value)}
               />
-              <button type="button" onClick={() => setBiographie(!biographie)}>
-                Crayon
+              <button
+                className="crayon"
+                type="button"
+                onClick={() => setBiographie(!biographie)}
+              >
+                Modifies ta bio
               </button>
             </div>
-            <button type="button" onClick={() => changeBiography()}>
-              Envoyer
+            <button
+              className="validation"
+              type="button"
+              onClick={() => changeBiography()}
+            >
+              Valider
             </button>
             {/* <div className="newIdee">
         Ici il y aura les idees que l'utilisateur aura soumis classées par ordre chronologique.

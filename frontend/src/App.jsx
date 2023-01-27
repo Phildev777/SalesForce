@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Connexion from "@pages/Connexion";
 import Header from "@components/Header";
@@ -19,9 +19,7 @@ function App() {
 
   const [user, setUser] = useState({
     token: "",
-
     isAdmin: "",
-
     id: "",
   });
 
@@ -41,17 +39,20 @@ function App() {
     }
   }, []);
 
-  return (
-    <div><UserContext.Provider value={{user, setUser}}>
-      {location.pathname !== "/" && <Header/>}
+  const u = useMemo(() => ({ user, setUser }));
 
-      {location.pathname === "/admin/modifier" && <Header />}
-      {location.pathname === "/admin/supprimer" && <Header />}
-      {location.pathname === "/admin/inscrire" && <Header />}
-      
+  return (
+    <div>
+      <UserContext.Provider value={u}>
+        {location.pathname !== "/" && <Header />}
+
+        {location.pathname === "/admin/modifier" && <Header />}
+        {location.pathname === "/admin/supprimer" && <Header />}
+        {location.pathname === "/admin/inscrire" && <Header />}
+
         <Routes>
-          <Route path="/" element={<Connexion  />} />
-          
+          <Route path="/" element={<Connexion />} />
+
           <Route path="/mon espace" element={<Monespace />} />
           <Route path="/idees" element={<Idees />} />
           <Route path="/utilisateurs" element={<Utilisateurs />} />

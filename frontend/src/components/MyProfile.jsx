@@ -11,11 +11,15 @@ function MyProfile() {
   const [bioText, setBioText] = useState();
   const [image /* setImage */] = useState(avatar);
   const [data, setData] = useState();
-  const { id } = useContext(UserContext);
+  const userContext = useContext(UserContext);
 
   const getProfile = () => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/profile/${id}`)
+      .get(
+        `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/profile/${
+          userContext.user.id
+        }`
+      )
       .then((res) => {
         setData(res.data);
       })
@@ -27,7 +31,9 @@ function MyProfile() {
   const changeBiography = () => {
     axios
       .put(
-        `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/profile/bio/${id}`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/profile/bio/${
+          userContext.user.id
+        }`,
         { biographie: bioText }
       )
       .then(() => {
@@ -40,8 +46,8 @@ function MyProfile() {
   };
 
   useEffect(() => {
-    if (id) getProfile();
-  }, [id]);
+    if (userContext.user.id) getProfile();
+  }, [userContext.user.id]);
 
   const previewImage = (event) => {
     const imageFiles = event.target.files;
@@ -64,7 +70,7 @@ function MyProfile() {
             .put(
               `${
                 import.meta.env.VITE_BACKEND_URL
-              }/api/utilisateur/modifierAvatar/${id}`,
+              }/api/utilisateur/modifierAvatar/${userContext.user.id}`,
               { url: result.data }
             )
             .then(() => {

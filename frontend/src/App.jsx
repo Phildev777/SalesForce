@@ -19,7 +19,7 @@ import UserContext from "./contexts/UserContext";
 function App() {
   const location = useLocation();
 
-  const [user, setUser] = useState({});
+  const [, /* user */ setUser] = useState({});
 
   // const [user1, setUser1] = useState("Lizard")
 
@@ -41,7 +41,7 @@ function App() {
           },
         })
         .then((res) => {
-          setUser(res.data).send({ user });
+          setUser(res.data);
         });
     }
   }, []);

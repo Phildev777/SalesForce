@@ -7,4 +7,14 @@ const getAllProfilesByIdWithService = (id) => {
   );
 };
 
-module.exports = { getAllProfilesByIdWithService };
+const changeBio = (id, biographie) => {
+  return connection.query("UPDATE utilisateur SET biographie=? WHERE id=?", [
+    biographie,
+    id,
+  ]);
+};
+
+module.exports = {
+  getAllProfilesByIdWithService,
+  changeBio,
+};

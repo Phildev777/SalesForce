@@ -17,6 +17,7 @@ import UserContext from "./contexts/UserContext";
 function App() {
   const location = useLocation();
 
+
   const [user, setUser] = useState({
     token: "",
     isAdmin: "",
@@ -33,7 +34,9 @@ function App() {
           },
         })
         .then((res) => {
+
           console.warn(res.data);
+
           setUser(res.data);
         });
     }

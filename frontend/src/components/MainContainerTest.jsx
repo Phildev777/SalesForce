@@ -1,13 +1,9 @@
 import React from "react";
 import "../assets/styles/IdeeContainer.css";
-/* import AddIdea from "./AddIdea"; */
-// import SearchIdeaBar from "./SearchIdeaBar";
-// import IdeeListe from "./IdeeListe";
+import PropsTypes from "prop-types";
 import SectionServices from "./SectionServices";
 
-function IdeeContainer() {
-  // const [searchValue, setSearchValue] = useState("");
-
+function MainContainer({ dataService }) {
   return (
     <div className="mainContainer">
       <div className="ideasContainer">
@@ -21,11 +17,14 @@ function IdeeContainer() {
             searchValue={searchValue}
             setSearchValue={setSearchValue}
           />{" "} */}
-          <SectionServices />
+          <SectionServices dataService={dataService} />
         </div>
       </div>
     </div>
   );
 }
+MainContainer.propTypes = {
+  dataService: PropsTypes.arrayOf().isRequired,
+};
 
-export default IdeeContainer;
+export default MainContainer;

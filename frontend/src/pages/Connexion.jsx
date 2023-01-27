@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
-import Proptypes from "prop-types";
+
 import "../assets/styles/connexion.css";
 import { useNavigate } from "react-router-dom";
+import UserContext from "../contexts/UserContext";
 
-function Connexion({ setToken }) {
+function Connexion() {
   const [nom, setNom] = useState("");
   const [motdepasse, setMotdepasse] = useState("");
-
+  const userContext = useContext(UserContext)
   const navigate = useNavigate();
 
   const handleNom = (e) => {
@@ -24,7 +25,7 @@ function Connexion({ setToken }) {
         } else if (res.data.admin === 0) {
           localStorage.setItem("token", res.data.token);
 
-          setToken({
+          userContext.setUser({
             token: res.data.token,
             id: res.data.id,
             isAdmin: res.data.admin,
@@ -32,7 +33,7 @@ function Connexion({ setToken }) {
           navigate("/mon espace");
         } else if (res.data.admin === 1) {
           localStorage.setItem("token", res.data.token);
-          setToken({
+          userContext.setUser ({
             token: res.data.token,
             id: res.data.id,
             isAdmin: res.data.admin,
@@ -92,7 +93,5 @@ function Connexion({ setToken }) {
     </div>
   );
 }
-Connexion.propTypes = {
-  setToken: Proptypes.string.isRequired,
-};
+
 export default Connexion;

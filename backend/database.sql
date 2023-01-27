@@ -1,13 +1,3 @@
-CREATE TABLE
-    item (
-        id int(11) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
-        title varchar(255) NOT NULL
-    ) ENGINE = InnoDB DEFAULT CHARSET = latin1;
-
-INSERT INTO item (title) VALUES ('Stuff'), ('Doodads');
-
--- MySQL dump 10.13  Distrib 8.0.31, for Win64 (x86_64)
-
 --
 
 -- Host: localhost    Database: salesforce

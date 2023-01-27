@@ -8,19 +8,17 @@ const create = (
   theme,
   titre,
   description,
-  ressource,
   archive,
   utilisateurIdutilisateur,
   serviceIdservice
 ) => {
   return connection.query(
-    "INSERT INTO idee ( date, theme, titre, description, ressource, archive,utilisateur_Idutilisateur, service_Idservice) VALUES (?,?,?,?,?,?,?,?)",
+    "INSERT INTO idee ( date, theme, titre, description, archive,utilisateur_Idutilisateur, service_Idservice) VALUES (?,?,?,?,?,?,?)",
     [
       date,
       theme,
       titre,
       description,
-      ressource,
       archive,
       utilisateurIdutilisateur,
       serviceIdservice,

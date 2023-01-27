@@ -8,6 +8,7 @@ import UserContext from "../contexts/UserContext";
 
 function MyProfile() {
   const [biographie, setBiographie] = useState(true);
+
   const [bioText, setBioText] = useState();
   const [image /* setImage */] = useState(avatar);
   const [data, setData] = useState();
@@ -134,7 +135,6 @@ function MyProfile() {
                 </div>
               </div>
             </div>
-
             {/* {data[0].biographie && (
               <div className="biography">
                 {" "}

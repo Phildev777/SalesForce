@@ -3,24 +3,20 @@ const ideeModel = require("../models/idee.model");
 // create
 const createIdea = (req, res) => {
   const {
-    date,
     theme,
     titre,
     description,
-    ressource,
-    archive,
     utilisateurIdutilisateur,
     serviceIdservice,
   } = req.body;
 
   ideeModel
     .create(
-      date,
+      new Date(), // generate date, format YYYY/MM/DD
       theme,
       titre,
       description,
-      ressource,
-      archive,
+      false, // archive
       utilisateurIdutilisateur,
       serviceIdservice
     )

@@ -1,9 +1,11 @@
 .mainContainer {
   display: flex;
   flex-direction: column;
-  margin-right: 5vh;
-  margin-top: 2vh;
-  margin-left: 21em;
+  margin-right: 40px;
+  margin-top: 40px;
+  margin-left: 21%;
+  margin-bottom: 40px;
+  height: calc(100vh - 80px);
 }
 
 .ideasContainer {
@@ -37,12 +39,9 @@
   padding-bottom: 1rem;
 }
 
-@media screen and (width < 600px) {
+@media screen and (width < 1000px) {
   .mainContainer {
-    margin-left: 2em;
-    width: fit-content;
-    margin-right: 2em;
-    margin-top: 1vh;
+    margin-left: 40px;
   }
 
   .ideasContainer {

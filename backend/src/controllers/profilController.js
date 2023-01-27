@@ -12,4 +12,19 @@ const getAllProfiles = (req, res) => {
     });
 };
 
-module.exports = { getAllProfiles };
+const changeBio = (req, res) => {
+  profilModel
+    .changeBio(req.params.id, req.body.biographie)
+    .then(([result]) => {
+      res.status(200).send(result);
+    })
+    .catch((err) => {
+      console.error(err);
+      return res.status(500).send("Error");
+    });
+};
+
+module.exports = {
+  getAllProfiles,
+  changeBio,
+};

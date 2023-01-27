@@ -14,6 +14,9 @@ router.get("/profile/:id", profilController.getAllProfiles);
 
 router.get("/:id", utilisateurController.getUtilisateurById);
 
+// router.post("/profile/:id",profilController.changeBio );
+router.put("/profile/bio/:id", profilController.changeBio);
+
 router.post("/", utilisateurController.login);
 router.put("/modifierAvatar/:id", utilisateurController.updateUser);
 

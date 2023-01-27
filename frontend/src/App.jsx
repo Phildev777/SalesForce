@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Connexion from "@pages/Connexion";
 import Header from "@components/Header";
-// import Header2 from "@components/Header2";
+
 import axios from "axios";
-import Home from "./pages/Home";
+
 import Admin from "./pages/Admin";
 import Idees from "./pages/Idees";
 import Services from "./pages/Services";
@@ -14,20 +14,12 @@ import "./App.css";
 
 import UserContext from "./contexts/UserContext";
 
-// export const UserContext = createContext();
-
 function App() {
   const location = useLocation();
 
-  const [user, setUser] = useState({});
-
-  // const [user1, setUser1] = useState("Lizard")
-
-  const [token, setToken] = useState({
+  const [user, setUser] = useState({
     token: "",
-
     isAdmin: "",
-
     id: "",
   });
 
@@ -41,28 +33,32 @@ function App() {
           },
         })
         .then((res) => {
-          setUser(res.data).send({ user });
+          console.warn(res.data);
+          setUser(res.data);
         });
     }
   }, []);
 
+  const u = useMemo(() => ({ user, setUser }));
+
   return (
     <div>
-      {location.pathname !== "/" && <Header />}
+      <UserContext.Provider value={u}>
+        {location.pathname !== "/" && <Header />}
 
-      {location.pathname === "/admin/modifier" && <Header />}
-      {location.pathname === "/admin/supprimer" && <Header />}
-      {location.pathname === "/admin/inscrire" && <Header />}
-      <UserContext.Provider value={token}>
+        {location.pathname === "/admin/modifier" && <Header />}
+        {location.pathname === "/admin/supprimer" && <Header />}
+        {location.pathname === "/admin/inscrire" && <Header />}
+
         <Routes>
-          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Connexion />} />
+
           <Route path="/mon espace" element={<Monespace />} />
           <Route path="/idees" element={<Idees />} />
           <Route path="/utilisateurs" element={<Utilisateurs />} />
           <Route path="/services" element={<Services />} />
           <Route path="/admin" element={<Admin />} />
 
-          <Route path="/" element={<Connexion setToken={setToken} />} />
         </Routes>
       </UserContext.Provider>
     </div>

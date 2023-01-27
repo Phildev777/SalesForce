@@ -45,8 +45,8 @@ app.use("/api/service", serviceRoute);
 
 app.post("/api/ressource", upload.array("ressource", 5), (req, res) => {
   try {
-    // const { title, theme, description, lien } = req.body;
-    // console.log(title, theme, description, lien);
+    // const { title, theme, description, lien, id, serviceIdservice } = req.body;
+    // console.log(title, theme, description, lien, id, serviceIdservice);
 
     req.files.forEach((file) => {
       const { originalname } = file;

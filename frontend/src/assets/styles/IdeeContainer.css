@@ -41,12 +41,9 @@
   box-shadow: 5px 5px 5px 5px rgb(0 0 0 / 50%);
 }
 
-@media screen and (width < 600px) {
+@media screen and (width < 1000px) {
   .mainContainer {
-    margin-left: 2em;
-    width: fit-content;
-    margin-right: 2em;
-    margin-top: 1vh;
+    margin-left: 40px;
   }
 
   .ideasContainer {

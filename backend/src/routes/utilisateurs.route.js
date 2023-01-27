@@ -10,10 +10,9 @@ router.get("/", utilisateurController.getAllUtilisateurs);
 
 router.get("/test", utilisateurController.getAllUtilisateursService);
 
-router.get("/profile", profilController.getAllProfiles);
+router.get("/profile/:id", profilController.getAllProfiles);
 
 router.get("/:id", utilisateurController.getUtilisateurById);
-router.get("/profile/:id", profilController.getAllProfiles);
 
 router.post("/", utilisateurController.login);
 router.put("/modifierAvatar/:id", utilisateurController.updateUser);

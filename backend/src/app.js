@@ -3,7 +3,6 @@ const express = require("express");
 require("dotenv").config({ path: "../config/.env" });
 const cors = require("cors");
 const path = require("path");
-// const connection = require("./config/db");
 
 const multer = require("multer");
 
@@ -44,8 +43,8 @@ app.use("/api/theme", themeRoute);
 
 app.post("/api/ressource", upload.array("ressource", 5), (req, res) => {
   try {
-    // const { title, theme, description, lien } = req.body;
-    // console.log(title, theme, description, lien);
+    // const { title, theme, description, lien, id, serviceIdservice } = req.body;
+    // console.log(title, theme, description, lien, id, serviceIdservice);
 
     req.files.forEach((file) => {
       const { originalname } = file;

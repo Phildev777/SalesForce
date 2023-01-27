@@ -1,17 +1,16 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { useContext } from "react";
 import MyProfile from "../components/MyProfile";
+import UserContext from "../contexts/UserContext";
 
-function Monespace({ id }) {
+function Monespace() {
+  const profile = useContext(UserContext);
+
   return (
     <div>
-      <MyProfile id={id} />
+      {profile.id}
+      <MyProfile />
     </div>
   );
 }
-
-Monespace.propTypes = {
-  id: PropTypes.number.isRequired,
-};
 
 export default Monespace;

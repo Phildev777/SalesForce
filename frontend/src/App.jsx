@@ -1,10 +1,10 @@
-import React, { useState, useEffect /* useContext */ } from "react";
+import React, { useState, useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Connexion from "@pages/Connexion";
 import Header from "@components/Header";
-// import Header2 from "@components/Header2";
+
 import axios from "axios";
-import Home from "./pages/Home";
+
 import Admin from "./pages/Admin";
 import Idees from "./pages/Idees";
 import Services from "./pages/Services";
@@ -14,16 +14,10 @@ import "./App.css";
 
 import UserContext from "./contexts/UserContext";
 
-// export const UserContext = createContext();
-
 function App() {
   const location = useLocation();
 
-  const [user, setUser] = useState({});
-
-  // const [user1, setUser1] = useState("Lizard")
-
-  const [, /* token */ setToken] = useState({
+  const [user, setUser] = useState({
     token: "",
 
     isAdmin: "",
@@ -48,16 +42,16 @@ function App() {
   }, []);
 
   return (
-    <div>
-      {location.pathname !== "/" && <Header />}
+    <div><UserContext.Provider value={{user, setUser}}>
+      {location.pathname !== "/" && <Header/>}
 
       {location.pathname === "/admin/modifier" && <Header />}
       {location.pathname === "/admin/supprimer" && <Header />}
       {location.pathname === "/admin/inscrire" && <Header />}
-      <UserContext.Provider value={user}>
+      
         <Routes>
-          <Route path="/" element={<Connexion setToken={setToken} />} />
-          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Connexion  />} />
+          
           <Route path="/mon espace" element={<Monespace />} />
           <Route path="/idees" element={<Idees />} />
           <Route path="/utilisateurs" element={<Utilisateurs />} />

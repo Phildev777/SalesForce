@@ -1,19 +1,17 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import "../assets/styles/header.css";
 import { NavLink } from "react-router-dom";
 import { ImSwitch } from "react-icons/im";
 import avatar from "../assets/avatar1.svg";
-// import * as Icons from "react-icons/io";
+
+import UserContext from "../contexts/UserContext";
+
 function Header() {
   const [nav, setNav] = useState(false);
+
   const handleNav = () => setNav(!nav);
 
-  /*   function CustomFaIcon({ GoAlert }) {
-      const FaIcon = Icons[GoAlert];
-      if (!FaIcon) return <p>PAS DE LOGO</p>;
-  
-      return <FaIcon />;
-    } */
+  const userContext = useContext(UserContext);
 
   return (
     <>
@@ -34,10 +32,11 @@ function Header() {
           <li>
             <NavLink to="/services">Services</NavLink>
           </li>
-
-          <li>
-            <NavLink to="/admin">Admin</NavLink>
-          </li>
+          {userContext.user.isAdmin === 1 ? (
+            <li>
+              <NavLink to="/admin">Admin</NavLink>
+            </li>
+          ) : null}
           <li>
             <NavLink to="/">
               <ImSwitch className="disconnect" /> Déconnexion

@@ -1,15 +1,28 @@
-import React, { useContext } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import MainContainerTest from "../components/MainContainerTest";
-// import {UserContext} from "../App";
-import UserContext from "../contexts/UserContext";
+
 
 function Services() {
-  const user = useContext(UserContext);
+  const [dataService, setDataService] = useState([]);
+
+  const fe = () => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/service`)
+      .then((res) => {
+        setDataService(res.data);
+      })
+      .catch((err) => console.error(err));
+  };
+
+  useEffect(() => {
+    fe();
+  }, []);
 
   return (
     <div>
-      <h1>{`Hello${user.token} again!`}</h1>
-      <MainContainerTest />
+      <MainContainerTest dataService={dataService} />
+
     </div>
   );
 }

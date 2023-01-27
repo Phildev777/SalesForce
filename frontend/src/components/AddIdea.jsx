@@ -147,12 +147,14 @@
 
 /// ////////////////////////////////////////////////////////////////////////////////////////////
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 import "../assets/styles/AddIdea.css";
 import axios from "axios";
+import UserContext from "../contexts/UserContext";
 
 function AddIdea({ openFormAddIdea }) {
+  const { user } = useContext(UserContext);
   // const themes = [
   //   {
   //     id: 1,
@@ -167,7 +169,6 @@ function AddIdea({ openFormAddIdea }) {
   //     nom: "Cohésion d'équipe",
   //   },
   // ];
-
   const [themes, setThemes] = useState([]);
 
   const getThemes = () => {
@@ -186,7 +187,7 @@ function AddIdea({ openFormAddIdea }) {
   const [title, setTitle] = useState("");
   const [theme, setTheme] = useState("");
   const [description, setDescription] = useState("");
-  const [lien, setLien] = useState("");
+  const [/* lien, */ setLien] = useState("");
 
   const MAX_LENGTH_DESCRIPTION = 500;
   const handleChangeDescription = (event) => {
@@ -211,12 +212,15 @@ function AddIdea({ openFormAddIdea }) {
   const hSubmit = (evt) => {
     evt.preventDefault();
 
-    const formData = new FormData();
-    formData.append("title", title);
-    formData.append("theme", theme);
-    formData.append("description", description);
-    formData.append("lien", lien);
+    axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/idee/create`, {
+      theme,
+      titre: title,
+      description,
+      utilisateurIdutilisateur: user.id,
+      serviceIdservice: user.serviceIdservice,
+    });
 
+    const formData = new FormData();
     for (let i = 0; i < inputRef.current.files.length; i += 1) {
       formData.append("ressource", inputRef.current.files[i]);
     }
@@ -293,7 +297,6 @@ function AddIdea({ openFormAddIdea }) {
         </div>
       </div>
       <div className="submission">
-        {theme[0]}
         <button className="annuler" type="button" onClick={openFormAddIdea}>
           Annuler
         </button>

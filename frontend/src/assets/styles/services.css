@@ -10,36 +10,68 @@
   --box-radius: 50px;
 }
 
+.Global {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  /* height: 96%; */
+  gap: 50px;
+
+  margin: 40px;
+  padding-left: 5px;
+  padding-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  scroll-margin: 20px;
+
+  /* background-color: #0b5cab; */
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: 89vh;
+}
+
+.Global::-webkit-scrollbar {
+  border-radius: 10px;
+  background: transparent;
+  width: 10px;
+}
+
+.Global::-webkit-scrollbar-thumb {
+  background: white;
+  border-radius: 10px;
+  height: 1rem;
+  border: 1px solid rgb(0, 0, 0);
+}
+
+.Global::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
 .Services {
-  min-width: 240px;
+  /* min-width: 240px; */
+  min-height: 250px;
 
   background-color: var(--cases-form-background-color);
-  margin: 5% 20% 2% 10%;
   border-radius: var(--box-radius);
   text-align: center;
-  padding: 0% 0% 2% 0%;
-  box-shadow: 5px 5px 15px 5px #000000;
+  box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.5);
   display: inline-block;
 }
 
 .NomsServices {
+  color: white;
   font-family: var(--font-family);
   font-weight: var(--font-weight-bold);
-  margin-bottom: 10%;
-  background-color: #0b5cab;
+  margin-bottom: 20px;
+  background-color: var(--secondary-color);
   border-radius: 50px 50px 0px 0px;
-  padding-top: 5%;
-  padding-bottom: 2%;
+  /* padding-top: 5%; */
+  /* padding-bottom: 2%; */
+  padding: 10px;
 }
 
 .Caract {
   font-family: var(--font-family);
   font-weight: var(--font-weight-bold);
-}
-
-.Global {
-  display: grid;
-  grid-template-columns: 310px 310px;
-  grid-template-rows: repeat(6, 230px);
-  gap: 30px;
+  padding-bottom: 50px;
 }

@@ -14,6 +14,7 @@ const usersRoute = require("./routes/utilisateurs.route");
 
 const themeRoute = require("./routes/theme.route");
 const ideeRoute = require("./routes/idee.route");
+const serviceRoute = require("./routes/service.route");
 
 const app = express();
 
@@ -40,11 +41,12 @@ app.get("/", (req, res) => {
 
 app.use("/api/idee", ideeRoute);
 app.use("/api/theme", themeRoute);
+app.use("/api/service", serviceRoute);
 
 app.post("/api/ressource", upload.array("ressource", 5), (req, res) => {
   try {
-    // const { title, theme, description, lien } = req.body;
-    // console.log(title, theme, description, lien);
+    // const { title, theme, description, lien, id, serviceIdservice } = req.body;
+    // console.log(title, theme, description, lien, id, serviceIdservice);
 
     req.files.forEach((file) => {
       const { originalname } = file;

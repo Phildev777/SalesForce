@@ -120,19 +120,60 @@
   height: 40%;
   margin: 1rem auto 1rem auto;
   padding: 15px;
+  position: relative;
+}
+
+.crayon {
+  position: absolute;
+  top: 83%;
+  right: 10px;
+  box-shadow: 3px 4px 0px 0px #899599;
+  background: linear-gradient(to bottom, #ededed 5%, #bab1ba 100%);
+  background-color: #ededed;
+  border-radius: 15px;
+  border: 1px solid #d6bcd6;
+  display: inline-block;
+  cursor: pointer;
+  color: #000000;
+  font-family: Verdana;
+  font-size: 17px;
+  padding: 0px 10px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #e1e2ed;
+}
+
+.crayon:hover {
+  background: linear-gradient(to bottom, #bab1ba 5%, #ededed 100%);
+  background-color: #bab1ba;
+}
+
+.validation {
+  box-shadow: 3px 4px 0px 0px #899599;
+  background: linear-gradient(to bottom, #ededed 5%, #bab1ba 100%);
+  background-color: #ededed;
+  border-radius: 15px;
+  border: 1px solid #d6bcd6;
+  display: inline-block;
+  cursor: pointer;
+  color: #000000;
+  font-family: Verdana;
+  font-size: 17px;
+  padding: 0px 76px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #e1e2ed;
+}
+
+.validation:hover {
+  background: linear-gradient(to bottom, #bab1ba 5%, #ededed 100%);
+  background-color: #bab1ba;
 }
 
 .bio {
   font-weight: 500;
 }
 
-.textarea textarea {
-  width: 100%;
-}
-
-.pencil {
-  display: flex;
-  justify-content: flex-end;
+.textarea {
+  background-color: rgb(190, 190, 190);
 }
 
 @media screen and (max-width: 1100px) {

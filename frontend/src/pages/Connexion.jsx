@@ -8,7 +8,7 @@ import UserContext from "../contexts/UserContext";
 function Connexion() {
   const [nom, setNom] = useState("");
   const [motdepasse, setMotdepasse] = useState("");
-  const userContext = useContext(UserContext)
+  const userContext = useContext(UserContext);
   const navigate = useNavigate();
 
   const handleNom = (e) => {
@@ -25,19 +25,11 @@ function Connexion() {
         } else if (res.data.admin === 0) {
           localStorage.setItem("token", res.data.token);
 
-          userContext.setUser({
-            token: res.data.token,
-            id: res.data.id,
-            isAdmin: res.data.admin,
-          });
+          userContext.setUser(res.data);
           navigate("/mon espace");
         } else if (res.data.admin === 1) {
           localStorage.setItem("token", res.data.token);
-          userContext.setUser ({
-            token: res.data.token,
-            id: res.data.id,
-            isAdmin: res.data.admin,
-          });
+          userContext.setUser(res.data);
           navigate("/admin");
         }
       })

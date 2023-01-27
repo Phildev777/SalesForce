@@ -32,7 +32,7 @@ function Header() {
           <li>
             <NavLink to="/services">Services</NavLink>
           </li>
-          {userContext.user.isAdmin === 1 ? (
+          {userContext.user.admin === 1 ? (
             <li>
               <NavLink to="/admin">Admin</NavLink>
             </li>

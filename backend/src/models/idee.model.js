@@ -1,8 +1,7 @@
 const connection = require("../config/db");
 
 // create
-/* INSERT INTO table VALUES ...
-  return ok ou non ok */
+
 const create = (
   date,
   theme,
@@ -32,25 +31,26 @@ const findAll = () => {
 };
 
 const findById = (id) => {
-  return connection.query("SELECT * FROM idee WHERE id=?", [id]);
+  return connection.query("SELECT * FROM idee WHERE ididee=?", [id]);
 };
 
 // //update
-// const update = (id) => {
-//   /*UPDATE table SET...
-//   return infos*/
-// }
+const updateIdea = (theme, titre, description, archive, id) => {
+  return connection.query(
+    "UPDATE idee SET theme=?, titre=?, description=?, archive=?, WHERE id=?",
+    [theme, titre, description, archive, id]
+  );
+};
 
-// //delete
-// const remove = (id) => {
-//   /*DELETE FROM table...
-//   return infos*/
-// }
+// delete
+const deleteIdea = (id) => {
+  return connection.query("DELETE FROM idee WHERE ididee=?", [id]);
+};
 
 module.exports = {
   create,
   findAll,
   findById,
-  // update: update,
-  // remove: remove
+  updateIdea,
+  deleteIdea,
 };

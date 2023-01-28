@@ -1,6 +1,6 @@
-import React, { useState /* , useEffect */ } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-// import axios from "axios";
+import axios from "axios";
 
 import "../assets/styles/SearchIdeaBar.css";
 import add from "../assets/addIcon.svg";
@@ -12,35 +12,20 @@ function SearchIdeaBar({
   selectedService,
   handleSelectedService,
 }) {
-  const [services /* setServices */] = useState([
-    {
-      id: 1,
-      nom: "Comptabilité",
-    },
-    {
-      id: 2,
-      nom: "Ressources humaines",
-    },
-    {
-      id: 3,
-      nom: "Marketing",
-    },
-  ]);
+  const [services, setServices] = useState([]);
 
-  // const [services, setServices] = useState([]);
+  const getServices = () => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/service/`)
+      .then((res) => {
+        setServices(res.data);
+      })
+      .catch((err) => console.error(err));
+  };
 
-  // const getServices = () => {
-  //   axios
-  //     .get(`${import.meta.env.VITE_BACKEND_URL}/api/services/`)
-  //     .then((res) => {
-  //       setServices(res.data);
-  //     })
-  //     .catch((err) => console.error(err));
-  // };
-
-  // useEffect(() => {
-  //   getServices();
-  // }, []);
+  useEffect(() => {
+    getServices();
+  }, []);
 
   return (
     <div className="ideaSelection">
@@ -73,7 +58,7 @@ function SearchIdeaBar({
           >
             <option value="">Idées par service</option>
             {services.map((service) => (
-              <option key={service.id}>{service.nom}</option>
+              <option key={service.idservice}>{service.nom}</option>
             ))}
           </select>
         </label>

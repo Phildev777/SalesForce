@@ -17,7 +17,6 @@ import UserContext from "./contexts/UserContext";
 function App() {
   const location = useLocation();
 
-
   const [user, setUser] = useState({
     token: "",
     isAdmin: "",
@@ -34,7 +33,6 @@ function App() {
           },
         })
         .then((res) => {
-
           console.warn(res.data);
 
           setUser(res.data);
@@ -61,7 +59,6 @@ function App() {
           <Route path="/utilisateurs" element={<Utilisateurs />} />
           <Route path="/services" element={<Services />} />
           <Route path="/admin" element={<Admin />} />
-
         </Routes>
       </UserContext.Provider>
     </div>

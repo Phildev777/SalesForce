@@ -1,4 +1,3 @@
-
 -- MySQL dump 10.13  Distrib 8.0.31, for Win64 (x86_64)
 
 --
@@ -298,7 +297,7 @@ DROP TABLE IF EXISTS `idee`;
 CREATE TABLE
     `idee` (
         `ididee` int NOT NULL AUTO_INCREMENT,
-        `date` datetime NOT NULL,
+        `date` varchar(80) NOT NULL,
         `theme` varchar(80) NOT NULL,
         `titre` varchar(80) NOT NULL,
         `description` text NOT NULL,

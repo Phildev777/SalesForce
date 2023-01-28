@@ -209,22 +209,57 @@ function AddIdea({ openFormAddIdea }) {
 
   const inputRef = useRef();
 
+  let pasdetitre;
+  if (!title) {
+    pasdetitre = (
+      <div className="pasdetitre">Merci de donner un titre à votre idée</div>
+    );
+  }
+
+  let pasdetheme;
+  if (!theme) {
+    pasdetheme = (
+      <div className="pasdetheme">Merci d'indiquer le thème de votre idée</div>
+    );
+  }
+
+  let pasdedescription;
+  if (!description) {
+    pasdedescription = (
+      <div className="pasdedescription">Merci de détailler votre idée</div>
+    );
+  }
+
+  const [showMessage, setShowMessage] = useState(false);
+
   const hSubmit = (evt) => {
     evt.preventDefault();
+    /* if (!title) {
+      console.log("Veuillez sélectionner un thème");
+    } else if (!theme) {
+      console.log("Veuillez sélectionner un thème");
+    } else if (!description) {
+      console.log("Veuillez décrire votre idée");
+    } else */ {
+      axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/idee/create`, {
+        theme,
+        titre: title,
+        description,
+        utilisateurIdutilisateur: user.id,
+        serviceIdservice: user.serviceIdservice,
+      });
 
-    axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/idee/create`, {
-      theme,
-      titre: title,
-      description,
-      utilisateurIdutilisateur: user.id,
-      serviceIdservice: user.serviceIdservice,
-    });
-
-    const formData = new FormData();
-    for (let i = 0; i < inputRef.current.files.length; i += 1) {
-      formData.append("ressource", inputRef.current.files[i]);
+      const formData = new FormData();
+      for (let i = 0; i < inputRef.current.files.length; i += 1) {
+        formData.append("ressource", inputRef.current.files[i]);
+      }
+      axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}/api/ressource/`,
+        formData
+      );
     }
-    axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/ressource/`, formData);
+    setShowMessage(true);
+    setTimeout(() => setShowMessage(false), 3000);
   };
 
   return (
@@ -241,6 +276,7 @@ function AddIdea({ openFormAddIdea }) {
           <small className="remaining-characters">
             Il vous reste {numRemainingTitle} caractères
           </small>
+          {pasdetitre}
         </div>
         <form className="themeSelectionForm">
           <label htmlFor="theme-select">
@@ -258,6 +294,7 @@ function AddIdea({ openFormAddIdea }) {
                 </option>
               ))}
             </select>
+            {pasdetheme}
           </label>
         </form>{" "}
         <div className="descriptionIdea">
@@ -271,6 +308,7 @@ function AddIdea({ openFormAddIdea }) {
           <small className="remaining-characters">
             Il vous reste {numRemainingDescription} caractères
           </small>
+          {pasdedescription}
         </div>
       </div>
       <div className="fileAndLink">
@@ -303,6 +341,9 @@ function AddIdea({ openFormAddIdea }) {
         <button onClick={hSubmit} className="valider" type="submit">
           Valider
         </button>
+        {showMessage ? (
+          <div className="ideaSent">Merci d'avoir transmis votre idée</div>
+        ) : null}
       </div>
     </div>
   );

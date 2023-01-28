@@ -5,7 +5,7 @@ import avatar from "../assets/avatar1.svg";
 import "../assets/styles/Commentaires.css";
 // import likeIcon from "../assets/likeIcon.svg";
 
-function Commentaires({ nom, date, texte }) {
+function Commentaires({ /* nom, */ date, texte }) {
   const [likesCom, setLikesCom] = useState(0);
   const [isLikedCom, setIslikedCom] = useState(false);
 
@@ -27,7 +27,7 @@ function Commentaires({ nom, date, texte }) {
         </div>
         <div className="userAndDate">
           <div>
-            <div className="user">{nom}</div>
+            {/* <div className="user">{nom}</div> */}
             <div className="date">{date}</div>
           </div>
         </div>
@@ -100,7 +100,7 @@ function Commentaires({ nom, date, texte }) {
 }
 
 Commentaires.propTypes = {
-  nom: PropTypes.string.isRequired,
+  // nom: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
   texte: PropTypes.string.isRequired,
 };

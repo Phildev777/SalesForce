@@ -18,6 +18,14 @@
   height: 100%;
 }
 
+.noComment {
+  color: white;
+  border: solid;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+}
+
 .insererCommentaire {
   width: 95%;
   padding-top: 0.75rem;

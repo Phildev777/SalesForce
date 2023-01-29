@@ -103,7 +103,7 @@ function CommentairesListe({ showCommentaires, ideeIdidee }) {
 
   useEffect(() => {
     getComments();
-  }, []); //  }, [tabCommentaires]);
+  }, [tabCommentaires]); //  }, [tabCommentaires]);
 
   const [detail, setDetail] = useState();
 
@@ -121,16 +121,21 @@ function CommentairesListe({ showCommentaires, ideeIdidee }) {
 
   return (
     <div className="commentaireListe">
-      <div className="comms">
-        {tabCommentaires.map((i) => (
-          <Commentaires
-            key={i.idcommentaire}
-            nom={i.utilisateur_idutilisateur}
-            date={i.date}
-            texte={i.detail}
-          />
-        ))}
-      </div>
+      {tabCommentaires.length === 0 ? (
+        <div className="noComment">Pas de commentaires pour l'instant</div>
+      ) : (
+        <div className="comms">
+          {tabCommentaires.map((i) => (
+            <Commentaires
+              key={i.idcommentaire}
+              nom={i.utilisateur_idutilisateur}
+              date={i.date}
+              texte={i.detail}
+            />
+          ))}
+        </div>
+      )}
+
       <div className="insererCommentaire">
         <textarea
           placeholder="Tapez votre commentaire"

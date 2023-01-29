@@ -147,8 +147,6 @@ textarea {
   background-color: red;
 }
 
-
-
 .submission button:nth-child(odd) {
   background-color: var(--cases-form-background-color);
 }

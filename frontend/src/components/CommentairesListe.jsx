@@ -109,12 +109,13 @@ function CommentairesListe({ showCommentaires, ideeIdidee }) {
 
   const handleComment = (e) => {
     setDetail(e.target.value);
-
-    axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/commentaire/create`, {
-      detail,
-      utilisateurIdutilisateur: user.id,
-      ideeIdidee,
-    });
+    if (e.key === "Enter") {
+      axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/commentaire/create`, {
+        detail,
+        utilisateurIdutilisateur: user.id,
+        ideeIdidee,
+      });
+    }
   };
 
   return (
@@ -134,6 +135,7 @@ function CommentairesListe({ showCommentaires, ideeIdidee }) {
           placeholder="Tapez votre commentaire"
           value={detail}
           onChange={handleComment}
+          onKeyDown={handleComment}
         />
       </div>
       <div

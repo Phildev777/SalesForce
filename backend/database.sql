@@ -68,7 +68,7 @@ CREATE TABLE
     `commentaire` (
         `idcommentaire` int NOT NULL AUTO_INCREMENT,
         `detail` text NOT NULL,
-        `date` datetime NOT NULL,
+        `date` VARCHAR(80) NOT NULL,
         `utilisateur_idutilisateur` int NOT NULL,
         `idee_ididee` int NOT NULL,
         PRIMARY KEY (`idcommentaire`),

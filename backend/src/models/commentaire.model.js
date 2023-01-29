@@ -4,7 +4,7 @@ const connection = require("../config/db");
 
 const create = (detail, date, utilisateurIdutilisateur, ideeIdidee) => {
   return connection.query(
-    "INSERT INTO commentaire ( detail, date, utilisateurIdutilisateur, idee_ididee) VALUES (?,?,?,?)",
+    "INSERT INTO commentaire ( detail, date, utilisateur_idutilisateur, idee_ididee) VALUES (?,?,?,?)",
     [detail, date, utilisateurIdutilisateur, ideeIdidee]
   );
 };

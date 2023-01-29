@@ -1,8 +1,10 @@
 const commentaireModel = require("../models/commentaire.model");
 
+const date = new Date().toLocaleDateString("fr");
+
 // create
 const createComment = (req, res) => {
-  const { detail, date, utilisateurIdutilisateur, ideeIdidee } = req.body;
+  const { detail, utilisateurIdutilisateur, ideeIdidee } = req.body;
 
   commentaireModel
     .create(detail, date, utilisateurIdutilisateur, ideeIdidee)

@@ -258,6 +258,9 @@ function AddIdea({ openFormAddIdea }) {
         formData
       );
     }
+    setTitle("");
+    setTheme(theme[0]);
+    setDescription("");
     setShowMessage(true);
     setTimeout(() => setShowMessage(false), 3000);
   };
@@ -305,6 +308,9 @@ function AddIdea({ openFormAddIdea }) {
             placeholder="Décrivez votre idée"
             onChange={handleChangeDescription}
           />
+          {showMessage ? (
+            <div className="ideaSent">Merci d'avoir transmis votre idée</div>
+          ) : null}
           <small className="remaining-characters">
             Il vous reste {numRemainingDescription} caractères
           </small>
@@ -344,9 +350,6 @@ function AddIdea({ openFormAddIdea }) {
         <button className="retour" type="button" onClick={openFormAddIdea}>
           Retour
         </button>
-        {showMessage ? (
-          <div className="ideaSent">Merci d'avoir transmis votre idée</div>
-        ) : null}
       </div>
     </div>
   );

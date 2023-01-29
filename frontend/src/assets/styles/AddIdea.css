@@ -142,9 +142,17 @@ textarea {
 }
 
 .ideaSent {
+  z-index: 100;
   position: absolute;
-  width: 100%;
-  background-color: red;
+  left: 34%;
+  top: 38%;
+  width: 50vw;
+  margin: 0 auto;
+  color: white;
+  padding: 1rem;
+  border-radius: var(--box-radius);
+  background-color: var(--primary-color);
+  opacity: 0.5;
 }
 
 .submission button:nth-child(odd) {

@@ -91,10 +91,10 @@ function CommentairesListe({ showCommentaires, ideeIdidee }) {
   const { user } = useContext(UserContext);
 
   const [tabCommentaires, setTabCommentaires] = useState([]);
-
+  const noIdee = ideeIdidee;
   const getComments = () => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/api/commentaire/`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/commentaire/${noIdee}`)
       .then((res) => {
         setTabCommentaires(res.data);
       })
@@ -103,7 +103,7 @@ function CommentairesListe({ showCommentaires, ideeIdidee }) {
 
   useEffect(() => {
     getComments();
-  }, []);
+  }, []); //  }, [tabCommentaires]);
 
   const [detail, setDetail] = useState();
 
@@ -115,6 +115,7 @@ function CommentairesListe({ showCommentaires, ideeIdidee }) {
         utilisateurIdutilisateur: user.id,
         ideeIdidee,
       });
+      setDetail("");
     }
   };
 
@@ -123,8 +124,8 @@ function CommentairesListe({ showCommentaires, ideeIdidee }) {
       <div className="comms">
         {tabCommentaires.map((i) => (
           <Commentaires
-            key={i.id}
-            nom={i.user.id}
+            key={i.idcommentaire}
+            nom={i.utilisateur_idutilisateur}
             date={i.date}
             texte={i.detail}
           />

@@ -342,13 +342,10 @@ function AddIdea({ openFormAddIdea }) {
       </div>
       <div className="submission">
         <button className="annuler" type="button" onClick={openFormAddIdea}>
-          Annuler
+          Fermer
         </button>
         <button onClick={hSubmit} className="valider" type="submit">
           Valider
-        </button>
-        <button className="retour" type="button" onClick={openFormAddIdea}>
-          Retour
         </button>
       </div>
     </div>

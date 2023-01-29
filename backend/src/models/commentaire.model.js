@@ -15,7 +15,9 @@ const findAll = () => {
 };
 
 const findById = (id) => {
-  return connection.query("SELECT * FROM commentaire WHERE id=?", [id]);
+  return connection.query("SELECT * FROM commentaire WHERE idee_ididee =?", [
+    id,
+  ]);
 };
 
 // //update

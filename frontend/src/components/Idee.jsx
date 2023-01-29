@@ -35,6 +35,7 @@ function Idee({
   const handleClosed = (e) => {
     e.stopPropagation();
     setSelected(null);
+    setCommentaires(false);
   };
 
   const [likesIdea, setLikesIdea] = useState(0);
@@ -427,7 +428,6 @@ function Idee({
                       </filter>
                     </defs>
                   </svg>
-
                   {likesIdea}
                 </div>
                 <div
@@ -455,7 +455,7 @@ function Idee({
               </div>
               <CommentairesListe
                 showCommentaires={showCommentaires}
-                idee_ididee={id}
+                ideeIdidee={selected}
               />
             </div>
           ) : null}

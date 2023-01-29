@@ -341,6 +341,9 @@ function AddIdea({ openFormAddIdea }) {
         <button onClick={hSubmit} className="valider" type="submit">
           Valider
         </button>
+        <button className="retour" type="button" onClick={openFormAddIdea}>
+          Retour
+        </button>
         {showMessage ? (
           <div className="ideaSent">Merci d'avoir transmis votre idée</div>
         ) : null}

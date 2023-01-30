@@ -26,10 +26,11 @@
   justify-content: space-between;
   align-items: center;
   border-radius: 5px;
-  /* background-color: bisque; */
   width: 100%;
   cursor: pointer;
   transition: 0.2s linear;
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-regular);
 }
 
 .titleIdeaSmall {
@@ -53,8 +54,10 @@
   max-width: 65vh;
   min-width: 100%;
   display: flex;
-  /* box-sizing: border-box; */
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-regular);
 }
+
 .ideaContainerBig:hover {
   transition: 0.2s linear;
 }

@@ -2,6 +2,8 @@
   background-color: var(--form-background-color);
   border-radius: var(--box-radius);
   margin-bottom: 2rem;
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-regular);
 }
 
 .details {
@@ -157,6 +159,8 @@ textarea {
 
 .submission button:nth-child(odd) {
   background-color: var(--cases-form-background-color);
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-regular);
 }
 
 .submission button:nth-child(odd):hover {

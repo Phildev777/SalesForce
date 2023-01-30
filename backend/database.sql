@@ -449,7 +449,7 @@ DROP TABLE IF EXISTS `service`;
 CREATE TABLE
     `service` (
         `idservice` int NOT NULL AUTO_INCREMENT,
-        `nom` varchar(80) NOT NULL,
+        `nomservice` varchar(80) NOT NULL,
         `nbemploye` int NOT NULL,
         `localisation` varchar(80) NOT NULL,
         PRIMARY KEY (`idservice`)

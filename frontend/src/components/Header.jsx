@@ -1,8 +1,9 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import "../assets/styles/header.css";
 import { NavLink } from "react-router-dom";
 import { ImSwitch } from "react-icons/im";
-import avatar from "../assets/avatar1.svg";
+import axios from "axios";
+import avatarImg from "../assets/avatar1.svg";
 
 import UserContext from "../contexts/UserContext";
 
@@ -13,11 +14,41 @@ function Header() {
 
   const userContext = useContext(UserContext);
 
+  const [dataUserId, setDataUserId] = useState([]);
+
+  const getUserById = () => {
+    axios
+      .get(
+        `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/${
+          userContext.user.id
+        }`
+      )
+      .then((res) => {
+        setDataUserId(res.data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
+  useEffect(() => {
+    if (userContext.user.id) getUserById();
+  }, [userContext.user.id, dataUserId.avatar]);
+
   return (
     <>
       <header className={`${nav ? "show" : "hide"}`}>
         <div className="containerHeaderImg">
-          <img alt="profil" src={avatar} />
+          {userContext.user && userContext.user.avatar ? (
+            <img
+              alt="profil"
+              src={`${import.meta.env.VITE_BACKEND_URL}/${
+                userContext.user.avatar
+              }`}
+            />
+          ) : (
+            <img alt="profil" src={avatarImg} />
+          )}
         </div>
         <ul>
           <li>

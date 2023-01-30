@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import UtilisateurCarte from "@components/UtilisateurCarte";
 import "../assets/styles/Utilisateurs.css";
 import magnifier from "@assets/magnifier.svg";
 import axios from "axios";
 import MyProfile from "@components/MyProfile";
+import UserContext from "../contexts/UserContext";
 
 function Utilisateurs() {
   const [searchBar, setSearchBar] = useState("");
@@ -33,18 +34,42 @@ function Utilisateurs() {
 
   const [dataUser, setDataUser] = useState([]);
 
+  const userContext = useContext(UserContext);
+
+  const [dataUserId, setDataUserId] = useState([]);
+
+  const getUtilisateurById = () => {
+    axios
+      .get(
+        `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/ui/${
+          userContext.user.id
+        }`
+      )
+      .then((res) => {
+        setDataUserId(res.data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
   const fef = () => {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/test`)
       .then((res) => {
         setDataUser(res.data);
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        console.error(err);
+      });
   };
 
   useEffect(() => {
+    getUtilisateurById();
     fef();
-  }, []);
+  }, [userContext.user.id]);
+
+  // console.log(dataUserId[0].serviceName)
 
   return (
     <div className="containerfull">
@@ -72,12 +97,15 @@ function Utilisateurs() {
           </div>
 
           <div className="utilisateursContainer">
-            {dataUser /* .filter((data) => data.service == "commercial") */
+            {dataUser
+              .filter(
+                (data) => data.serviceName === dataUserId?.[0]?.serviceName
+              )
               .filter((data) => {
                 const tmp = searchBar.toLocaleLowerCase();
                 return (
-                  data.prenom.toLowerCase().includes(tmp) ||
-                  data.nom.toLowerCase().includes(tmp)
+                  data?.prenom?.toLowerCase().includes(tmp) ||
+                  data?.nom?.toLowerCase().includes(tmp)
                 );
               })
               .map((data) => (
@@ -147,6 +175,7 @@ function Utilisateurs() {
                     firstname={data.prenom}
                     lastname={data.username}
                     service={data.serviceName}
+                    img={data.avatar}
                     displayProfileCard={(d) => handleProfileCard(d)}
                   />
                 );

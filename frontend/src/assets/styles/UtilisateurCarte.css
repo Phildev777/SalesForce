@@ -8,6 +8,7 @@
   /* max-width: 200px; */
   justify-content: center;
   cursor: pointer;
+  max-height: 300px;
 }
 
 .containerUserCardImg {

@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 1rem 10% 0 10%;
+  margin: 0.5rem 10% 0 10%;
   gap: 5px;
 }
 
@@ -40,7 +40,7 @@
 
 .serviceSelection {
   width: 100%;
-  padding-bottom: 1rem;
+  padding-bottom: 0.5rem;
 }
 
 .serviceSelection select {

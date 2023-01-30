@@ -10,14 +10,14 @@ const getById = (id) => {
 
 const createService = (nom, nbemploye, localisation) => {
   return connection.query(
-    "INSERT INTO service (nom, nbemploye, localisation)",
+    "INSERT INTO service (nomservice, nbemploye, localisation)",
     [nom, nbemploye, localisation]
   );
 };
 
 const upadateService = (id, nom, nbemploye, localisation) => {
   return connection.query(
-    "UPDATE service SET (nom , nbemploye, localisation) WHERE id=?",
+    "UPDATE service SET (nomservice , nbemploye, localisation) WHERE id=?",
     [nom, nbemploye, localisation, id]
   );
 };

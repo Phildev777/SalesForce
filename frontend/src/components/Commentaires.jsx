@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
+import axios from "axios";
 
 import avatar from "../assets/avatar1.svg";
 import "../assets/styles/Commentaires.css";
-// import likeIcon from "../assets/likeIcon.svg";
 
-function Commentaires({ nom, date, texte }) {
+function Commentaires({ date, texte, id }) {
   const [likesCom, setLikesCom] = useState(0);
   const [isLikedCom, setIslikedCom] = useState(false);
 
@@ -19,6 +19,25 @@ function Commentaires({ nom, date, texte }) {
     setIslikedCom(!isLikedCom);
   };
 
+  const [userBycomment, setUserByComment] = useState([]);
+  const select = id;
+  const getUserBycomment = () => {
+    axios
+      .get(
+        `${
+          import.meta.env.VITE_BACKEND_URL
+        }/api/commentaire/detailcommentaire/${select}`
+      )
+      .then((res) => {
+        setUserByComment(res.data);
+      })
+      .catch((err) => console.error(err));
+  };
+
+  useEffect(() => {
+    getUserBycomment();
+  }, []);
+
   return (
     <div className="commentairesContainer">
       <div className="infoUser">
@@ -27,7 +46,9 @@ function Commentaires({ nom, date, texte }) {
         </div>
         <div className="userAndDate">
           <div>
-            <div className="user">{nom}</div>
+            <div className="user">
+              {userBycomment.prenom} {userBycomment.nom}
+            </div>
             <div className="date">{date}</div>
           </div>
         </div>
@@ -100,7 +121,7 @@ function Commentaires({ nom, date, texte }) {
 }
 
 Commentaires.propTypes = {
-  nom: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
   date: PropTypes.string.isRequired,
   texte: PropTypes.string.isRequired,
 };

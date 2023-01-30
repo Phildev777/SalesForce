@@ -40,6 +40,17 @@ const getCommentById = (req, res) => {
     });
 };
 
+const getUserBycomment = (req, res) => {
+  commentaireModel
+    .findUserByComment(req.params.id)
+    .then(([[result]]) => {
+      res.status(200).send(result);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+};
+
 // const updateIdea = async (req, res) => {
 //   try {
 //       const {theme, titre, description, archive, id} = req.body;
@@ -73,6 +84,7 @@ module.exports = {
   getAllComments,
   createComment,
   getCommentById,
+  getUserBycomment,
   //   updateIdea,
   deleteComment,
 };

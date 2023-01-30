@@ -16,6 +16,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  margin-bottom: 0.5rem;
 }
 
 .userAndDate {
@@ -25,8 +26,17 @@
   gap: 5px;
 }
 
+.date {
+  font-size: small;
+}
+
 .like {
   display: flex;
   justify-items: flex-end;
   align-items: flex-end;
+}
+
+.texte {
+  display: flex;
+  justify-content: flex-start;
 }

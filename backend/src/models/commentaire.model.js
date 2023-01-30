@@ -20,6 +20,13 @@ const findById = (id) => {
   ]);
 };
 
+const findUserByComment = (id) => {
+  return connection.query(
+    "SELECT * FROM utilisateur INNER JOIN commentaire on id = utilisateur_idutilisateur WHERE idcommentaire =?",
+    [id]
+  );
+};
+
 // //update
 // const updateIdea = (theme, titre, description, archive, id) => {
 //   return connection.query("UPDATE idee SET theme=?, titre=?, description=?, archive=?, WHERE id=?", [theme, titre, description, archive, id]);
@@ -27,13 +34,16 @@ const findById = (id) => {
 
 // delete
 const deleteComment = (id) => {
-  return connection.query("DELETE FROM commentaire WHERE id=?", [id]);
+  return connection.query("DELETE FROM commentaire WHERE idcommentaire=?", [
+    id,
+  ]);
 };
 
 module.exports = {
   create,
   findAll,
   findById,
+  findUserByComment,
   //   updateIdea,
   deleteComment,
 };

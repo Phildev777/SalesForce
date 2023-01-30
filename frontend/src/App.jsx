@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Connexion from "@pages/Connexion";
-import Header from "@components/Header";
-
 import axios from "axios";
+import Header from "./components/Header";
 
 import Admin from "./pages/Admin";
 import Idees from "./pages/Idees";
@@ -16,7 +15,6 @@ import UserContext from "./contexts/UserContext";
 
 function App() {
   const location = useLocation();
-
 
   const [user, setUser] = useState({
     token: "",
@@ -34,7 +32,6 @@ function App() {
           },
         })
         .then((res) => {
-
           console.warn(res.data);
 
           setUser(res.data);
@@ -61,7 +58,6 @@ function App() {
           <Route path="/utilisateurs" element={<Utilisateurs />} />
           <Route path="/services" element={<Services />} />
           <Route path="/admin" element={<Admin />} />
-
         </Routes>
       </UserContext.Provider>
     </div>

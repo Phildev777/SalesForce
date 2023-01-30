@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
+import "../assets/styles/supprimer.css";
 
 function Supprimer() {
   const [nom, setNom] = useState("");
@@ -23,45 +24,54 @@ function Supprimer() {
       });
   };
   return (
-    <div>
-      <div>
-        <h1>Supprimer un collaborateur</h1>
+    <div className="main">
+      <div className="for">
+        <div className="titleSupp">Supprimer un collaborateur</div>
       </div>
-      <div>
-        <ul>
+      <div className="select">
+        <ul className="ulAdmin">
           <li>
-            <NavLink to="/admin/inscrire">inscrire un collaborateur</NavLink>
+            <NavLink to="/admin/inscrire" className="linkSu">
+              inscrire un collaborateur
+            </NavLink>
           </li>
-          <li>
-            <NavLink to="/admin/modifier">modifier un collaborateur</NavLink>
-          </li>
+          {/* <li>
+            <NavLink to="/admin/modifier" className="linkSu">modifier un collaborateur</NavLink>
+          </li> */}
         </ul>
         <div>
           <div>
             <form onSubmit={handleNom}>
               <ul>
-                <li>
-                  <label htmlFor="text">Nom du Collaborateur :</label>
-                  <input
-                    type="text"
-                    placeholder="nom"
-                    value={nom}
-                    onChange={(e) => setNom(e.target.value)}
-                  />
-                </li>
+                <div className="formSup">
+                  <li>
+                    <label className="textSu" id="NmC">
+                      Nom du Collaborateur :
+                    </label>
+                    <input
+                      className="inputTxt"
+                      type="text"
+                      placeholder="nom"
+                      value={nom}
+                      onChange={(e) => setNom(e.target.value)}
+                    />
+                  </li>
 
+                  <li>
+                    <label className="textSu">Prénom du collaborateur :</label>
+                    <input
+                      className="inputTxt"
+                      type="text"
+                      placeholder="prenom"
+                      value={prenom}
+                      onChange={(e) => setPrenom(e.target.value)}
+                    />
+                  </li>
+                </div>
                 <li>
-                  <label htmlFor="text">Prénom du collaborateur :</label>
-                  <input
-                    type="text"
-                    placeholder="prenom"
-                    value={prenom}
-                    onChange={(e) => setPrenom(e.target.value)}
-                  />
-                </li>
-
-                <li>
-                  <button type="submit">supprimer</button>
+                  <button type="submit" className="BtnSup">
+                    supprimer
+                  </button>
                 </li>
               </ul>
             </form>

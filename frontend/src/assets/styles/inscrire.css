@@ -1,6 +1,3 @@
-* {
-  text-align: center;
-}
 .main {
   display: flex;
   flex-direction: column;
@@ -10,16 +7,46 @@
   margin-bottom: 40px;
   height: calc(100vh - 80px);
 }
-.List {
+li {
   list-style: none;
 }
+
+.formIns {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+}
+
+.textIn {
+  font-size: 20px;
+
+  margin-right: 20px;
+}
+#NmC {
+  margin-left: 20px;
+}
+
+.inputTxtIn {
+  margin-bottom: 20px;
+  padding: 5px;
+  font-size: 15px;
+  border-width: 1px;
+  border-color: #cccccc;
+  background-color: #ffffff;
+
+  border-style: solid;
+  border-radius: 50px;
+  box-shadow: 1px 2px 5px rgba(66, 66, 66, 0.75);
+}
+
 .ideasContainer {
   display: flex;
   flex-direction: column;
 }
-.linkadmin {
-  padding-bottom: 10%;
 
+.linkIn {
   margin-bottom: 10%;
 
   box-shadow: 3px 4px 0px 0px black;
@@ -36,17 +63,55 @@
   text-decoration: none;
   text-shadow: 0px 1px 0px #e1e2ed;
 }
-.linkadmin:hover {
+.linkIn:hover {
   background: rgb(0, 102, 255);
 
   color: white;
 }
-.linkadmin:active {
+.linkIn:active {
+  position: relative;
+  top: 1px;
+}
+.ideasContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.BtnIns {
+  padding-bottom: 10%;
+
+  margin-bottom: 10%;
+
+  box-shadow: 3px 4px 0px 0px black;
+
+  background-color: white;
+  border-radius: 50px;
+  border: 1px solid #d6bcd6;
+  display: inline-block;
+  cursor: pointer;
+  color: rgb(140, 2, 153);
+  font-family: Arial;
+  font-size: 20px;
+  padding: 7px 25px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #e1e2ed;
+}
+.BtnIns:hover {
+  background: rgb(0, 102, 255);
+
+  color: white;
+}
+.BtnIns:active {
   position: relative;
   top: 1px;
 }
 
-.titleAdmin {
+.ulIns {
+  display: flex;
+  gap: 20px;
+}
+
+.titleIns {
   margin-left: 3rem;
   border: none;
   padding-left: 20px;
@@ -62,7 +127,7 @@
   z-index: 1;
 }
 
-.selection {
+.selec {
   background-color: rgb(255, 255, 255);
 
   border: none;
@@ -76,7 +141,7 @@
   flex-direction: column;
   align-items: center;
 
-  padding-top: 10%;
+  padding-top: 4%;
 }
 
 @media screen and (width < 1000px) {
@@ -93,8 +158,8 @@
   }
 
   /* .titleIdeas {
-    margin-top: 5vh;
-  } */
+      margin-top: 5vh;
+    } */
 }
 
 @media screen and (width < 350px) {

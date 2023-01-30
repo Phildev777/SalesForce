@@ -1,7 +1,8 @@
 // CODE TEST BASE DE DONNEES
 
-import React, { useState } from "react";
+import React, { useState /* , useEffect */ } from "react";
 import PropTypes from "prop-types";
+// import axios from "axios";
 import CommentairesListe from "./CommentairesListe";
 
 import "../assets/styles/Idee.css";
@@ -11,8 +12,8 @@ import avatar from "../assets/avatar1.svg";
 function Idee({
   id,
   titre,
-  description,
   nom,
+  description,
   modified,
   comments,
   published,
@@ -55,6 +56,21 @@ function Idee({
   const handleFavorite = () => {
     setIsfavorite(!isFavoriste);
   };
+
+  // const [userByIdea, setUserByIdea] = useState([]);
+  // const select = selected;
+  // const getUserByIdea = () => {
+  //   axios
+  //     .get(`${import.meta.env.VITE_BACKEND_URL}/api/idee/userbyidea/${select}`)
+  //     .then((res) => {
+  //       setUserByIdea(res.data[0]);
+  //     })
+  //     .catch((err) => console.error(err));
+  // };
+
+  // useEffect(() => {
+  //   getUserByIdea();
+  // }, [select]);
 
   // const [ideamodified, setIdeaModified] = useState(false);
 
@@ -322,7 +338,7 @@ function Idee({
             <div className="service">Service : {service}</div>
             <div className="published">Publiée le : {published}</div>
             <div className="published">Publiée par : {nom}</div>
-
+            {/* <button onClick={() => console.log(userByIdea)}>USER</button> */}
             <div
               /* onChange={() => setIdeaModified(true)} */ className="textIdea"
             >

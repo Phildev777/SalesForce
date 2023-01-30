@@ -54,6 +54,17 @@ const getIdeaById = (req, res) => {
     });
 };
 
+const getUserByIdea = (req, res) => {
+  ideeModel
+    .userByIdea(req.params.id)
+    .then(([result]) => {
+      res.status(200).send(result);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+};
+
 const updateIdea = async (req, res) => {
   try {
     const { theme, titre, description, archive, id } = req.body;
@@ -91,6 +102,7 @@ module.exports = {
   getAllIdeas,
   createIdea,
   getIdeaById,
+  getUserByIdea,
   updateIdea,
   deleteIdea,
 };

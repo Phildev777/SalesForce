@@ -9,6 +9,8 @@ router.get("/", ideeController.getAllIdeas);
 
 router.get("/:id", ideeController.getIdeaById);
 
+router.get("/userbyidea/:id", ideeController.getUserByIdea);
+
 // //update
 router.put("/:id", ideeController.updateIdea);
 

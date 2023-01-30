@@ -34,6 +34,14 @@ const findById = (id) => {
   return connection.query("SELECT * FROM idee WHERE ididee=?", [id]);
 };
 
+// Identifier l'utilisateur de l'idée
+const userByIdea = (id) => {
+  return connection.query(
+    "select nom, prenom from utilisateur inner join idee on id = utilisateur_idutilisateur where ididee=?",
+    [id]
+  );
+};
+
 // //update
 const updateIdea = (theme, titre, description, archive, id) => {
   return connection.query(
@@ -51,6 +59,7 @@ module.exports = {
   create,
   findAll,
   findById,
+  userByIdea,
   updateIdea,
   deleteIdea,
 };

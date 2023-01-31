@@ -6,7 +6,12 @@ import Commentaires from "./Commentaires";
 import "../assets/styles/CommentairesListe.css";
 import UserContext from "../contexts/UserContext";
 
-function CommentairesListe({ showCommentaires, tabCommentaires, id }) {
+function CommentairesListe({
+  showCommentaires,
+  tabCommentaires,
+  id,
+  getComments,
+}) {
   const { user } = useContext(UserContext);
 
   const [detail, setDetail] = useState();
@@ -14,11 +19,13 @@ function CommentairesListe({ showCommentaires, tabCommentaires, id }) {
   const handleComment = (e) => {
     setDetail(e.target.value);
     if (e.key === "Enter") {
-      axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/commentaire/create`, {
-        detail,
-        utilisateurIdutilisateur: user.id,
-        ideeIdidee: id,
-      });
+      axios
+        .post(`${import.meta.env.VITE_BACKEND_URL}/api/commentaire/create`, {
+          detail,
+          utilisateurIdutilisateur: user.id,
+          ideeIdidee: id,
+        })
+        .then(() => getComments());
       setDetail("");
     }
   };
@@ -66,6 +73,7 @@ CommentairesListe.propTypes = {
   showCommentaires: PropTypes.func.isRequired,
   id: PropTypes.number.isRequired,
   tabCommentaires: PropTypes.node.isRequired,
+  getComments: PropTypes.func.isRequired,
 };
 
 export default CommentairesListe;

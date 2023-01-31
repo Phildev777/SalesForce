@@ -17,6 +17,8 @@ const ideeRoute = require("./routes/idee.route");
 const commentaireRoute = require("./routes/commentaire.route");
 const serviceRoute = require("./routes/service.route");
 
+const favorisRoute = require("./routes/favoris.route");
+
 const app = express();
 
 const corsOptions = {
@@ -42,6 +44,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/idee", ideeRoute);
 app.use("/api/commentaire", commentaireRoute);
+app.use("/api/favoris", favorisRoute);
 
 app.use("/api/theme", themeRoute);
 app.use("/api/service", serviceRoute);

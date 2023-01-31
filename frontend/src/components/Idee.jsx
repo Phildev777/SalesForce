@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
 import CommentairesListe from "./CommentairesListe";
+import UserContext from "../contexts/UserContext";
 
 import "../assets/styles/Idee.css";
 import imagebg from "../assets/backgroundIdee.png";
@@ -21,6 +22,8 @@ function Idee({
     e.stopPropagation();
     setSelected(id);
   };
+
+  const { user } = useContext(UserContext);
 
   const [commentaires, setCommentaires] = useState(false);
 
@@ -47,11 +50,6 @@ function Idee({
     setIslikedIdea(!isLikedIdea);
   };
 
-  const [isFavoriste, setIsfavorite] = useState(false);
-  const handleFavorite = () => {
-    setIsfavorite(!isFavoriste);
-  };
-
   const [userByIdea, setUserByIdea] = useState([]);
   const select = selected;
   const getUserByIdea = () => {
@@ -70,7 +68,6 @@ function Idee({
   const [ideamodified /* setIdeaModified */] = useState(false);
 
   const [tabCommentaires, setTabCommentaires] = useState([]);
-  // const noIdee = ideeIdidee;
   const getComments = () => {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/api/commentaire/${id}`)
@@ -82,7 +79,37 @@ function Idee({
 
   useEffect(() => {
     getComments();
-  }, [tabCommentaires]);
+  }, []);
+
+  const [isFav, setIsFav] = useState(false);
+
+  const handleFav = () => {
+    if (!isFav) {
+      axios
+        .post(`${import.meta.env.VITE_BACKEND_URL}/api/favoris/`, {
+          utilisateurIdutilisateur: user.id,
+          ideeIdidee: selected,
+        })
+        .then(() => {
+          setIsFav(true);
+        })
+        .catch((err) => console.error(err));
+    } else {
+      axios
+        .delete(
+          `${
+            import.meta.env.VITE_BACKEND_URL
+          }/api/favoris?utilisateur_idutilisateur=${
+            user.id
+          }&ideeIdidee=${selected}`
+        )
+        .then((res) => {
+          setIsFav(res.data);
+        })
+        .catch((err) => console.error(err));
+    }
+    setIsFav(!isFav);
+  };
 
   return (
     <div
@@ -100,18 +127,33 @@ function Idee({
               <img src={avatar} alt="avatar" />
             </div>
             {titre}{" "}
-            <svg
-              width="35"
-              height="20"
-              viewBox="0 0 47 48"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M23.7722 38.1574L23.5 37.9808L23.2278 38.1574L9.7212 46.9211L13.2963 30.3454L13.3561 30.068L13.1486 29.8744L1.15625 18.6855L16.9426 17.2221L17.2487 17.1937L17.3616 16.9078L23.5 1.36145L29.6384 16.9078L29.7513 17.1937L30.0573 17.2221L45.8424 18.6854L33.8282 29.8741L33.62 30.068L33.6804 30.346L37.277 46.9199L23.7722 38.1574Z"
-                stroke="var(--primary-color)"
-              />
-            </svg>
+            {isFav ? (
+              <svg
+                width="35"
+                height="20"
+                viewBox="0 0 70 66"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M35 53.0432L56.63 66L50.89 41.58L70 25.1495L44.835 22.9958L35 0L25.165 22.9958L0 25.1495L19.075 41.58L13.37 66L35 53.0432Z"
+                  fill="var(--secondary-color)"
+                />
+              </svg>
+            ) : (
+              <svg
+                width="35"
+                height="20"
+                viewBox="0 0 47 48"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M23.7722 38.1574L23.5 37.9808L23.2278 38.1574L9.7212 46.9211L13.2963 30.3454L13.3561 30.068L13.1486 29.8744L1.15625 18.6855L16.9426 17.2221L17.2487 17.1937L17.3616 16.9078L23.5 1.36145L29.6384 16.9078L29.7513 17.1937L30.0573 17.2221L45.8424 18.6854L33.8282 29.8741L33.62 30.068L33.6804 30.346L37.277 46.9199L23.7722 38.1574Z"
+                  stroke="var(--primary-color)"
+                />
+              </svg>
+            )}
           </div>
           <div className="publishedAndModifiedSmall">
             <div className="publishedSmall">Publiée le : {published}</div>
@@ -199,12 +241,12 @@ function Idee({
                 </div>
                 <div className="titleIdeaBig">{titre}</div>
                 <div
-                  onClick={handleFavorite}
+                  onClick={handleFav}
                   role="button"
-                  onKeyDown={handleFavorite}
+                  onKeyDown={handleFav}
                   tabIndex={0}
                 >
-                  {isFavoriste ? (
+                  {isFav ? (
                     <svg
                       width="35"
                       height="20"
@@ -488,6 +530,7 @@ function Idee({
                 showCommentaires={showCommentaires}
                 id={id}
                 tabCommentaires={tabCommentaires}
+                getComments={getComments}
               />
             </div>
           ) : null}

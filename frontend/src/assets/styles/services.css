@@ -72,3 +72,21 @@
   font-weight: var(--font-weight-bold);
   padding-bottom: 50px;
 }
+
+@media screen and (max-width: 1400px) {
+  .Global {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 1130px) {
+  .Global {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .Global {
+    margin-left: 40px;
+  }
+}

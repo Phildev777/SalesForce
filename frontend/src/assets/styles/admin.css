@@ -34,7 +34,7 @@
   font-size: 20px;
   padding: 7px 25px;
   text-decoration: none;
-  text-shadow: 0px 1px 0px #e1e2ed;
+
 }
 .linkadmin:hover {
   background: rgb(0, 102, 255);
@@ -43,7 +43,7 @@
 }
 .linkadmin:active {
   position: relative;
-  top: 1px;
+  top: 6px;
 }
 
 .titleAdmin {
@@ -63,7 +63,8 @@
 }
 
 .selection {
-  background-color: rgb(255, 255, 255);
+  background: linear-gradient( white,rgb(153, 193, 232));
+ 
 
   border: none;
   border-width: 2px;

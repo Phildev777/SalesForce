@@ -1,11 +1,37 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
 import "../assets/styles/supprimer.css";
 
+
+const Modal = ({show, onClose}) => {
+  
+  const [showModal, setShowModal] = useState(show);
+  
+  useEffect(()=>{
+  
+  setShowModal(show);
+  
+  },[show]);
+  
+  
+  return (
+    showModal && (
+  <div> 
+  <div className="pop">
+  <p className="txtPop">Suppression Effectuée</p>
+  <button onClick={()=> onClose(false)} className="BtnPop">Fermer</button>
+  </div>
+  </div>
+  )
+  );
+      
+    };
+
 function Supprimer() {
   const [nom, setNom] = useState("");
   const [prenom, setPrenom] = useState("");
+  const [modalShow, setModalShow] = useState(false);
 
   const handleNom = (e) => {
     e.preventDefault();
@@ -22,6 +48,7 @@ function Supprimer() {
       .catch((err) => {
         console.error(err);
       });
+      setModalShow(true);
   };
   return (
     <div className="main">
@@ -29,16 +56,13 @@ function Supprimer() {
         <div className="titleSupp">Supprimer un collaborateur</div>
       </div>
       <div className="select">
-        <ul className="ulAdmin">
-          <li>
-            <NavLink to="/admin/inscrire" className="linkSu">
-              inscrire un collaborateur
-            </NavLink>
-          </li>
-          {/* <li>
-            <NavLink to="/admin/modifier" className="linkSu">modifier un collaborateur</NavLink>
-          </li> */}
-        </ul>
+       
+      <div>
+                        
+                        <Modal show={modalShow} onClose={setModalShow} />
+    
+                      </div>
+       
         <div>
           <div>
             <form onSubmit={handleNom}>
@@ -46,7 +70,7 @@ function Supprimer() {
                 <div className="formSup">
                   <li>
                     <label className="textSu" id="NmC">
-                      Nom du Collaborateur :
+                      Nom du collaborateur :
                     </label>
                     <input
                       className="inputTxt"
@@ -62,7 +86,7 @@ function Supprimer() {
                     <input
                       className="inputTxt"
                       type="text"
-                      placeholder="prenom"
+                      placeholder="prénom"
                       value={prenom}
                       onChange={(e) => setPrenom(e.target.value)}
                     />
@@ -70,9 +94,17 @@ function Supprimer() {
                 </div>
                 <li>
                   <button type="submit" className="BtnSup">
-                    supprimer
+                    Supprimer
                   </button>
                 </li>
+                <li>
+            <NavLink to="/admin/inscrire" className="linkSu">
+              Inscrire un Collaborateur
+            </NavLink>
+          </li>
+            {/*  <li>
+            <NavLink to="/admin/modifier" className="linkSu">modifier un collaborateur</NavLink>
+          </li>  */}
               </ul>
             </form>
           </div>

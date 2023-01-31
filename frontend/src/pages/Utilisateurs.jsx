@@ -8,11 +8,15 @@ import UserContext from "../contexts/UserContext";
 
 function Utilisateurs() {
   const [searchBar, setSearchBar] = useState("");
-  const [selectService, setSelectService] = useState(null);
+  const [selectService, setSelectService] = useState("");
   const [ongletService, setOngletService] = useState(true);
   const [ongletTous, setOngletTous] = useState(false);
   const [profileCard, setProfileCard] = useState(false);
   const [dataProfileCard, setDataProfileCard] = useState(null);
+  const [dataUser, setDataUser] = useState([]);
+  const userContext = useContext(UserContext);
+  const [dataUserId, setDataUserId] = useState([]);
+  const [dataService, setDataService] = useState([]);
 
   const handleOngletService = () => {
     setOngletService(true);
@@ -32,11 +36,16 @@ function Utilisateurs() {
     setDataProfileCard(data);
   };
 
-  const [dataUser, setDataUser] = useState([]);
-
-  const userContext = useContext(UserContext);
-
-  const [dataUserId, setDataUserId] = useState([]);
+  const getAll = () => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/service`)
+      .then((res) => {
+        setDataService(res.data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
 
   const getUtilisateurById = () => {
     axios
@@ -65,6 +74,7 @@ function Utilisateurs() {
   };
 
   useEffect(() => {
+    getAll();
     getUtilisateurById();
     fef();
   }, [userContext.user.id]);
@@ -114,6 +124,7 @@ function Utilisateurs() {
                   firstname={data.prenom}
                   lastname={data.username}
                   service={data.serviceName}
+                  avatarImg={data.avatar}
                   displayProfileCard={handleProfileCard}
                 />
               ))}
@@ -142,15 +153,13 @@ function Utilisateurs() {
             <select
               id="selectService"
               className="selectService"
+              value={selectService}
               onChange={(e) => setSelectService(e.target.value.toLowerCase())}
             >
-              <option value="">choisir un service</option>
-              <option value="commercial">commercial</option>
-              <option value="comptabilité">comptable</option>
-              <option value="developpement">developpement</option>
-              <option value="recherche et développement">
-                ressource humaine
-              </option>
+              <option value="">Select service</option>
+              {dataService.map((e) => {
+                return <option key={e.id}>{e.nom}</option>;
+              })}
             </select>
           </div>
           <div className="utilisateursContainer">
@@ -175,7 +184,7 @@ function Utilisateurs() {
                     firstname={data.prenom}
                     lastname={data.username}
                     service={data.serviceName}
-                    img={data.avatar}
+                    avatarImg={data.avatar}
                     displayProfileCard={(d) => handleProfileCard(d)}
                   />
                 );

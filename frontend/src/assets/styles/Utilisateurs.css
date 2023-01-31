@@ -38,7 +38,7 @@
 }
 
 .mainContent {
-  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 4px 4px 20px rgba(22, 50, 92, 0.2);
   background-color: white;
   /* border: 5px solid red; */
   align-items: center;

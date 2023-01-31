@@ -1,24 +1,38 @@
 .UserCard {
   border-radius: 25px;
-  background-color: azure;
-  height: auto;
-}
-
-.UserCard > * {
-  border: solid 1px black;
+  background-color: var(--form-background-color);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-shadow: 4px 4px 20px rgba(22, 50, 92, 0.2);
+  /* max-width: 200px; */
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  height: 250px;
 }
 
 .containerUserCardImg {
-  height: 10em;
+  width: 100px;
+  height: 100px;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  /* border: solid 1px pink; */
+  border-radius: 50%;
 }
 
-.containerUserCardImg > img {
+.containerUserCardImg img {
   height: 100%;
 }
 
 h2,
 h3,
 h4 {
-  margin: 0;
+  margin: auto;
+  text-align: center;
+}
+
+h4 {
+  margin-top: 10px;
 }

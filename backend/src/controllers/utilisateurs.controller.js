@@ -1,4 +1,4 @@
-// const jwt = require("jsonwebtoken");
+const jwt = require("jsonwebtoken");
 const utilisateurModel = require("../models/utilisateurs.model");
 require("dotenv").config();
 // const bcrypt = require("bcrypt");
@@ -6,7 +6,18 @@ require("dotenv").config();
 const getAllUtilisateurs = (req, res) => {
   utilisateurModel
     .getAllUtilisateurs()
-    .then((result) => {
+    .then(([result]) => {
+      res.status(200).send(result);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+};
+
+const getAllUtilisateursService = (req, res) => {
+  utilisateurModel
+    .getAllUtilisateursService()
+    .then(([result]) => {
       res.status(200).send(result);
     })
     .catch((err) => {
@@ -26,10 +37,23 @@ const updateUtilisateur = (req, res) => {
     });
 };
 
+const updateUser = (req, res) => {
+  // console.log(req.params, req.body)
+  utilisateurModel
+    .updateUser(req.params.id, req.body.url)
+    .then((result) => {
+      // console.log("llllll", result);
+      res.status(200).json(result);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+};
+
 const getUtilisateurById = (req, res) => {
   utilisateurModel
     .getUtilisateurById(req.params.id)
-    .then((result) => {
+    .then(([result]) => {
       res.status(200).send(result);
     })
 
@@ -37,10 +61,19 @@ const getUtilisateurById = (req, res) => {
       console.error(err);
     });
 };
-
-const deleteUtilisateur = (req, res) => {
+const getUtilisateurByIdService = (req, res) => {
   utilisateurModel
-    .deleteUtilisateur(req.params.id)
+    .getUtilisateurByIdService(req.params.id)
+    .then(([result]) => {
+      res.status(200).send(result);
+    })
+    .catch((err) => console.error(err));
+};
+
+const deleteUtilisateur = async (req, res) => {
+  await utilisateurModel
+    .deleteUtilisateur(req.params.nom, req.params.prenom)
+
     .then((result) => {
       res.status(200).send(result);
     })
@@ -58,9 +91,11 @@ const createUtilisateur = async (req, res) => {
     motdepasse,
     admin,
     anniversaire,
-    email,
     serviceIdservice,
     fonctionIdfonction,
+    email,
+    biographie,
+    avatar,
   } = req.body;
 
   const result = await utilisateurModel.createUtilisateur(
@@ -70,9 +105,11 @@ const createUtilisateur = async (req, res) => {
     motdepasse,
     admin,
     anniversaire,
-    email,
     serviceIdservice,
-    fonctionIdfonction
+    fonctionIdfonction,
+    email,
+    biographie,
+    avatar
   );
 
   if (result === "Created") {
@@ -86,19 +123,28 @@ const createUtilisateur = async (req, res) => {
 };
 
 const login = async (req, res) => {
-  const { nom, motdepasse } = req.body;
-  const result = await utilisateurModel.login(nom, motdepasse);
+  try {
+    const { nom, motdepasse } = req.body;
+    const result = await utilisateurModel.login(nom, motdepasse);
+    const token = jwt.sign({ user: result }, process.env.TOKEN_SECRET, {
+      expiresIn: "24h",
+    });
+    console.warn(result);
+    result.token = token;
 
-  if (result === "Utilisateur pas trouvé") {
-    /*  const token = jwt.sign({ user: result[0] }, process.env.TOKEN_SECRET, { expiresIn: '24h' })
-     result[0]["token"] = token
-     delete result[0]["motdepasse"] */
+    delete result.motdepasse;
     res.status(200).send(result);
-  } else if (result === "Erreur serveur") {
-    res.status(500).send("Something broke");
-  } else {
-    res.status(200).send(result);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send(error);
   }
+};
+const getUserToken = (req, res) => {
+  const { user } = jwt.verify(
+    req.headers.authorization,
+    process.env.TOKEN_SECRET
+  );
+  res.status(200).send(user);
 };
 
 module.exports = {
@@ -108,4 +154,10 @@ module.exports = {
   deleteUtilisateur,
   createUtilisateur,
   login,
+
+  updateUser,
+  getUtilisateurByIdService,
+
+  getAllUtilisateursService,
+  getUserToken,
 };

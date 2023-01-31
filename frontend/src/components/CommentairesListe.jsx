@@ -1,8 +1,9 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Commentaires from "./Commentaires";
 import "../assets/styles/CommentairesListe.css";
 
-function CommentairesListe() {
+function CommentairesListe({ showCommentaires }) {
   const tabCommentaires = [
     {
       id: 1,
@@ -57,8 +58,21 @@ function CommentairesListe() {
       <div className="insererCommentaire">
         <textarea placeholder="Tapez votre commentaire" />
       </div>
+      <div
+        className="fermetureCommentaires"
+        onClick={showCommentaires}
+        role="button"
+        onKeyDown={showCommentaires}
+        tabIndex={0}
+      >
+        Fermer
+      </div>
     </div>
   );
 }
+
+CommentairesListe.propTypes = {
+  showCommentaires: PropTypes.func.isRequired,
+};
 
 export default CommentairesListe;

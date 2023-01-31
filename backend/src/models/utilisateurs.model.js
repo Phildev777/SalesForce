@@ -5,9 +5,20 @@ require("dotenv").config();
 const getAllUtilisateurs = () => {
   return connection.query("SELECT * FROM  utilisateur;");
 };
-
+const getAllUtilisateursService = () => {
+  return connection.query(
+    "SELECT u.serviceIdservice,u.prenom ,u.id,u.avatar , u.nom AS username, s.nom AS serviceName FROM utilisateur AS u LEFT JOIN service AS s ON u.serviceIdservice = s.idservice"
+  );
+};
 const getUtilisateurById = (id) => {
   return connection.query("SELECT * FROM utilisateur WHERE id=?", [id]);
+};
+
+const getUtilisateurByIdService = (id) => {
+  return connection.query(
+    "SELECT *,s.nom AS serviceName FROM utilisateur AS u JOIN service as s ON u.serviceIdservice = s.idservice WHERE id=?",
+    [id]
+  );
 };
 
 const createUtilisateur = async (
@@ -17,9 +28,11 @@ const createUtilisateur = async (
   motdepasse,
   admin,
   anniversaire,
-  email,
   serviceIdservice,
-  fonctionIdfonction
+  fonctionIdfonction,
+  email,
+  biographie,
+  avatar
 ) => {
   try {
     const hashedMotdepasse = await bcrypt.hashSync(
@@ -27,7 +40,7 @@ const createUtilisateur = async (
       process.env.SALT
     );
     const [result] = await connection.query(
-      "INSERT INTO utilisateur ( nom,prenom, dateembauche, motdepasse, admin, anniversaire, email, serviceIdservice, fonctionIdfonction) VALUES (?,?,?,?,?,?,?,?,?)",
+      "INSERT INTO utilisateur ( nom,prenom, dateembauche, motdepasse, admin, anniversaire,serviceIdservice, fonctionIdfonction, email,  biographie, avatar) VALUES (?,?,?,?,?,?,?,?,?,?,?)",
       [
         nom,
         prenom,
@@ -35,9 +48,11 @@ const createUtilisateur = async (
         hashedMotdepasse,
         admin,
         anniversaire,
-        email,
         serviceIdservice,
         fonctionIdfonction,
+        email,
+        biographie,
+        avatar,
       ]
     );
 
@@ -52,14 +67,24 @@ const createUtilisateur = async (
 };
 
 const updateUtilisateur = (id, newVersion) => {
-  return connection.query("UPDATE utilisateur SET motdepasse=?, WHERE id=?", [
+  return connection.query("UPDATE utilisateur SET motdepasse=? WHERE id=?", [
     newVersion,
     id,
   ]);
 };
 
-const deleteUtilisateur = (id) => {
-  return connection.query("DELETE FROM utilisateur WHERE id=?;", [id]);
+const updateUser = (id, url) => {
+  return connection.query(`UPDATE utilisateur SET avatar=? WHERE id=?`, [
+    url,
+    id,
+  ]);
+};
+
+const deleteUtilisateur = (nom, prenom) => {
+  return connection.query("DELETE FROM utilisateur WHERE nom=? and prenom=?", [
+    nom,
+    prenom,
+  ]);
 };
 
 const login = async (nom, motdepasse) => {
@@ -69,18 +94,17 @@ const login = async (nom, motdepasse) => {
       process.env.SALT
     );
     const [result] = await connection.query(
-      "SELECT id, nom FROM utilisateur WHERE nom=? AND motdepasse=?",
+      "SELECT * FROM utilisateur WHERE nom=? AND motdepasse=?",
       [nom, hashedMotdepasse]
     );
 
     if (result.length > 0) {
       return result[0];
     }
-
-    return "Utilisateur pas trouvé";
+    return "Utilisateur non trouvé";
   } catch (e) {
     console.error(e);
-    return "Erreur de serveur";
+    return e;
   }
 };
 
@@ -91,4 +115,9 @@ module.exports = {
   deleteUtilisateur,
   createUtilisateur,
   login,
+
+  updateUser,
+  getUtilisateurByIdService,
+
+  getAllUtilisateursService,
 };

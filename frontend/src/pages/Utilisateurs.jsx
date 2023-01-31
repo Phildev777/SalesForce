@@ -1,98 +1,85 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
 import UtilisateurCarte from "@components/UtilisateurCarte";
 import "../assets/styles/Utilisateurs.css";
 import magnifier from "@assets/magnifier.svg";
+import axios from "axios";
+import MyProfile from "@components/MyProfile";
+import UserContext from "../contexts/UserContext";
 
 function Utilisateurs() {
-  const [searchBar, setSearchBar] = React.useState("");
-  const [selectService, setSelectService] = React.useState(null);
-  const [ongletService, setOngletService] = React.useState(true);
-  const [ongletTous, setOngletTous] = React.useState(false);
+  const [searchBar, setSearchBar] = useState("");
+  const [selectService, setSelectService] = useState("");
+  const [ongletService, setOngletService] = useState(true);
+  const [ongletTous, setOngletTous] = useState(false);
+  const [profileCard, setProfileCard] = useState(false);
+  const [dataProfileCard, setDataProfileCard] = useState(null);
+  const [dataUser, setDataUser] = useState([]);
+  const userContext = useContext(UserContext);
+  const [dataUserId, setDataUserId] = useState([]);
+  const [dataService, setDataService] = useState([]);
 
   const handleOngletService = () => {
     setOngletService(true);
     setOngletTous(false);
+    setProfileCard(false);
   };
   const handleOngletTous = () => {
     setOngletService(false);
     setOngletTous(true);
+    setProfileCard(false);
   };
 
-  const db = [
-    {
-      id: "0",
-      firstname: "lucie",
-      lastname: "Margot",
-      service: "comptabilité",
-    },
-    {
-      id: "1",
-      firstname: "Margot",
-      lastname: "Robbie",
-      service: "developpement",
-    },
-    {
-      id: "2",
-      firstname: "George",
-      lastname: "Dubois",
-      service: "commercial",
-    },
-    {
-      id: "3",
-      firstname: "lucie",
-      lastname: "Margot",
-      service: "comptabilité",
-    },
-    {
-      id: "4",
-      firstname: "Kevin",
-      lastname: "Leboucher",
-      service: "developpement",
-    },
-    {
-      id: "5",
-      firstname: "lucie",
-      lastname: "Margot",
-      service: "compa",
-    },
-    {
-      id: "6",
-      firstname: "lucie",
-      lastname: " Grddghfz",
-      service: "compa",
-    },
-    {
-      id: "7",
-      firstname: "Jeanne",
-      lastname: "Arc",
-      service: "compa",
-    },
-    {
-      id: "8",
-      firstname: "Tra",
-      lastname: "je",
-      service: "compa",
-    },
-    {
-      id: "9",
-      firstname: "Patrick",
-      lastname: "etoile",
-      service: "compa",
-    },
+  const handleProfileCard = (data) => {
+    setOngletService(false);
+    setOngletTous(false);
+    setProfileCard(true);
+    setDataProfileCard(data);
+  };
 
-    {
-      id: "10",
-      firstname: "François",
-      lastname: "Dupont",
-      service: "compa",
-    },
-    {
-      id: "11",
-      firstname: "Baptiste",
-      lastname: "Mathieu",
-      service: "compa",
-    },
-  ];
+  const getAll = () => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/service`)
+      .then((res) => {
+        setDataService(res.data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
+  const getUtilisateurById = () => {
+    axios
+      .get(
+        `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/ui/${
+          userContext.user.id
+        }`
+      )
+      .then((res) => {
+        setDataUserId(res.data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
+  const fef = () => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/test`)
+      .then((res) => {
+        setDataUser(res.data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
+  useEffect(() => {
+    getAll();
+    getUtilisateurById();
+    fef();
+  }, [userContext.user.id]);
+
+  // console.log(dataUserId[0].serviceName)
 
   return (
     <div className="containerfull">
@@ -120,23 +107,33 @@ function Utilisateurs() {
           </div>
 
           <div className="utilisateursContainer">
-            {db /* .filter((data) => data.service == "commercial") */
+            {dataUser
+              .filter(
+                (data) => data.serviceName === dataUserId?.[0]?.serviceName
+              )
               .filter((data) => {
                 const tmp = searchBar.toLocaleLowerCase();
                 return (
-                  data.firstname.toLowerCase().includes(tmp) ||
-                  data.lastname.toLowerCase().includes(tmp)
+                  data?.prenom?.toLowerCase().includes(tmp) ||
+                  data?.nom?.toLowerCase().includes(tmp)
                 );
               })
               .map((data) => (
                 <UtilisateurCarte
                   key={data.id}
-                  firstname={data.firstname}
-                  lastname={data.lastname}
-                  service={data.service}
+                  firstname={data.prenom}
+                  lastname={data.username}
+                  service={data.serviceName}
+                  avatarImg={data.avatar}
+                  displayProfileCard={handleProfileCard}
                 />
               ))}
           </div>
+        </div>
+      )}
+      {profileCard && (
+        <div className="mainContent">
+          <MyProfile prenom={dataProfileCard.prenom} />
         </div>
       )}
 
@@ -156,36 +153,42 @@ function Utilisateurs() {
             <select
               id="selectService"
               className="selectService"
+              value={selectService}
               onChange={(e) => setSelectService(e.target.value.toLowerCase())}
             >
-              <option value="">choisir un service</option>
-              <option value="commercial">commercial</option>
-              <option value="compa">comptable</option>
-              <option value="developpement">developpement</option>
-              <option value="rh">ressource humaine</option>
+              <option value="">Select service</option>
+              {dataService.map((e) => {
+                return <option key={e.id}>{e.nom}</option>;
+              })}
             </select>
           </div>
           <div className="utilisateursContainer">
-            {db
+            {dataUser
               .filter((data) =>
-                selectService ? data.service === selectService : true
+                selectService
+                  ? data.serviceName.toLocaleLowerCase() === selectService
+                  : true
               )
 
               .filter((data) => {
                 const tmp = searchBar.toLocaleLowerCase();
                 return (
-                  data.firstname.toLowerCase().includes(tmp) ||
-                  data.lastname.toLowerCase().includes(tmp)
+                  data.prenom.toLowerCase().includes(tmp) ||
+                  data.username.toLowerCase().includes(tmp)
                 );
               })
-              .map((data) => (
-                <UtilisateurCarte
-                  key={data.id}
-                  firstname={data.firstname}
-                  lastname={data.lastname}
-                  service={data.service}
-                />
-              ))}
+              .map((data) => {
+                return (
+                  <UtilisateurCarte
+                    key={data.id}
+                    firstname={data.prenom}
+                    lastname={data.username}
+                    service={data.serviceName}
+                    avatarImg={data.avatar}
+                    displayProfileCard={(d) => handleProfileCard(d)}
+                  />
+                );
+              })}
           </div>
         </div>
       )}

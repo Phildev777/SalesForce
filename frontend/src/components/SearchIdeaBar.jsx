@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState /* , useEffect */ } from "react";
 import PropTypes from "prop-types";
+// import axios from "axios";
 
 import "../assets/styles/SearchIdeaBar.css";
 import add from "../assets/addIcon.svg";
@@ -26,6 +27,21 @@ function SearchIdeaBar({
     },
   ]);
 
+  // const [services, setServices] = useState([]);
+
+  // const getServices = () => {
+  //   axios
+  //     .get(`${import.meta.env.VITE_BACKEND_URL}/api/services/`)
+  //     .then((res) => {
+  //       setServices(res.data);
+  //     })
+  //     .catch((err) => console.error(err));
+  // };
+
+  // useEffect(() => {
+  //   getServices();
+  // }, []);
+
   return (
     <div className="ideaSelection">
       <div className="ideaAndSearch">
@@ -34,7 +50,7 @@ function SearchIdeaBar({
           className="searchIdeaInput"
           value={searchValue}
           type="text"
-          placeholder="Recherche"
+          placeholder="Rechercher une idée"
           onChange={(e) => setSearchValue(e.target.value)}
         />
         <div
@@ -55,7 +71,7 @@ function SearchIdeaBar({
             value={selectedService}
             onChange={(e) => handleSelectedService(e.target.value)}
           >
-            <option value="">---</option>
+            <option value="">Idées par service</option>
             {services.map((service) => (
               <option key={service.id}>{service.nom}</option>
             ))}

@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Connexion from "@pages/Connexion";
 import Header from "@components/Header";
-import Home from "./pages/Home";
+
+import axios from "axios";
+
 import Admin from "./pages/Admin";
 import Idees from "./pages/Idees";
 import Services from "./pages/Services";
@@ -10,22 +12,55 @@ import Utilisateurs from "./pages/Utilisateurs";
 import Monespace from "./pages/Monespace";
 import "./App.css";
 
+import UserContext from "./contexts/UserContext";
+
 function App() {
   const location = useLocation();
 
+  const [user, setUser] = useState({
+    token: "",
+    isAdmin: "",
+    id: "",
+  });
+
+  useEffect(() => {
+    const storedToken = localStorage.getItem("token");
+    if (storedToken !== undefined) {
+      axios
+        .get(`${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/token/user`, {
+          headers: {
+            Authorization: `${storedToken}`,
+          },
+        })
+        .then((res) => {
+          console.warn(res.data);
+
+          setUser(res.data);
+        });
+    }
+  }, []);
+
+  const u = useMemo(() => ({ user, setUser }));
+
   return (
     <div>
-      {location.pathname !== "/" && <Header />}
+      <UserContext.Provider value={u}>
+        {location.pathname !== "/" && <Header />}
 
-      <Routes>
-        <Route path="/home" element={<Home />} />
-        <Route path="/mon espace" element={<Monespace />} />
-        <Route path="/idees" element={<Idees />} />
-        <Route path="/utilisateurs" element={<Utilisateurs />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/admin" element={<Admin />} />
-        <Route path="/" element={<Connexion />} />
-      </Routes>
+        {location.pathname === "/admin/modifier" && <Header />}
+        {location.pathname === "/admin/supprimer" && <Header />}
+        {location.pathname === "/admin/inscrire" && <Header />}
+
+        <Routes>
+          <Route path="/" element={<Connexion />} />
+
+          <Route path="/mon espace" element={<Monespace />} />
+          <Route path="/idees" element={<Idees />} />
+          <Route path="/utilisateurs" element={<Utilisateurs />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/admin" element={<Admin />} />
+        </Routes>
+      </UserContext.Provider>
     </div>
   );
 }

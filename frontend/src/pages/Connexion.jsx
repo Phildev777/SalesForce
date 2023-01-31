@@ -1,26 +1,36 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
 
 import "../assets/styles/connexion.css";
 import { useNavigate } from "react-router-dom";
+import UserContext from "../contexts/UserContext";
 
 function Connexion() {
   const [nom, setNom] = useState("");
   const [motdepasse, setMotdepasse] = useState("");
-
+  const userContext = useContext(UserContext);
   const navigate = useNavigate();
 
   const handleNom = (e) => {
     e.preventDefault();
 
     axios
-      .post("http://localhost:5005/api/utilisateur/login", { nom, motdepasse })
-
+      .post(`${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/`, {
+        nom,
+        motdepasse,
+      })
       .then((res) => {
         if (res.data === "Utilisateur pas trouvé") {
           alert(res.data);
-        } else {
+        } else if (res.data.admin === 0) {
+          localStorage.setItem("token", res.data.token);
+
+          userContext.setUser(res.data);
           navigate("/mon espace");
+        } else if (res.data.admin === 1) {
+          localStorage.setItem("token", res.data.token);
+          userContext.setUser(res.data);
+          navigate("/admin");
         }
       })
 

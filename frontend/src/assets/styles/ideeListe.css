@@ -1,7 +1,81 @@
 .ideeListe {
+  /* margin-bottom: 2rem; */
+}
+
+.liste {
   display: flex;
   align-items: center;
   flex-direction: column;
-  /* background-color: aqua; */
   box-sizing: border-box;
+  height: 65vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  width: fit-content;
+  min-width: 100%;
+}
+
+.triDate {
+  padding: 0.5rem;
+}
+
+.triDate button {
+  margin: 0.5rem;
+}
+
+.noIdea {
+  height: 95%;
+  width: 95%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2rem;
+  border-radius: var(--box-radius);
+  margin-right: -2rem;
+  background: rgb(252, 252, 252);
+  background: -moz-linear-gradient(
+    65deg,
+    rgba(252, 252, 252, 1) 0%,
+    rgba(234, 231, 231, 1) 10%,
+    rgba(0, 161, 224, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    65deg,
+    rgba(252, 252, 252, 1) 0%,
+    rgba(234, 231, 231, 1) 10%,
+    rgba(0, 161, 224, 1) 100%
+  );
+  background: linear-gradient(
+    65deg,
+    rgba(252, 252, 252, 1) 0%,
+    rgba(234, 231, 231, 1) 10%,
+    rgba(0, 161, 224, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fcfcfc",endColorstr="#00a1e0",GradientType=1);
+}
+
+.liste::-webkit-scrollbar {
+  background: transparent;
+  width: 10px;
+}
+
+.liste::-webkit-scrollbar-thumb {
+  background: transparent;
+  border: 1px solid rgba(22, 50, 92, 0.2);
+  border-radius: 10px;
+}
+
+.liste::-webkit-scrollbar-track-piece {
+  margin: 1rem;
+}
+
+@media screen and (width < 600px) {
+  .liste {
+    margin-bottom: 1rem;
+    height: 75vh;
+  }
+}
+
+.noIdea {
+  margin-right: -0.9rem;
 }

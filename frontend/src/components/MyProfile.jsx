@@ -1,74 +1,178 @@
-// import React, { useState, useRef } from "react";
 import "../assets/styles/profileCss.css";
+import { useEffect, useState, useContext } from "react";
+import axios from "axios";
 import cake from "../assets/cake.svg";
 import idée from "../assets/idée.svg";
 import avatar from "../assets/avatar.svg";
-// import { useState } from "react";
+import UserContext from "../contexts/UserContext";
 
 function MyProfile() {
-  // state (état,données)
-  // const [biography, setBiography] = useState(false);
+  const [biographie, setBiographie] = useState(true);
 
-  const tab = [
-    {
-      prenom: "Mike",
-      nom: "Tyson",
-      service: "RH",
-      date_embauche: "15/10/2022",
-      mail: "mikyBoxy@wanadoo.fr",
-    },
-  ];
+  const [bioText, setBioText] = useState();
+  const [image /* setImage */] = useState(avatar);
+  const [data, setData] = useState();
+  const userContext = useContext(UserContext);
 
-  // const handleBio = () => {
-  //   setBiography(!biography);
-  // }
+  const getProfile = () => {
+    axios
+      .get(
+        `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/profile/${
+          userContext.user.id
+        }`
+      )
+      .then((res) => {
+        setData(res.data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
 
-  /// affichage (render)
+  const changeBiography = () => {
+    axios
+      .put(
+        `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/profile/bio/${
+          userContext.user.id
+        }`,
+        { biographie: bioText }
+      )
+      .then(() => {
+        getProfile();
+        setBiographie(!biographie);
+      })
+      .catch((err) => {
+        console.warn(err);
+      });
+  };
+
+  useEffect(() => {
+    if (userContext.user.id) getProfile();
+  }, [userContext.user.id]);
+
+  const previewImage = (event) => {
+    const imageFiles = event.target.files;
+    const imageFilesLength = imageFiles.length;
+
+    if (imageFilesLength > 0) {
+      const selectedFile = imageFiles[0];
+      const formData = new FormData();
+      formData.append("avatar", selectedFile);
+      try {
+        const response = axios({
+          method: "post",
+          url: `${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/avatar`,
+          data: formData,
+          headers: { "Content-Type": "multipart/form-data" },
+        }).then((result) => {
+          console.warn("response", response);
+          console.warn(" result.data ", result.data);
+          axios
+            .put(
+              `${
+                import.meta.env.VITE_BACKEND_URL
+              }/api/utilisateur/modifierAvatar/${userContext.user.id}`,
+              { url: result.data }
+            )
+            .then(() => {
+              getProfile();
+            });
+        });
+      } catch (error) {
+        console.warn(error);
+      }
+    }
+  };
+
   return (
-    <div className="all">
-      <div className="infosContainer">
-        <div className="img">
-          <img className="avatar" src={avatar} alt="avatar" />
-        </div>
-        <div className="firstidea">
-          <div className="white"> {tab[0].prenom}</div>
-          <div className="white"> {tab[0].nom} </div>
-          <div className="row">
-            <div className="sdm">
-              <div className="white"> {tab[0].service} </div>
-              <div className="white"> {tab[0].date_embauche} </div>
-              <div className="white"> {tab[0].mail} </div>
-            </div>
-            <div className="birthidea">
-              <div className="white">
-                <img src={cake} alt="cake" /> 18/05/1982{" "}
+    <div className="containerFullPro">
+      <div className="mainContentPro">
+        {data && (
+          <div className="all">
+            <div className="infosContainer">
+              <div className="img">
+                <img
+                  className="avatar"
+                  src={
+                    data[0].avatar
+                      ? `${import.meta.env.VITE_BACKEND_URL}/${data[0].avatar}`
+                      : image
+                  }
+                  width="195"
+                  height="195"
+                  alt="avatar"
+                />
+                <input
+                  type="file"
+                  className="inputAvatar"
+                  name="avatar"
+                  onChange={previewImage}
+                />
               </div>
-              <div className="white">
-                <img src={idée} alt="ampoule" /> Idées photo
+
+              <div className="firstidea">
+                <div className="white"> {data[0].prenom} </div>
+                <div className="white"> {data[0].username} </div>
+                <div className="row">
+                  <div className="sdm">
+                    <div className="white"> {data[0].serviceName} </div>
+                    <div className="white">
+                      {" "}
+                      {data[0].dateembauche.substr(0, 10)}{" "}
+                    </div>
+                    <div className="white"> {data[0].email} </div>
+                  </div>
+                  <div className="birthidea">
+                    <div className="white">
+                      <img src={cake} alt="cake" />{" "}
+                      {data[0].anniversaire.substr(0, 10)}
+                    </div>
+                    <div className="white">
+                      <img src={idée} alt="ampoule" /> Nombres d'idées
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <div className="biography">
-        {" "}
-        <span className=" bio">Biographie</span>
-        <p>
-          Lorem ipsum dolor sit amet. Non nulla mollitia sed atque tenetur et
-          sint quam aut cumque perferendis quo quae veritatis ut maxime optio in
-          mollitia autem. Et necessitatibus suscipit eos voluptatibus
-          consequatur quo veniam quod quo nobis voluptatem. Non tenetur pariatur
-          et magni veniam sit corporis dolor et ipsum vitae vel beatae optio?
-          Aut architecto cupiditate sit enim beatae eos autem consequuntur ad
-          dicta excepturi est quia porro qui quam itaque ab libero animi. Et
-          molestiae quaerat et sequi vero ut magnam rerum non consequatur velit
-          eum nesciunt iusto est fuga eaque est quia dolor.
-        </p>
-        {/* <div className="pencil"> <button type="button" onClick={handleBio} > pencil draw</button> </div> */}
-      </div>
-      {/* <div className="newIdee">
+            {/* {data[0].biographie && (
+              <div className="biography">
+                {" "}
+                <span className=" bio">Biographie</span>
+                <p>{data[0].biographie}</p>
+              </div>
+            )} */}
+            <div className="biography">
+              <textarea
+                name="bio"
+                className="textarea"
+                id="bio"
+                cols="30"
+                rows="10"
+                disabled={biographie}
+                placeholder={data[0].biographie}
+                onChange={(e) => setBioText(e.target.value)}
+              />
+              <button
+                className="crayon"
+                type="button"
+                onClick={() => setBiographie(!biographie)}
+              >
+                Modifies ta bio
+              </button>
+            </div>
+            <button
+              className="validation"
+              type="button"
+              onClick={() => changeBiography()}
+            >
+              Valider
+            </button>
+            {/* <div className="newIdee">
         Ici il y aura les idees que l'utilisateur aura soumis classées par ordre chronologique.
       </div> */}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

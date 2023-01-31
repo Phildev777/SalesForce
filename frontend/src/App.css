@@ -5,6 +5,13 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url("../src/assets/bg-info@2x\ 1.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom;
+  background-color: var(--primary-color);
+  height: 100vh;
+  overflow: hidden;
 }
 
 .App {
@@ -23,4 +30,6 @@ body {
   --font-weight-bold: 700;
   --font-weight-regular: 400;
   --box-radius: 50px;
+  --shadow-card-light: 4px 4px 20px rgba(1, 118, 211, 0.2);
+  --shadow-card-dark: 4px 4px 20px rgba(22, 50, 92, 0.2);
 }

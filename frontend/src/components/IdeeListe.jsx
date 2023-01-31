@@ -85,7 +85,6 @@ function IdeeListe({ searchValue, selectedService }) {
                 nom={i.utilisateur_idutilisateur}
                 description={i.description}
                 modified={i.modified}
-                comments={i.comments}
                 likes={i.likes}
                 published={i.date}
                 selected={selected}
@@ -95,6 +94,8 @@ function IdeeListe({ searchValue, selectedService }) {
                 id={i.ididee}
                 theme={i.theme}
                 service={i.service_idservice}
+                ressources={i.ressources}
+                archive={i.archive}
               />
             ))
         )}

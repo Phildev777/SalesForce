@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
 
@@ -6,23 +6,8 @@ import Commentaires from "./Commentaires";
 import "../assets/styles/CommentairesListe.css";
 import UserContext from "../contexts/UserContext";
 
-function CommentairesListe({ showCommentaires, ideeIdidee }) {
+function CommentairesListe({ showCommentaires, tabCommentaires, id }) {
   const { user } = useContext(UserContext);
-
-  const [tabCommentaires, setTabCommentaires] = useState([]);
-  const noIdee = ideeIdidee;
-  const getComments = () => {
-    axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/api/commentaire/${noIdee}`)
-      .then((res) => {
-        setTabCommentaires(res.data);
-      })
-      .catch((err) => console.error(err));
-  };
-
-  useEffect(() => {
-    getComments();
-  }, [tabCommentaires]);
 
   const [detail, setDetail] = useState();
 
@@ -32,7 +17,7 @@ function CommentairesListe({ showCommentaires, ideeIdidee }) {
       axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/commentaire/create`, {
         detail,
         utilisateurIdutilisateur: user.id,
-        ideeIdidee,
+        ideeIdidee: id,
       });
       setDetail("");
     }
@@ -79,7 +64,8 @@ function CommentairesListe({ showCommentaires, ideeIdidee }) {
 
 CommentairesListe.propTypes = {
   showCommentaires: PropTypes.func.isRequired,
-  ideeIdidee: PropTypes.number.isRequired,
+  id: PropTypes.number.isRequired,
+  tabCommentaires: PropTypes.node.isRequired,
 };
 
 export default CommentairesListe;

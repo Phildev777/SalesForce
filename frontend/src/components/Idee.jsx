@@ -1,5 +1,3 @@
-// CODE TEST BASE DE DONNEES
-
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
@@ -14,7 +12,6 @@ function Idee({
   titre,
   description,
   modified,
-  comments,
   published,
   theme,
   selected,
@@ -72,6 +69,21 @@ function Idee({
 
   const [ideamodified /* setIdeaModified */] = useState(false);
 
+  const [tabCommentaires, setTabCommentaires] = useState([]);
+  // const noIdee = ideeIdidee;
+  const getComments = () => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/commentaire/${id}`)
+      .then((res) => {
+        setTabCommentaires(res.data);
+      })
+      .catch((err) => console.error(err));
+  };
+
+  useEffect(() => {
+    getComments();
+  }, [tabCommentaires]);
+
   return (
     <div
       className="ideaContainer"
@@ -121,7 +133,7 @@ function Idee({
                 fill="var(--primary-color)"
               />
             </svg>{" "}
-            {comments}{" "}
+            {tabCommentaires.length}{" "}
             <svg
               width="30"
               height="15"
@@ -243,7 +255,7 @@ function Idee({
                         fill="var(--primary-color)"
                       />
                     </svg>{" "}
-                    {comments}{" "}
+                    {tabCommentaires.length}{" "}
                   </div>
                   <div
                     className="iconefav"
@@ -387,7 +399,7 @@ function Idee({
                       fill="var(--primary-color)"
                     />
                   </svg>{" "}
-                  {comments}{" "}
+                  {tabCommentaires.length}{" "}
                 </div>
                 <div
                   className="iconefav"
@@ -474,7 +486,8 @@ function Idee({
               </div>
               <CommentairesListe
                 showCommentaires={showCommentaires}
-                ideeIdidee={selected}
+                id={id}
+                tabCommentaires={tabCommentaires}
               />
             </div>
           ) : null}
@@ -488,7 +501,6 @@ Idee.propTypes = {
   titre: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   modified: PropTypes.string.isRequired,
-  comments: PropTypes.number.isRequired,
   published: PropTypes.string.isRequired,
   theme: PropTypes.string.isRequired,
   selected: PropTypes.number,

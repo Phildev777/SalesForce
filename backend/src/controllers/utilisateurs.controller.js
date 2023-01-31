@@ -15,9 +15,14 @@ const getAllUtilisateurs = (req, res) => {
 };
 
 const getAllUtilisateursService = (req, res) => {
-  utilisateurModel.getAllUtilisateursService().then(([result]) => {
-    res.status(200).send(result);
-  });
+  utilisateurModel
+    .getAllUtilisateursService()
+    .then(([result]) => {
+      res.status(200).send(result);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
 };
 
 const updateUtilisateur = (req, res) => {
@@ -48,13 +53,21 @@ const updateUser = (req, res) => {
 const getUtilisateurById = (req, res) => {
   utilisateurModel
     .getUtilisateurById(req.params.id)
-    .then((result) => {
+    .then(([result]) => {
       res.status(200).send(result);
     })
 
     .catch((err) => {
       console.error(err);
     });
+};
+const getUtilisateurByIdService = (req, res) => {
+  utilisateurModel
+    .getUtilisateurByIdService(req.params.id)
+    .then(([result]) => {
+      res.status(200).send(result);
+    })
+    .catch((err) => console.error(err));
 };
 
 const deleteUtilisateur = async (req, res) => {
@@ -143,6 +156,7 @@ module.exports = {
   login,
 
   updateUser,
+  getUtilisateurByIdService,
 
   getAllUtilisateursService,
   getUserToken,

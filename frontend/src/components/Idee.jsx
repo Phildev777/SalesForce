@@ -91,7 +91,7 @@ function Idee({
           ideeIdidee: selected,
         })
         .then(() => {
-          setIsFav(true);
+          console.warn(user.id);
         })
         .catch((err) => console.error(err));
     } else {
@@ -99,12 +99,12 @@ function Idee({
         .delete(
           `${
             import.meta.env.VITE_BACKEND_URL
-          }/api/favoris?utilisateur_idutilisateur=${
+          }/api/favoris?utilisateurIdutilisateur=${
             user.id
           }&ideeIdidee=${selected}`
         )
         .then((res) => {
-          setIsFav(res.data);
+          console.warn(res);
         })
         .catch((err) => console.error(err));
     }

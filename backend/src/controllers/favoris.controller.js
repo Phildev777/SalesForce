@@ -41,8 +41,8 @@ const deleteFav = async (req, res) => {
   const { utilisateurIdutilisateur, ideeIdidee } = req.query;
   try {
     const [result] = await favorisModel.deleteFav(
-      ideeIdidee,
-      utilisateurIdutilisateur
+      utilisateurIdutilisateur,
+      ideeIdidee
     );
     if (result.affectedRows > 0) {
       return res.status(200).send(result);

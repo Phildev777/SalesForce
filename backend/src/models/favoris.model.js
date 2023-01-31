@@ -5,7 +5,7 @@ const connection = require("../config/db");
 const create = (utilisateurIdutilisateur, ideeIdidee) => {
   return connection.query(
     "INSERT INTO favoris (utilisateur_idutilisateur, idee_ididee) VALUES (?,?)",
-    [Number(utilisateurIdutilisateur), Number(ideeIdidee)]
+    [utilisateurIdutilisateur, ideeIdidee]
   );
 };
 
@@ -22,10 +22,10 @@ const findByIdUser = (id) => {
 };
 
 // delete
-const deleteFav = (ideeIdidee, utilisateurIdutilisateur) => {
+const deleteFav = (utilisateurIdutilisateur, ideeIdidee) => {
   return connection.query(
-    "DELETE FROM favoris WHERE idee_ididee=? and utilisateur_idutilisateur=?",
-    [ideeIdidee, utilisateurIdutilisateur]
+    "DELETE FROM favoris WHERE utilisateur_idutilisateur=? and idee_ididee=?",
+    [utilisateurIdutilisateur, ideeIdidee]
   );
 };
 

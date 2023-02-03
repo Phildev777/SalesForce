@@ -17,8 +17,6 @@ li {
   flex-direction: column;
 
   align-items: flex-start;
-
- 
 }
 
 .textIn {
@@ -37,7 +35,7 @@ li {
   border-width: 1px;
   border-color: #cccccc;
   background-color: #ffffff;
-color:dark;
+  color: dark;
   border-style: solid;
   border-radius: 50px;
   box-shadow: 1px 2px 5px rgba(66, 66, 66, 0.75);
@@ -49,13 +47,9 @@ color:dark;
   flex-direction: column;
 }
 
-
-.txtPop{
-
-color:white;
-font-size:22px;
-
-
+.txtPop {
+  color: white;
+  font-size: 22px;
 }
 
 .linkIn {
@@ -73,7 +67,6 @@ font-size:22px;
   font-size: 20px;
   padding: 7px 25px;
   text-decoration: none;
-
 }
 .linkIn:hover {
   background: rgb(0, 102, 255);
@@ -93,7 +86,7 @@ font-size:22px;
   padding-bottom: 10%;
 
   margin-bottom: 10%;
-margin-right: 35%;
+  margin-right: 35%;
   box-shadow: 3px 4px 0px 0px black;
 
   background-color: white;
@@ -106,7 +99,6 @@ margin-right: 35%;
   font-size: 20px;
   padding: 7px 25px;
   text-decoration: none;
- 
 }
 .BtnIns:hover {
   background: rgb(0, 185, 25);
@@ -118,10 +110,9 @@ margin-right: 35%;
   top: 6px;
 }
 
-.BtnPop{
-
+.BtnPop {
   padding-bottom: 10%;
-margin-top: 10px;
+  margin-top: 10px;
   margin-bottom: 10%;
 
   box-shadow: 3px 4px 0px 0px black;
@@ -136,9 +127,8 @@ margin-top: 10px;
   font-size: 15px;
   padding: 7px 25px;
   text-decoration: none;
-
 }
-  .BtnPop:hover {
+.BtnPop:hover {
   background: rgb(0, 102, 255);
 
   color: white;
@@ -146,11 +136,7 @@ margin-top: 10px;
 .BtnPop:active {
   position: relative;
   top: 6px;
-
-
-} 
- 
-
+}
 
 .ulIns {
   display: flex;
@@ -174,8 +160,7 @@ margin-top: 10px;
 }
 
 .selec {
-  
-  background: linear-gradient( white,rgb(153, 193, 232));
+  background: linear-gradient(white, rgb(153, 193, 232));
 
   border: none;
   border-width: 2px;
@@ -191,18 +176,16 @@ margin-top: 10px;
   padding-top: 10%;
 }
 
-
-.pop{
-margin-left: -200px;
-margin-top: 150px;
-background-color: rgba(50, 122, 255, 0.685);
-border-radius: var(--box-radius);
-text-align: center;
-width: 20%;
-position:absolute;
-height:12%;
-padding-top: 20px;
-
+.pop {
+  margin-left: -200px;
+  margin-top: 150px;
+  background-color: rgba(50, 122, 255, 0.685);
+  border-radius: var(--box-radius);
+  text-align: center;
+  width: 20%;
+  position: absolute;
+  height: 12%;
+  padding-top: 20px;
 }
 
 @media screen and (width < 1000px) {

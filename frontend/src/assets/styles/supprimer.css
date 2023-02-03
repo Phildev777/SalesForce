@@ -17,7 +17,7 @@ li {
 
 .textSu {
   font-size: 20px;
-margin-right: 20px;
+  margin-right: 20px;
 }
 #NmC {
   margin-left: 20px;
@@ -103,8 +103,6 @@ margin-right: 20px;
   top: 6px;
 }
 
-
-
 .titleSupp {
   margin-left: 3rem;
   border: none;
@@ -122,7 +120,7 @@ margin-right: 20px;
 }
 
 .select {
-  background: linear-gradient( white,rgb(153, 193, 232));
+  background: linear-gradient(white, rgb(153, 193, 232));
 
   border: none;
   border-width: 2px;

@@ -34,7 +34,6 @@
   font-size: 20px;
   padding: 7px 25px;
   text-decoration: none;
-
 }
 .linkadmin:hover {
   background: rgb(0, 102, 255);
@@ -63,8 +62,7 @@
 }
 
 .selection {
-  background: linear-gradient( white,rgb(153, 193, 232));
- 
+  background: linear-gradient(white, rgb(153, 193, 232));
 
   border: none;
   border-width: 2px;

@@ -2,31 +2,32 @@ import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
 import "../assets/styles/supprimer.css";
+import PropTypes from "prop-types";
 
-
-const Modal = ({show, onClose}) => {
-  
+function Modal({ show, onClose }) {
   const [showModal, setShowModal] = useState(show);
-  
-  useEffect(()=>{
-  
-  setShowModal(show);
-  
-  },[show]);
-  
-  
+
+  useEffect(() => {
+    setShowModal(show);
+  }, [show]);
+
   return (
     showModal && (
-  <div> 
-  <div className="pop">
-  <p className="txtPop">Suppression Effectuée</p>
-  <button onClick={()=> onClose(false)} className="BtnPop">Fermer</button>
-  </div>
-  </div>
-  )
+      <div>
+        <div className="pop">
+          <p className="txtPop">Suppression Effectuée</p>
+          <button
+            type="button"
+            onClick={() => onClose(false)}
+            className="BtnPop"
+          >
+            Fermer
+          </button>
+        </div>
+      </div>
+    )
   );
-      
-    };
+}
 
 function Supprimer() {
   const [nom, setNom] = useState("");
@@ -48,7 +49,7 @@ function Supprimer() {
       .catch((err) => {
         console.error(err);
       });
-      setModalShow(true);
+    setModalShow(true);
   };
   return (
     <div className="main">
@@ -56,20 +57,17 @@ function Supprimer() {
         <div className="titleSupp">Supprimer un collaborateur</div>
       </div>
       <div className="select">
-       
-      <div>
-                        
-                        <Modal show={modalShow} onClose={setModalShow} />
-    
-                      </div>
-       
+        <div>
+          <Modal show={modalShow} onClose={setModalShow} />
+        </div>
+
         <div>
           <div>
             <form onSubmit={handleNom}>
               <ul>
                 <div className="formSup">
                   <li>
-                    <label className="textSu" id="NmC">
+                    <label htmlFor="txt" className="textSu" id="NmC">
                       Nom du collaborateur :
                     </label>
                     <input
@@ -82,7 +80,9 @@ function Supprimer() {
                   </li>
 
                   <li>
-                    <label className="textSu">Prénom du collaborateur :</label>
+                    <label htmlFor="txt" className="textSu">
+                      Prénom du collaborateur :
+                    </label>
                     <input
                       className="inputTxt"
                       type="text"
@@ -98,11 +98,11 @@ function Supprimer() {
                   </button>
                 </li>
                 <li>
-            <NavLink to="/admin/inscrire" className="linkSu">
-              Inscrire un Collaborateur
-            </NavLink>
-          </li>
-            {/*  <li>
+                  <NavLink to="/admin/inscrire" className="linkSu">
+                    Inscrire un Collaborateur
+                  </NavLink>
+                </li>
+                {/*  <li>
             <NavLink to="/admin/modifier" className="linkSu">modifier un collaborateur</NavLink>
           </li>  */}
               </ul>
@@ -113,5 +113,9 @@ function Supprimer() {
     </div>
   );
 }
+Modal.propTypes = {
+  show: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
+};
 
 export default Supprimer;

@@ -1,4 +1,3 @@
-
 -- MySQL dump 10.13  Distrib 8.0.31, for Win64 (x86_64)
 
 --
@@ -69,7 +68,7 @@ CREATE TABLE
     `commentaire` (
         `idcommentaire` int NOT NULL AUTO_INCREMENT,
         `detail` text NOT NULL,
-        `date` datetime NOT NULL,
+        `date` VARCHAR(80) NOT NULL,
         `utilisateur_idutilisateur` int NOT NULL,
         `idee_ididee` int NOT NULL,
         PRIMARY KEY (`idcommentaire`),
@@ -298,7 +297,7 @@ DROP TABLE IF EXISTS `idee`;
 CREATE TABLE
     `idee` (
         `ididee` int NOT NULL AUTO_INCREMENT,
-        `date` datetime NOT NULL,
+        `date` varchar(80) NOT NULL,
         `theme` varchar(80) NOT NULL,
         `titre` varchar(80) NOT NULL,
         `description` text NOT NULL,
@@ -609,8 +608,8 @@ CREATE TABLE
         PRIMARY KEY (`id`),
         KEY `fk_utilisateur_service1_idx` (`serviceIdservice`),
         KEY `fk_utilisateur_fonction1_idx` (`fonctionIdfonction`),
-        CONSTRAINT `fk_utilisateur_fonction1` FOREIGN KEY (`fonctionIdfonction`) REFERENCES `fonction` (`idfonction`),
-        CONSTRAINT `fk_utilisateur_service1` FOREIGN KEY (`serviceIdservice`) REFERENCES `service` (`idservice`)
+        CONSTRAINT `fk_utilisateur_fonction1` FOREIGN KEY (`fonctionIdfonction`) REFERENCES `fonction` (`idfonction`) ON DELETE CASCADE,
+        CONSTRAINT `fk_utilisateur_service1` FOREIGN KEY (`serviceIdservice`) REFERENCES `service` (`idservice`) ON DELETE CASCADE
     ) ENGINE = InnoDB AUTO_INCREMENT = 93 DEFAULT CHARSET = utf8mb3;
 
 /*!40101 SET character_set_client = @saved_cs_client */

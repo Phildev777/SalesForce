@@ -9,10 +9,14 @@ router.get("/", ideeController.getAllIdeas);
 
 router.get("/:id", ideeController.getIdeaById);
 
+router.get("/userbyidea/:id", ideeController.getUserByIdea);
+
+router.get("/findAllIdea/:id", ideeController.findAllIdeasOfAnUser);
+
 // //update
-// router.put("/:id", /UpdateHandler/);
+router.put("/:id", ideeController.updateIdea);
 
 // //delete
-// router.delete("/:id", /DeleteHandler/);
+router.delete("/:id", ideeController.deleteIdea);
 
 module.exports = router;

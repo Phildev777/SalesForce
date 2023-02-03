@@ -608,8 +608,8 @@ CREATE TABLE
         PRIMARY KEY (`id`),
         KEY `fk_utilisateur_service1_idx` (`serviceIdservice`),
         KEY `fk_utilisateur_fonction1_idx` (`fonctionIdfonction`),
-        CONSTRAINT `fk_utilisateur_fonction1` FOREIGN KEY (`fonctionIdfonction`) REFERENCES `fonction` (`idfonction`),
-        CONSTRAINT `fk_utilisateur_service1` FOREIGN KEY (`serviceIdservice`) REFERENCES `service` (`idservice`)
+        CONSTRAINT `fk_utilisateur_fonction1` FOREIGN KEY (`fonctionIdfonction`) REFERENCES `fonction` (`idfonction`) ON DELETE CASCADE,
+        CONSTRAINT `fk_utilisateur_service1` FOREIGN KEY (`serviceIdservice`) REFERENCES `service` (`idservice`) ON DELETE CASCADE
     ) ENGINE = InnoDB AUTO_INCREMENT = 93 DEFAULT CHARSET = utf8mb3;
 
 /*!40101 SET character_set_client = @saved_cs_client */

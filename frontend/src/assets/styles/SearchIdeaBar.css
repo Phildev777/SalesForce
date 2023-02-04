@@ -50,6 +50,12 @@
   height: 1.5rem;
 }
 
+@media screen and (width < 650px) {
+  .addIdea {
+    font-size: 14px;
+  }
+}
+
 @media screen and (width < 600px) {
   .ideaAndSearch {
     font-size: 11px;
@@ -59,11 +65,16 @@
   .searchIdeaInput {
     font-size: 12px;
   }
+
+  .addIdea {
+    font-size: 12px;
+  }
 }
 
-@media screen and (width < 350px) {
+@media screen and (width < 360px) {
   .ideaAndSearch {
     font-size: 10px;
+    gap: 3px;
   }
 
   .searchIdeaInput {

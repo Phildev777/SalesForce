@@ -30,13 +30,6 @@
   background-color: var(--cases-form-background-color);
 }
 
-/* .themeSelectionForm {
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  padding: 0 0 1rem 0;
-} */
-
 .themeSelectionForm {
   align-items: flex-start;
   height: 100%;
@@ -113,10 +106,6 @@ textarea {
   justify-content: space-around;
   padding: 3px;
 }
-
-/* .inputFile {
-  background-color: red;
-} */
 
 #file-upload-button {
   margin: 10rem;

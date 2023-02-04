@@ -40,3 +40,10 @@
   display: flex;
   justify-content: flex-start;
 }
+
+@media screen and (width > 2400px) {
+  .commentairesContainer {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+}

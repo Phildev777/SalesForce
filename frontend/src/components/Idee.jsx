@@ -111,6 +111,21 @@ function Idee({
     setIsFav(!isFav);
   };
 
+  // const getUserFav = () => {
+  //   axios
+  //     .get(`${import.meta.env.VITE_BACKEND_URL}/api/favoris/${user.id}`)
+  //     .then((res) => {
+  //       const fav = [res.data];
+  //       console.log(fav);
+  //       setIsFav(res.data);
+  //     })
+  //     .catch((err) => console.error(err));
+  // };
+
+  // useEffect(() => {
+  //   getUserFav();
+  // }, []);
+
   return (
     <div
       className="ideaContainer"
@@ -232,7 +247,11 @@ function Idee({
         </div>
       ) : (
         <div className="ideaContainerBig">
-          <div className="leftContent">
+          <div
+            className={
+              commentaires ? "leftContentCommentsOpened" : "leftContent"
+            }
+          >
             <div className="titleContainerBig">
               <div className="avatarTitleFavIcon">
                 <div className="avatar1">

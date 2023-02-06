@@ -10,9 +10,15 @@ const getAllUtilisateursService = () => {
     "SELECT u.serviceIdservice,u.prenom ,u.id , u.nom AS username, s.nomservice AS serviceName FROM utilisateur AS u LEFT JOIN service AS s ON u.serviceIdservice = s.idservice"
   );
 };
-
 const getUtilisateurById = (id) => {
   return connection.query("SELECT * FROM utilisateur WHERE id=?", [id]);
+};
+
+const getUtilisateurByIdService = (id) => {
+  return connection.query(
+    "SELECT *,s.nom AS serviceName FROM utilisateur AS u JOIN service as s ON u.serviceIdservice = s.idservice WHERE id=?",
+    [id]
+  );
 };
 
 const createUtilisateur = async (
@@ -111,6 +117,7 @@ module.exports = {
   login,
 
   updateUser,
+  getUtilisateurByIdService,
 
   getAllUtilisateursService,
 };

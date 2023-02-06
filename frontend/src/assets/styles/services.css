@@ -14,20 +14,17 @@
   box-sizing: border-box;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  /* height: 96%; */
   gap: 50px;
-
   margin: 40px;
   padding-left: 5px;
   padding-right: 20px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   scroll-margin: 20px;
-
   /* background-color: #0b5cab; */
   overflow-x: hidden;
   overflow-y: scroll;
-  height: 89vh;
+  height: 80vh;
 }
 
 .Global::-webkit-scrollbar {
@@ -54,7 +51,7 @@
   background-color: var(--cases-form-background-color);
   border-radius: var(--box-radius);
   text-align: center;
-  box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 4px 4px 20px rgba(22, 50, 92, 0.2);
   display: inline-block;
 }
 
@@ -74,4 +71,22 @@
   font-family: var(--font-family);
   font-weight: var(--font-weight-bold);
   padding-bottom: 50px;
+}
+
+@media screen and (max-width: 1400px) {
+  .Global {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 1130px) {
+  .Global {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .Global {
+    margin-left: 40px;
+  }
 }

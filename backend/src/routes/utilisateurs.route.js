@@ -10,6 +10,7 @@ router.get("/", utilisateurController.getAllUtilisateurs);
 
 router.get("/test", utilisateurController.getAllUtilisateursService);
 
+router.get("/ui/:id", utilisateurController.getUtilisateurByIdService);
 router.get("/profile/:id", profilController.getAllProfiles);
 
 router.get("/:id", utilisateurController.getUtilisateurById);

@@ -60,7 +60,7 @@ body {
 }
 
 .InputForm {
-  width: 300px;
+  width: 100%;
   border-radius: var(--box-radius);
   background-color: var(--cases-form-background-color);
 }

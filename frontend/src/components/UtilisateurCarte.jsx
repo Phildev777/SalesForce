@@ -12,6 +12,7 @@ function UtilisateurCarte({
   dateembauche,
   anniversaire,
   email,
+  biographie,
 }) {
   return (
     <div
@@ -25,6 +26,7 @@ function UtilisateurCarte({
           anniversaire,
           email,
           avatar,
+          biographie,
         })
       }
       role="button"
@@ -56,6 +58,7 @@ UtilisateurCarte.propTypes = {
   dateembauche: PropsTypes.string.isRequired,
   anniversaire: PropsTypes.string.isRequired,
   email: PropsTypes.string.isRequired,
+  biographie: PropsTypes.string.isRequired,
 };
 
 export default UtilisateurCarte;

@@ -7,7 +7,7 @@ const getAllUtilisateurs = () => {
 };
 const getAllUtilisateursService = () => {
   return connection.query(
-    "SELECT u.serviceIdservice,u.prenom ,u.id , u.nom AS username, s.nomservice AS serviceName FROM utilisateur AS u LEFT JOIN service AS s ON u.serviceIdservice = s.idservice"
+    "SELECT u.serviceIdservice,u.prenom ,u.id, u.dateembauche, u.biographie, u.anniversaire, u.email, u.nom AS username, s.nomservice AS serviceName FROM utilisateur AS u LEFT JOIN service AS s ON u.serviceIdservice = s.idservice"
   );
 };
 const getUtilisateurById = (id) => {
@@ -16,7 +16,7 @@ const getUtilisateurById = (id) => {
 
 const getUtilisateurByIdService = (id) => {
   return connection.query(
-    "SELECT *,s.nom AS serviceName FROM utilisateur AS u JOIN service as s ON u.serviceIdservice = s.idservice WHERE id=?",
+    "SELECT *,s.nomservice AS serviceName FROM utilisateur AS u JOIN service as s ON u.serviceIdservice = s.idservice WHERE id=?",
     [id]
   );
 };

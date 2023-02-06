@@ -58,10 +58,18 @@ function IdeeListe({ searchValue, selectedService }) {
     <div className="ideeListe">
       <div className="triDate">
         Tri par date:{" "}
-        <button onClick={handleDateCroissante} type="button">
+        <button
+          onClick={handleDateCroissante}
+          type="button"
+          className="buttonDate"
+        >
           Ancienne
         </button>
-        <button onClick={handleDateDecroissante} type="button">
+        <button
+          onClick={handleDateDecroissante}
+          type="button"
+          className="buttonDate"
+        >
           Récente
         </button>
       </div>

@@ -80,3 +80,24 @@
 .noIdea {
   margin-right: -0.9rem;
 }
+
+.buttonDate {
+  background-color: var(--primary-color);
+  color: white;
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-regular);
+  margin: 1rem;
+  width: 5rem;
+  /* height: 2rem; */
+  border-radius: 10px;
+  border: none;
+}
+
+.buttonDate:hover {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.buttonDate:active {
+  scale: 1.01;
+}

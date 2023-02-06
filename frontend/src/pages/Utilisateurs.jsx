@@ -135,6 +135,7 @@ function Utilisateurs() {
                   dateembauche={data.dateembauche}
                   anniversaire={data.anniversaire}
                   email={data.email}
+                  biographie={data.biographie}
                 />
               ))}
           </div>
@@ -154,7 +155,7 @@ function Utilisateurs() {
             setBioText={setBioText}
             changeBiography={() => {}}
             dataIdea={dataIdea}
-            isView
+            editable={false}
           />
         </div>
       )}
@@ -180,7 +181,7 @@ function Utilisateurs() {
             >
               <option value="">Select service</option>
               {dataService.map((e) => {
-                return <option key={e.id}>{e.nom}</option>;
+                return <option key={e.id}>{e.nomservice}</option>;
               })}
             </select>
           </div>
@@ -208,6 +209,10 @@ function Utilisateurs() {
                     service={data.serviceName}
                     avatar={data.avatar}
                     displayProfileCard={(d) => handleProfileCard(d)}
+                    dateembauche={data.dateembauche}
+                    anniversaire={data.anniversaire}
+                    email={data.email}
+                    biographie={data.biographie}
                   />
                 );
               })}

@@ -102,47 +102,6 @@ UNLOCK TABLES;
 
 --
 
--- Table structure for table `theme`
-
---
-
-DROP TABLE IF EXISTS `theme`;
-
-/*!40101 SET @saved_cs_client     = @@character_set_client */
-
-;
-
-/*!50503 SET character_set_client = utf8mb4 */
-
-;
-
-CREATE TABLE
-    IF NOT EXISTS `salesforce`.`theme` (
-        `idtheme` INT NOT NULL AUTO_INCREMENT,
-        `nom` VARCHAR(80) NOT NULL,
-        PRIMARY KEY (`idtheme`)
-    ) ENGINE = InnoDB AUTO_INCREMENT = 9 DEFAULT CHARACTER SET = utf8mb3;
-
---
-
--- Dumping data for table `theme`
-
---
-
-LOCK TABLES `theme` WRITE;
-
-/*!40000 ALTER TABLE `theme` DISABLE KEYS */
-
-;
-
-/*!40000 ALTER TABLE `theme` ENABLE KEYS */
-
-;
-
-UNLOCK TABLES;
-
---
-
 -- Table structure for table `archive`
 
 --
@@ -449,7 +408,7 @@ DROP TABLE IF EXISTS `service`;
 CREATE TABLE
     `service` (
         `idservice` int NOT NULL AUTO_INCREMENT,
-        `nom` varchar(80) NOT NULL,
+        `nomservice` varchar(80) NOT NULL,
         `nbemploye` int NOT NULL,
         `localisation` varchar(80) NOT NULL,
         PRIMARY KEY (`idservice`)

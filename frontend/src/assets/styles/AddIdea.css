@@ -2,6 +2,12 @@
   background-color: var(--form-background-color);
   border-radius: var(--box-radius);
   margin-bottom: 2rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-regular);
+  box-shadow: var(--shadow-card-light);
+  height: 70vh;
 }
 
 .details {
@@ -24,13 +30,6 @@
   background-color: var(--cases-form-background-color);
 }
 
-/* .themeSelectionForm {
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  padding: 0 0 1rem 0;
-} */
-
 .themeSelectionForm {
   align-items: flex-start;
   height: 100%;
@@ -43,11 +42,12 @@
 
 #theme-select {
   width: 20rem;
-
   border-radius: 10px;
   border: none;
   background-color: var(--cases-form-background-color);
   padding: 5px;
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-regular);
 }
 
 .descriptionIdea {
@@ -78,7 +78,7 @@ textarea {
   margin: 0 2rem 0 2rem;
   display: flex;
   flex-direction: column;
-  padding: 1rem;
+  padding: 1rem 1rem 0 1rem;
 }
 
 .file {
@@ -107,10 +107,6 @@ textarea {
   padding: 3px;
 }
 
-/* .inputFile {
-  background-color: red;
-} */
-
 #file-upload-button {
   margin: 10rem;
 }
@@ -128,7 +124,7 @@ textarea {
 }
 
 .submission {
-  padding: 1rem;
+  padding: 0 1rem 0 1rem;
   display: flex;
   width: 100%;
 }
@@ -157,6 +153,8 @@ textarea {
 
 .submission button:nth-child(odd) {
   background-color: var(--cases-form-background-color);
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-regular);
 }
 
 .submission button:nth-child(odd):hover {
@@ -170,6 +168,8 @@ textarea {
 .submission button:nth-child(2) {
   background-color: var(--primary-color);
   color: white;
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-regular);
 }
 .submission button:nth-child(2):hover {
   background-color: var(--secondary-color);

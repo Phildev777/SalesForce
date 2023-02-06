@@ -9,6 +9,8 @@ router.get("/", commentaireController.getAllComments);
 
 router.get("/:id", commentaireController.getCommentById);
 
+router.get("/detailcommentaire/:id", commentaireController.getUserBycomment);
+
 // //update
 // router.put("/:id", commentaireController.updateComment);
 

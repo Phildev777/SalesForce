@@ -57,7 +57,7 @@ const getIdeaById = (req, res) => {
 const getUserByIdea = (req, res) => {
   ideeModel
     .userByIdea(req.params.id)
-    .then(([result]) => {
+    .then(([[result]]) => {
       res.status(200).send(result);
     })
     .catch((err) => {

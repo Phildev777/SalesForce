@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 1rem 10% 0 10%;
+  margin: 0.5rem 10% 0 10%;
   gap: 5px;
 }
 
@@ -40,7 +40,7 @@
 
 .serviceSelection {
   width: 100%;
-  padding-bottom: 1rem;
+  padding-bottom: 0.5rem;
 }
 
 .serviceSelection select {
@@ -48,6 +48,12 @@
   text-align: center;
   border-radius: 25px;
   height: 1.5rem;
+}
+
+@media screen and (width < 650px) {
+  .addIdea {
+    font-size: 14px;
+  }
 }
 
 @media screen and (width < 600px) {
@@ -59,11 +65,16 @@
   .searchIdeaInput {
     font-size: 12px;
   }
+
+  .addIdea {
+    font-size: 12px;
+  }
 }
 
-@media screen and (width < 350px) {
+@media screen and (width < 360px) {
   .ideaAndSearch {
     font-size: 10px;
+    gap: 3px;
   }
 
   .searchIdeaInput {

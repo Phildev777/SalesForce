@@ -6,7 +6,6 @@
   padding: 0.5rem;
   max-height: 100%;
   height: 55vh;
-  /* width: 16vw; */
   min-width: 20vw;
   background-color: var(--primary-color);
   box-shadow: 5px 5px 20px rgba(3, 14, 128, 0.2);
@@ -71,4 +70,22 @@ textarea:focus {
   border-radius: 10px;
   height: 1rem;
   border: 1px solid var(--secondary-color);
+}
+
+@media screen and (width < 600px) {
+  .commentaireListe {
+    width: 80%;
+  }
+}
+
+@media screen and (width > 2400px) {
+  .comms {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .noComment {
+    font-size: 30px;
+  }
 }

@@ -37,7 +37,9 @@ const findById = (id) => {
 // Identifier l'utilisateur de l'idée
 const userByIdea = (id) => {
   return connection.query(
-    "select nom, prenom from utilisateur inner join idee on id = utilisateur_idutilisateur where ididee=?",
+    // "select nom, prenom from utilisateur inner join idee on id = utilisateur_idutilisateur where ididee=?",
+    "SELECT * FROM utilisateur INNER JOIN service ON serviceIdservice = service.idService INNER JOIN idee ON id = utilisateur_idutilisateur where ididee = ?;",
+
     [id]
   );
 };

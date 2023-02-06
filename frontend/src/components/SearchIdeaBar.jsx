@@ -58,7 +58,9 @@ function SearchIdeaBar({
           >
             <option value="">Idées par service</option>
             {services.map((service) => (
-              <option key={service.idservice}>{service.nom}</option>
+              <option key={service.idservice} value={service.idservice}>
+                {service.nomservice}
+              </option>
             ))}
           </select>
         </label>

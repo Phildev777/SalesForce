@@ -3,7 +3,7 @@ import "../assets/styles/header.css";
 import { NavLink } from "react-router-dom";
 import { ImSwitch } from "react-icons/im";
 import axios from "axios";
-import avatarImg from "../assets/avatar1.svg";
+import avatarImg from "../assets/avatar.svg";
 
 import UserContext from "../contexts/UserContext";
 

@@ -7,11 +7,15 @@ import MyProfile from "@components/MyProfile";
 import UserContext from "../contexts/UserContext";
 
 function Utilisateurs() {
+  const [canWrite, setCanWrite] = useState(true);
+  const [, /* bioText */ setBioText] = useState();
+  const [dataIdea /* setDataIdea */] = useState();
+
   const [searchBar, setSearchBar] = useState("");
   const [selectService, setSelectService] = useState("");
   const [ongletService, setOngletService] = useState(true);
   const [ongletTous, setOngletTous] = useState(false);
-  const [profileCard, setProfileCard] = useState(false);
+  const [, /* profileCard */ setProfileCard] = useState(false);
   const [dataProfileCard, setDataProfileCard] = useState(null);
   const [dataUser, setDataUser] = useState([]);
   const userContext = useContext(UserContext);
@@ -22,11 +26,13 @@ function Utilisateurs() {
     setOngletService(true);
     setOngletTous(false);
     setProfileCard(false);
+    setDataProfileCard(false);
   };
   const handleOngletTous = () => {
     setOngletService(false);
     setOngletTous(true);
     setProfileCard(false);
+    setDataProfileCard(false);
   };
 
   const handleProfileCard = (data) => {
@@ -124,16 +130,32 @@ function Utilisateurs() {
                   firstname={data.prenom}
                   lastname={data.username}
                   service={data.serviceName}
-                  avatarImg={data.avatar}
+                  avatar={data.avatar}
                   displayProfileCard={handleProfileCard}
+                  dateembauche={data.dateembauche}
+                  anniversaire={data.anniversaire}
+                  email={data.email}
                 />
               ))}
           </div>
         </div>
       )}
-      {profileCard && (
+      {/* {console.log(dataProfileCard)} */}
+      {dataProfileCard && (
         <div className="mainContent">
-          <MyProfile prenom={dataProfileCard.prenom} />
+          <MyProfile
+            /* eslint-disable */
+
+            {...dataProfileCard}
+            /* eslint-enable */
+            previewImage={() => {}}
+            canWrite={canWrite}
+            setCanWrite={setCanWrite}
+            setBioText={setBioText}
+            changeBiography={() => {}}
+            dataIdea={dataIdea}
+            isView
+          />
         </div>
       )}
 
@@ -184,7 +206,7 @@ function Utilisateurs() {
                     firstname={data.prenom}
                     lastname={data.username}
                     service={data.serviceName}
-                    avatarImg={data.avatar}
+                    avatar={data.avatar}
                     displayProfileCard={(d) => handleProfileCard(d)}
                   />
                 );

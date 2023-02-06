@@ -85,8 +85,6 @@ function Utilisateurs() {
     fef();
   }, [userContext.user.id]);
 
-  // console.log(dataUserId[0].serviceName)
-
   return (
     <div className="containerfull">
       <div className="onglets">
@@ -141,7 +139,7 @@ function Utilisateurs() {
           </div>
         </div>
       )}
-      {/* {console.log(dataProfileCard)} */}
+
       {dataProfileCard && (
         <div className="mainContent">
           <MyProfile

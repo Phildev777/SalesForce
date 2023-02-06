@@ -111,21 +111,6 @@ function Idee({
     setIsFav(!isFav);
   };
 
-  // const getUserFav = () => {
-  //   axios
-  //     .get(`${import.meta.env.VITE_BACKEND_URL}/api/favoris/${user.id}`)
-  //     .then((res) => {
-  //       const fav = [res.data];
-  //       console.log(fav);
-  //       setIsFav(res.data);
-  //     })
-  //     .catch((err) => console.error(err));
-  // };
-
-  // useEffect(() => {
-  //   getUserFav();
-  // }, []);
-
   return (
     <div
       className="ideaContainer"
@@ -290,7 +275,7 @@ function Idee({
                         d="M23.7722 38.1574L23.5 37.9808L23.2278 38.1574L9.7212 46.9211L13.2963 30.3454L13.3561 30.068L13.1486 29.8744L1.15625 18.6855L16.9426 17.2221L17.2487 17.1937L17.3616 16.9078L23.5 1.36145L29.6384 16.9078L29.7513 17.1937L30.0573 17.2221L45.8424 18.6854L33.8282 29.8741L33.62 30.068L33.6804 30.346L37.277 46.9199L23.7722 38.1574Z"
                         stroke="var(--primary-color)"
                       />
-                    </svg> /* emptyFavIcon */
+                    </svg>
                   )}
                 </div>
               </div>
@@ -413,11 +398,7 @@ function Idee({
             <div className="published">
               Publiée par : {userByIdea.prenom} {userByIdea.nom}
             </div>
-            <div
-              /* onChange={() => setIdeaModified(true)} */ className="textIdea"
-            >
-              {description}
-            </div>
+            <div className="textIdea">{description}</div>
 
             <div className="imageIdea">
               <img src={imagebg} alt="" />

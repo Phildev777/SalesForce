@@ -72,13 +72,7 @@ function AddIdea({ openFormAddIdea }) {
 
   const hSubmit = (evt) => {
     evt.preventDefault();
-    /* if (!title) {
-      console.log("Veuillez sélectionner un thème");
-    } else if (!theme) {
-      console.log("Veuillez sélectionner un thème");
-    } else if (!description) {
-      console.log("Veuillez décrire votre idée");
-    } else */ {
+    {
       axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/idee/create`, {
         theme,
         titre: title,

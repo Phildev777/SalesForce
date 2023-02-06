@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-// import Connexion from "@pages/Connexion";
+
 import { BrowserRouter } from "react-router-dom";
 import RouteAdmin from "@components/RouteAdmin";
 import App from "./App";

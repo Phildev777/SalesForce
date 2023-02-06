@@ -24,9 +24,6 @@ function Admin() {
                   supprimer un collaborateur
                 </NavLink>
               </li>
-              {/*   <li >
-              <NavLink to="/admin/modifier"className="linkadmin">modifier un collaborateur</NavLink>
-            </li> */}
             </ul>
           </div>
         </div>

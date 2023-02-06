@@ -39,7 +39,9 @@ function Supprimer() {
 
     axios
       .delete(
-        `http://localhost:5005/api/utilisateur/supprimer/${nom}/${prenom}`
+        `${
+          import.meta.env.VITE_BACKEND_URL
+        }/api/utilisateur/supprimer/${nom}/${prenom}`
       )
 
       .then((res) => {
@@ -102,9 +104,6 @@ function Supprimer() {
                     Inscrire un Collaborateur
                   </NavLink>
                 </li>
-                {/*  <li>
-            <NavLink to="/admin/modifier" className="linkSu">modifier un collaborateur</NavLink>
-          </li>  */}
               </ul>
             </form>
           </div>

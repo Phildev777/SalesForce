@@ -45,7 +45,7 @@ function Inscrire() {
     e.preventDefault();
 
     axios
-      .post("http://localhost:5005/api/utilisateur/creation", {
+      .post(`${import.meta.env.VITE_BACKEND_URL}/api/utilisateur/creation`, {
         nom,
         prenom,
         dateembauche,
@@ -230,9 +230,6 @@ function Inscrire() {
                 Supprimer un collaborateur
               </NavLink>
             </li>
-            {/*    <li>
-            <NavLink to="/admin/modifier"className="linkIn">modifier un collaborateur</NavLink>
-          </li> */}
           </ul>
         </div>
       </div>

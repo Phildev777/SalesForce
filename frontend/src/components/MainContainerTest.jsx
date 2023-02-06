@@ -9,14 +9,6 @@ function MainContainer({ dataService }) {
       <div className="ideasContainer">
         <div className="titleIdeas">Services</div>
         <div className="selectionAndDisplay">
-          {/* <SearchIdeaBar
-            searchValue={searchValue}
-            setSearchValue={setSearchValue}
-          />{" "} */}
-          {/*    <IdeeListe
-            searchValue={searchValue}
-            setSearchValue={setSearchValue}
-          />{" "} */}
           <SectionServices dataService={dataService} />
         </div>
       </div>

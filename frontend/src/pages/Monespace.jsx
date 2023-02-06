@@ -62,6 +62,7 @@ function Monespace() {
     if (userContext.user.id) {
       getProfile();
       getIdeas();
+      // previewImage()
     }
   }, [userContext.user.id]);
 
@@ -112,6 +113,7 @@ function Monespace() {
             setBioText={setBioText}
             changeBiography={changeBiography}
             dataIdea={dataIdea}
+            editable
           />
         )}
       </div>

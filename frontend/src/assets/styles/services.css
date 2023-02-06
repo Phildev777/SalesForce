@@ -47,12 +47,12 @@
 .Services {
   /* min-width: 240px; */
   min-height: 250px;
-
-  background-color: var(--cases-form-background-color);
+  background-color: var(--form-background-color);
   border-radius: var(--box-radius);
   text-align: center;
   box-shadow: 4px 4px 20px rgba(22, 50, 92, 0.2);
   display: inline-block;
+  width: 13rem;
 }
 
 .NomsServices {
@@ -73,6 +73,9 @@
   padding-bottom: 50px;
 }
 
+p {
+  padding: 10px;
+}
 @media screen and (max-width: 1400px) {
   .Global {
     grid-template-columns: 1fr 1fr 1fr;
@@ -82,11 +85,15 @@
 @media screen and (max-width: 1130px) {
   .Global {
     grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    margin:20px 0 20px 20px;
   }
 }
 
 @media screen and (max-width: 1000px) {
   .Global {
-    margin-left: 40px;
+    /* margin-left: 40px; */
+    display: flex;
+    flex-wrap: wrap;
   }
 }

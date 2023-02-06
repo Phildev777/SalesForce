@@ -148,3 +148,21 @@
     margin-left: 40px;
   }
 }
+
+@media screen and (width < 600px) {
+  .onglets {
+    margin-left: 50px;
+  }
+  .onglets > * {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .utilisateursContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  }
+
+
+

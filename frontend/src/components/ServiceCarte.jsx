@@ -8,9 +8,11 @@ function ServiceCarte({ nom, effectifs, localisation }) {
         <h2>{nom}</h2>
       </div>
       <div className="Caract">
-        <p>Effectifs : {effectifs}</p>
+        <p>Effectifs</p>
+        <p>{effectifs}</p>
 
-        <p>Localisation: {localisation}</p>
+        <p>Localisation:</p>
+        <p>{localisation}</p>
       </div>
     </div>
   );

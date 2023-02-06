@@ -1,14 +1,18 @@
 import React from "react";
 import "../assets/styles/UtilisateurCarte.css";
 import PropsTypes from "prop-types";
-import avatar from "../assets/avatar1.svg";
+import picture from "../assets/avatar1.svg";
 
 function UtilisateurCarte({
   firstname,
   lastname,
   service,
   displayProfileCard,
-  avatarImg,
+  avatar,
+  dateembauche,
+  anniversaire,
+  email,
+  biographie,
 }) {
   return (
     <div
@@ -16,8 +20,13 @@ function UtilisateurCarte({
       onClick={() =>
         displayProfileCard({
           prenom: firstname,
-          nom: lastname,
-          service,
+          username: lastname,
+          serviceName: service,
+          dateembauche,
+          anniversaire,
+          email,
+          avatar,
+          biographie,
         })
       }
       role="button"
@@ -25,11 +34,11 @@ function UtilisateurCarte({
       tabIndex={0}
     >
       <div className="containerUserCardImg">
-        {!avatarImg ? (
-          <img src={avatar} alt="profile" />
+        {!avatar ? (
+          <img src={picture} alt="profile" />
         ) : (
           <img
-            src={`${import.meta.env.VITE_BACKEND_URL}/${avatarImg}`}
+            src={`${import.meta.env.VITE_BACKEND_URL}/${avatar}`}
             alt="profile"
           />
         )}
@@ -45,7 +54,11 @@ UtilisateurCarte.propTypes = {
   lastname: PropsTypes.string.isRequired,
   service: PropsTypes.string.isRequired,
   displayProfileCard: PropsTypes.func.isRequired,
-  avatarImg: PropsTypes.string.isRequired,
+  avatar: PropsTypes.string.isRequired,
+  dateembauche: PropsTypes.string.isRequired,
+  anniversaire: PropsTypes.string.isRequired,
+  email: PropsTypes.string.isRequired,
+  biographie: PropsTypes.string.isRequired,
 };
 
 export default UtilisateurCarte;

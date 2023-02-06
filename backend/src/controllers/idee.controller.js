@@ -1,5 +1,7 @@
 const ideeModel = require("../models/idee.model");
 
+const date = new Date().toLocaleDateString("fr");
+
 // create
 const createIdea = (req, res) => {
   const {
@@ -12,7 +14,7 @@ const createIdea = (req, res) => {
 
   ideeModel
     .create(
-      new Date(), // generate date, format YYYY/MM/DD
+      date, // generate date, format YYYY/MM/DD
       theme,
       titre,
       description,
@@ -44,7 +46,7 @@ const getAllIdeas = (req, res) => {
 const getIdeaById = (req, res) => {
   ideeModel
     .findById(req.params.id)
-    .then((result) => {
+    .then(([result]) => {
       res.status(200).send(result);
     })
     .catch((err) => {
@@ -52,22 +54,67 @@ const getIdeaById = (req, res) => {
     });
 };
 
-// //update
-// const update = (req, res) => {
-//   /*modelUpdate*/
-//   res.status(201).send(/*INFOS*/);
-// }
+const getUserByIdea = (req, res) => {
+  ideeModel
+    .userByIdea(req.params.id)
+    .then(([[result]]) => {
+      res.status(200).send(result);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+};
 
-// //delete
-// const remove= (req, res) => {
-//   /*modelDelete*/
-//   res.status(201).send("Created")
-// }
+const findAllIdeasOfAnUser = (req, res) => {
+  ideeModel
+    .findAllIdeasOfAnUser(req.params.id)
+    .then(([result]) => {
+      res.status(200).send(result);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+};
+
+const updateIdea = async (req, res) => {
+  try {
+    const { theme, titre, description, archive, id } = req.body;
+    const [result] = await ideeModel.updateIdea(
+      theme,
+      titre,
+      description,
+      archive,
+      id
+    );
+    if (result.affectedRows > 0) {
+      return res.status(201).send(result);
+    }
+    return res.status(400).send("erreur");
+  } catch (err) {
+    console.error(err);
+    return res.status(500).send("problem");
+  }
+};
+
+const deleteIdea = async (req, res) => {
+  try {
+    const [result] = await ideeModel.deleteIdea(req.params.id);
+    if (result.affectedRows > 0) {
+      return res.status(200).send("Idée supprimée");
+    }
+    return res.status(400).send("erreur");
+  } catch (err) {
+    console.error(err);
+    return res.status(500).send("problem");
+  }
+};
 
 module.exports = {
   getAllIdeas,
   createIdea,
   getIdeaById,
-  // read: read,
-  // remove: remove
+  getUserByIdea,
+  updateIdea,
+  deleteIdea,
+  findAllIdeasOfAnUser,
 };

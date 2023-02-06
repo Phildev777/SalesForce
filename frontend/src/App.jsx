@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Connexion from "@pages/Connexion";
-import Header from "@components/Header";
-
 import axios from "axios";
+import Header from "./components/Header";
 
 import Admin from "./pages/Admin";
 import Idees from "./pages/Idees";

@@ -10,7 +10,7 @@ function SectionServices({ dataService }) {
         return (
           <ServiceCarte
             key={service.id}
-            nom={service.nom}
+            nom={service.nomservice}
             effectifs={service.nbemploye}
             localisation={service.localisation}
           />

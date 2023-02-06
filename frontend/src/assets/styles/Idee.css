@@ -1,5 +1,4 @@
 .ideaContainer {
-  /* background-color: rgb(241, 232, 232); */
   background-color: var(--form-background-color);
   border-radius: 5px;
   margin-bottom: 1rem;
@@ -26,10 +25,11 @@
   justify-content: space-between;
   align-items: center;
   border-radius: 5px;
-  /* background-color: bisque; */
   width: 100%;
   cursor: pointer;
   transition: 0.2s linear;
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-regular);
 }
 
 .titleIdeaSmall {
@@ -53,8 +53,10 @@
   max-width: 65vh;
   min-width: 100%;
   display: flex;
-  /* box-sizing: border-box; */
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-regular);
 }
+
 .ideaContainerBig:hover {
   transition: 0.2s linear;
 }
@@ -64,17 +66,17 @@
   height: 100%;
 }
 
+.leftContentCommentsOpened {
+  flex: 3;
+  height: 100%;
+}
+
 .published,
 .theme,
 .service {
-  /* background-color: aliceblue; */
   text-align: start;
   padding: 0.5rem 0 0 1rem;
 }
-
-/* .textIdea {
-  background-color: aquamarine;
-} */
 
 .imageIdea {
   width: auto;
@@ -91,7 +93,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* background-color: bisque; */
   border-radius: 5px;
   width: 100%;
 }
@@ -124,7 +125,6 @@
 
 .resources {
   display: flex;
-  /* background-color: blue; */
   width: 70%;
 }
 
@@ -137,13 +137,6 @@
 .commentsandlikesBig {
   display: flex;
 }
-
-/* .rightContent {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  margin: 0 1rem 0 1rem;
-} */
 
 .titleIdeaSmall svg:hover,
 .titleIdeaBig svg:hover {
@@ -202,18 +195,17 @@
   margin-top: 1rem;
 }
 
-/* .resourcesCommentsOpened {
-  display: flex;
-  background-color: blue;
-  width: 70%;
+@media screen and (width < 900px) {
+  .rightContent {
+    flex: 2;
+  }
 }
 
-.modifiedIdeaBigCommentsOpened {
-  display: flex;
-  align-items: flex-end;
-  width: 30%;
-  background-color: rgb(250, 215, 215);
-} */
+@media screen and (width < 750px) {
+  .leftContentCommentsOpened {
+    flex: 2;
+  }
+}
 
 @media screen and (width < 600px) {
   .titleContainerSmall {
@@ -227,9 +219,14 @@
     height: auto;
   }
 
+  .leftContentCommentsOpened {
+    display: none;
+  }
+
   .titleContainerBig {
     justify-content: space-around;
   }
+
   .titleIdeaBig {
     width: 4rem;
     text-align: center;
@@ -253,17 +250,27 @@
   }
 }
 
-@media screen and (width < 900px) {
-  /* .rightContent {
-    width: 50vw;
-    margin: 0 auto;
-    left: 25%;
-    z-index: 2;
+@media screen and (width > 2400px) {
+  .leftContentCommentsOpened {
+    margin: 5% 0 0 0;
   }
-  .leftContent {
-    display:none;
-    filter: blur(4px);
-    flex:1;
-    z-index: 0;
-  } */
+
+  .textIdea {
+    margin-top: 8%;
+    font-size: 30px;
+  }
+  .titleIdeaBig,
+  .theme,
+  .service,
+  .published,
+  .resources {
+    font-size: 25px;
+  }
+  .imageIdea {
+    margin: 8% 0 8% 0;
+  }
+
+  .commentsandlikesBigOpened svg {
+    height: 50px;
+  }
 }

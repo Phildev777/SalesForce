@@ -12,10 +12,11 @@
   overflow-x: hidden;
   width: fit-content;
   min-width: 100%;
+  margin-bottom: 1rem;
 }
 
 .triDate {
-  padding: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .triDate button {
@@ -78,4 +79,25 @@
 
 .noIdea {
   margin-right: -0.9rem;
+}
+
+.buttonDate {
+  background-color: var(--primary-color);
+  color: white;
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-regular);
+  margin: 1rem;
+  width: 5rem;
+  /* height: 2rem; */
+  border-radius: 10px;
+  border: none;
+}
+
+.buttonDate:hover {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.buttonDate:active {
+  scale: 1.01;
 }
